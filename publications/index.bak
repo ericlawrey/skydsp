@@ -1,0 +1,171 @@
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="Author" content="Eric Lawrey">
+ <meta name="Description" content="This page contains a range of publications and applications notes on OFDM wireless technology, telemetry logging systems, and software radio">
+ <meta name="KeyWords" content="OFDM, Orthogonal Frequency Division Multiplexing, Multiuser, Multiuser OFDM, Adaptive Frequency Hopping, Frequency Hopping, Adaptive Modulation, communcations, research, paper, telemetry, datalogging, temperature sensing, software radio">
+ <title>Welcome to SkyDSP, OFDM systems, telemetry, software radio</title>
+ <LINK REL=StyleSheet HREF="../styles/style.css" TYPE="text/css" MEDIA=screen>
+
+</head>
+
+<body bgcolor="#666666">   <!-- color of the outter page backgroud -->
+ <table border="0" width="700" background="../main_graphics/top_right_bar.jpg" height="80" cellspacing="0" cellpadding="0" align=center>
+  <tr>
+   <td width="285" height="80"><img src="../main_graphics/Top_boarder.jpg" border=0 width="285" height="80"></td>
+   <td width="100%">
+
+   <!-- =============== Header Graphics ======================== -->
+   <font color=white><H1>Publications and Application Notes</H1></font>
+
+   <!-- =============== End Header Graphic ===================== -->
+
+  </td>
+ </tr>
+</table>
+
+<table border="0" width="700"  height="21" cellspacing="0" cellpadding="0" bgcolor="#000000" align=center>
+  <tr>
+    <td><img src="../main_graphics/Side_boarder1.jpg" border=0 width="140" height="21"></td>
+    <td width="100%"><img src="../main_graphics/x.gif" height="21" width="10"></td>
+  </tr>
+</table>
+<table border="0" width="700"  height="500" cellspacing="0" cellpadding="0" align=center>
+  <tr>
+    <td bgcolor="#5E73DE" width="120" style="background-image: url('../main_graphics/Side_boarder2.jpg');
+        background-repeat: no-repeat; background-position: left top" valign="top"> <!--style="background-image: url('Side_boarder2.jpg');-->
+        <img src="../main_graphics/x.gif" height="10" width="120">
+
+     <!-- ================== Navigation Bar =======================-->
+     <table width=100% align="center" border=0 cellspacing=8>
+      <tr><td align="right"><a href="../index.htm" class="sidebar">Home</a></td></tr>
+      <tr><td align="right"><a href="../aboutus/index.htm" class="sidebar">About Us</a></td></tr>
+      <tr><td align="right"><a href="../products/index.htm" class="sidebar">Products & Services</a></td></tr>
+      <tr><td align="right"><a href="index.htm" class="sidebar">Publications & Application Notes</a></td></tr>
+      <tr><td align="right"><a href="../news/index.htm" class="sidebar">News & Events</a></td></tr>
+      <tr><td align="right"><a href="../contact/index.htm" class="sidebar">Contact Us</a></td></tr>
+     </table>
+
+     <!-- ================== End Navigation Bar =======================-->
+    </td>
+
+    <td width="100%" align="right" height="100%" valign="top">
+     <img src="../main_graphics/x.gif" height="3" width="580"><br>
+     <table  width="577" height="100%" border="0" bgcolor="black" cellpadding="0" cellspacing="1">
+      <tr>
+        <td bgcolor="#FFFFFF" height="100%" valign="top">
+
+        <!-- inner table where the page contens goes -->
+        <table cellspacing=10 border=0 align=center width=100%>
+         <tr><td width=50% valign=top>
+
+<!--============== Page Content ================ -->
+<center>
+<table CELLSPACING=5 COLS=1 >
+ <tr>
+  <td>This site aims to provide a source of information on wireless technology,
+  such as Orthogonal Frequency Division Multiplexing (OFDM), and software
+  radio. The wireless market is one of the fastest growing markets in technology.
+  This new pressure to develop improved wireless communication systems is
+  resulting in many new advances in radio modulation schemes.&nbsp;</td>
+ </tr>
+</table></center>
+
+<center><table CELLSPACING=5 CELLPADDING=10 >
+ <tr>
+  <td>
+   <center><img SRC="main_graphics/thesisthumb.jpg" NOSAVE BORDER=0 height=250 width=156></center>
+  </td>
+
+  <td><b><font face="Arial,Helvetica"><H2>OFDM verses CDMA</H2></font></b>
+   <br>This thesis provides a quick introduction to OFDM and CDMA and compares
+   the performance of the two modulation schemes.
+   <ul>
+    <li><b><a href="4thyrthesis/index.htm">Table of Contents</a></b></li>
+    <li><b><a href="4thyrthesis/chapter1.htm">Chapter 1 Introduction</a></b></li>
+    <li><b><a href="4thyrthesis/chapter2.htm">Chapter 2 OFDM results</a></b></li>
+    <li><b><a href="4thyrthesis/chapter3.htm">Chapter 3 CDMA results and OFDM comparison</a></b></li>
+    <li><b><a href="4thyrthesis/chapter4.htm">Chapter 4 Conclusion</a></b></li>
+    <li><b><a href="4thyrthesis/appendix.htm">Appendix</a></b></li>
+    <li><b><a href="4thyrthesis/code.html">Matlab Code</a></b></li>
+    <li><b><a href="4thyrthesis/audio/audio.htm">Audio Demonstartion</a></b></li>
+   </ul>
+  </td>
+ </tr>
+
+ <tr>
+  <td> <center><img SRC="main_graphics/multiuserOFDM.jpg" NOSAVE height=168 width=180></center> </td>
+  <td VALIGN=TOP><b><H2>Multiuser OFDM</H2></b>
+   <br>This paper is an introduction to the use of OFDM in multiuser applications
+       and some of the potential techniques that can be used to make a multiuser
+       OFDM system a highly robust, high spectral efficient communication system.
+   <ul>
+    <li><b><a href="MultiuserOFDM/multiuserOFDM.html">Multiuser OFDM paper</a></b></li>
+    <li><b><a href="MultiuserOFDM/poster.html">Multiuser OFDM poster</a></b></li>
+   </ul>
+  </td>
+ </tr>
+
+ <tr>
+  <td><center><img SRC="main_graphics/adaptivemod.jpg" NOSAVE height=152 width=200></center></td>
+  <td VALIGN=TOP><b><H2>Adaptive Modulation</H2></b>
+   <br>OFDM allows different modulations to be used on each of the carriers
+       in the system. This allows the system to track frequency selective fading
+       caused by multipath propagation.
+   <ul>
+    <li><b><a href="AdaptMod/index.htm">Adaptive Modulation paper</a></b></li>
+   </ul>
+  </td>
+ </tr>
+
+ <tr>
+  <td><img SRC="main_graphics/PRC.jpg" NOSAVE height=88 width=200></td>
+  <td VALIGN=TOP><b><H2>Peak Reduction of OFDM</H2></b>
+   <br>OFDM waveforms tend to have a high Peak to Average Power Ratio (PAPR).
+       This PAPR can be reduced by adding additional carriers which have their
+       phase controlled to minimise the overall PAPR of the OFDM symbol.&nbsp;
+   <ul>
+    <li><b><a href="PeakReduction/OFDM-PRC-ISSPA.htm">OFDM Peak Reduction paper</a></b></li>
+   </ul>
+  </td>
+ </tr>
+
+ <tr>
+  <td WIDTH="210"><img SRC="main_graphics/twdr01sm.jpg" NOSAVE height=121 width=200></td>
+  <td VALIGN=TOP><b><H2>Digital Receiver</H2></b>
+   <br>A high speed digital software receiver has been developed allowing
+       testing of different modulation schemes. It uses a high speed ADC (12 bit
+       65MSPS), a Digital Down Converter and a high speed Texas Instruments C6211
+       processor. It is currently being developed for a weather satellite receiver.&nbsp;
+   <ul>
+    <li><b><a href="DigitalRx/txdr01specs.htm">Specifications and possible applications</a></b></li>
+   </ul>
+  </td>
+ </tr>
+</table></center>
+
+<center>
+ <table CELLSPACING=5 COLS=1 >
+  <tr>
+   <td>If you have any questions about any of the work presented here or are
+       interested in our software radio technology, send us an email. <a href="mailto:eric@skydsp.com">eric@skydsp.com</a>
+   </td>
+  </tr>
+ </table>
+</center>
+
+<!-- ============== End page content ================== -->
+
+         </td>
+        </tr>
+       </table>    	
+      </td>
+     </tr>
+    </table>
+   </td>
+  </tr>
+ </table>
+<div align=center style="color:white; font-size: 10px">Copyright &copy; 2001 Sky DSP</div>
+</body>
+
+</html>

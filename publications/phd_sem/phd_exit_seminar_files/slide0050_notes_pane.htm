@@ -1,0 +1,60 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=PowerPoint.Slide>
+<meta name=Generator content="Microsoft PowerPoint 9">
+
+<script>
+<!--
+if( window.name != "PPTNts" )
+  parent.location.href = "../phd_exit_seminar.htm";
+//-->
+</script>
+</head>
+
+<body bgcolor=white text="#3333cc">
+
+<table border=0 width="100%">
+ <tr>
+  <td width=5 nowrap></td>
+  <td width="100%"></td>
+ </tr>
+ <tr>
+  <td colspan=1></td>
+  <td align=left colspan=1><font face="Times New Roman" size=3>OFDM signals can
+  be though of as a set of many subcarriers transmitting in parallel at a low
+  symbol rate. Consequently the first step in the OFDM generator is to allocate
+  serial input data to each of the subcarriers in an OFDM symbol.<span
+  style="mso-spacerun: yes">  </span>After the data has been converted from
+  serial to parallel it is then modulated. Typical subcarrier modulation
+  schemes include BPSK, QPSK, 16QAM. In fact each subcarrier in an OFDM signal
+  can be modulated with a different scheme. After subcarrier modulation we have
+  a frequency domain representation of the signal that we want. This signal is
+  converted from the frequency domain to the time domain using an Inverse Fast
+  Fourier Transform (IFFT). A guard period is added between each of the
+  symbols, and additional frame synchronisation symbols are added before
+  transmission.</font><br>
+  </td>
+ </tr>
+ <tr>
+  <td colspan=1></td>
+  <td align=left colspan=1><font face="Times New Roman" size=3>An OFDM receiver
+  logically does the reverse operations to the transmitter. It converts the
+  incoming time domain waveform to the frequency domain using a Fast Fourier
+  Transform (FFT), then it demodulates each subcarrier, based on the received
+  amplitude and phase and the modulation scheme used. The data is then
+  converted from parallel to serial. Other functions that the receiver must
+  perform are time and frequency synchronisation and channel equalisation.</font><br>
+  </td>
+ </tr>
+ <tr>
+  <td colspan=1></td>
+  <td align=left colspan=1><br>
+  </td>
+ </tr>
+</table>
+
+</body>
+
+</html>

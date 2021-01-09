@@ -1,0 +1,555 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- #BeginTemplate "/Templates/skydsp.dwt" -->
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=windows-1252">
+  <meta name="Author" content="Eric Lawrey">
+  <meta name="Description"
+ content="This page contains a range of publications and applications notes on OFDM wireless technology, telemetry logging systems, and software radio">
+  <meta name="KeyWords"
+ content="OFDM, Orthogonal Frequency Division Multiplexing, Multiuser, Multiuser OFDM, Adaptive Frequency Hopping, Frequency Hopping, Adaptive Modulation, communcations, research, paper, telemetry, datalogging, temperature sensing, software radio">
+<!-- #BeginEditable "doctitle" -->
+  <title>Welcome to SkyDSP, OFDM systems, telemetry, software radio</title>
+<!-- #EndEditable -->
+  <link rel="StyleSheet" href="styles/style.css" type="text/css"
+ media="screen">
+</head>
+<body bgcolor="#666666">
+<!-- color of the outter page backgroud -->
+<table border="0" width="700"
+ background="main_graphics/top_right_bar.jpg" height="80"
+ cellspacing="0" cellpadding="0" align="center">
+  <tbody>
+    <tr>
+      <td width="285" height="80"><img
+ src="main_graphics/Top_boarder.jpg" border="0" width="283" height="80"
+ alt="Sky DSP logo"></td>
+      <td width="100%"><!-- =============== Header Graphics ======================== --> <font
+ color="white">
+      <h1><!-- #BeginEditable "Page%20Title" -->Glossary and Acronyms<!-- #EndEditable --></h1>
+      </font><!-- =============== End Header Graphic ===================== --> </td>
+    </tr>
+  </tbody>
+</table>
+<table border="0" width="700" height="20" cellspacing="0"
+ cellpadding="0" bgcolor="#000000" align="center">
+  <tbody>
+    <tr>
+      <td><img src="main_graphics/Side_boarder1.jpg" border="0"
+ width="120" height="20"></td>
+      <td width="100%"><!-- #BeginEditable "Top%20Navbar" --><!-- #EndEditable --><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table border="0" width="700" height="500" cellspacing="0"
+ cellpadding="0" align="center">
+  <tbody>
+    <tr>
+      <td valign="top" bgcolor="#5e73de"> <img
+ src="main_graphics/Side_boarder2.jpg" height="70" width="120"><!-- ================== Navigation Bar =======================--><!-- #BeginLibraryItem "/Library/Navbar.lbi" -->
+      <table width="100%" align="center" border="0" cellspacing="8">
+        <tbody>
+          <tr>
+            <td align="right"><a href="index.htm" class="sidebar">Home</a></td>
+          </tr>
+          <tr>
+            <td align="right"><a href="publications/index.htm"
+ class="sidebar">Publications</a></td>
+          </tr>
+          <tr>
+            <td align="right"><a href="links/index.htm" class="sidebar">Links</a></td>
+          </tr>
+          <tr>
+            <td align="right"><a href="glossary.htm" class="sidebar">Glossary</a></td>
+          </tr>
+        </tbody>
+      </table>
+      <p> </p>
+<!-- #EndLibraryItem --><!-- ================== End Navigation Bar =======================--> </td>
+      <td width="100%" align="right" height="100%" valign="top"> <img
+ src="main_graphics/x.gif" height="3" width="577"><br>
+      <table width="577" height="100%" border="0" bgcolor="black"
+ cellpadding="0" cellspacing="1">
+        <tbody>
+          <tr>
+            <td bgcolor="#ffffff" height="100%" valign="top"><!-- inner table where the page contens goes -->
+            <table cellspacing="10" border="0" align="center"
+ width="100%">
+              <tbody>
+                <tr>
+                  <td width="50%" valign="top"><!--============== Page Content ================ --><!-- #BeginEditable "Paper%20Contents" -->
+                  <table width="100%" border="0" cellspacing="0"
+ cellpadding="3">
+                    <tbody>
+                      <tr>
+                        <td><b>2G</b></td>
+                        <td>Second Generation mobile phone system (GSM,
+IS-95)</td>
+                      </tr>
+                      <tr>
+                        <td><b>3G</b></td>
+                        <td>Third Generation mobile phone system</td>
+                      </tr>
+                      <tr>
+                        <td><b>4G</b></td>
+                        <td>Fourth Generation mobile phone system</td>
+                      </tr>
+                      <tr>
+                        <td><b>AC</b></td>
+                        <td>Alternating Current (Frequency above 0 Hz)</td>
+                      </tr>
+                      <tr>
+                        <td><b>ADSL</b></td>
+                        <td>Asymmetric Digital Subscriber Line</td>
+                      </tr>
+                      <tr>
+                        <td><b>alpha</b></td>
+                        <td>Path loss exponent (rate of path loss
+change with distance)</td>
+                      </tr>
+                      <tr>
+                        <td><b>AM</b></td>
+                        <td>Amplitude Modulation</td>
+                      </tr>
+                      <tr>
+                        <td><b>APR</b></td>
+                        <td>Access Point Repeater</td>
+                      </tr>
+                      <tr>
+                        <td><b>ASK</b></td>
+                        <td>Amplitude Shift Keying</td>
+                      </tr>
+                      <tr>
+                        <td><b>AWGN</b></td>
+                        <td>Additive White Gaussian Noise</td>
+                      </tr>
+                      <tr>
+                        <td><b>b/s/Hz</b></td>
+                        <td>Bits per second per hertz (unit of spectral
+efficiency)</td>
+                      </tr>
+                      <tr>
+                        <td><b>BER</b></td>
+                        <td>Bit Error Rate</td>
+                      </tr>
+                      <tr>
+                        <td><b>bps</b></td>
+                        <td>Bits per second</td>
+                      </tr>
+                      <tr>
+                        <td><b>BPSK</b></td>
+                        <td>Binary Phase Shift Keying</td>
+                      </tr>
+                      <tr>
+                        <td><b>BS</b></td>
+                        <td>Base Station</td>
+                      </tr>
+                      <tr>
+                        <td><b>CD</b></td>
+                        <td>Compact Disc</td>
+                      </tr>
+                      <tr>
+                        <td><b>CDMA</b></td>
+                        <td>Code Division Multiple Access</td>
+                      </tr>
+                      <tr>
+                        <td><b>CF</b></td>
+                        <td>Crest Factor (peak to average power ratio
+of the RF                         envelope)</td>
+                      </tr>
+                      <tr>
+                        <td><b>DAB</b></td>
+                        <td>Digital Audio Broadcasting</td>
+                      </tr>
+                      <tr>
+                        <td><b>dB</b></td>
+                        <td>Decibel (ratio in log scale)</td>
+                      </tr>
+                      <tr>
+                        <td><b>dBc</b></td>
+                        <td>Decibel relative to main signal power</td>
+                      </tr>
+                      <tr>
+                        <td><b>dBm</b></td>
+                        <td>Decibel relative to 1 milliwatt</td>
+                      </tr>
+                      <tr>
+                        <td><b>DC</b></td>
+                        <td>Direct Current (0 Hz)</td>
+                      </tr>
+                      <tr>
+                        <td><b>DDS</b></td>
+                        <td>Direct Digital Synthesiser</td>
+                      </tr>
+                      <tr>
+                        <td><b>DFT</b></td>
+                        <td>Discrete Fourier Transform</td>
+                      </tr>
+                      <tr>
+                        <td><b>DMT</b></td>
+                        <td>Discrete Multi-Tone</td>
+                      </tr>
+                      <tr>
+                        <td><b>DPSK</b></td>
+                        <td>Differential Phase Shift Keying</td>
+                      </tr>
+                      <tr>
+                        <td><b>DSBSC</b></td>
+                        <td>Double Side Band Suppressed Carrier</td>
+                      </tr>
+                      <tr>
+                        <td><b>DS-CDMA</b></td>
+                        <td>Direct Sequence Code Division Multiple
+Access</td>
+                      </tr>
+                      <tr>
+                        <td><b>DSP</b></td>
+                        <td>Digital Signal Processing</td>
+                      </tr>
+                      <tr>
+                        <td><b>DSSS</b></td>
+                        <td>Direct Sequence Spread Spectrum</td>
+                      </tr>
+                      <tr>
+                        <td><b>DVB</b></td>
+                        <td>Digital Video Broadcasting</td>
+                      </tr>
+                      <tr>
+                        <td><b>DVB-C</b></td>
+                        <td>Digital Video Broadcasting - Cable</td>
+                      </tr>
+                      <tr>
+                        <td><b>DVB-S</b></td>
+                        <td>Digital Video Broadcasting - Satellite</td>
+                      </tr>
+                      <tr>
+                        <td><b>DVB-T</b></td>
+                        <td>Digital Video Broadcasting - Terrestrial</td>
+                      </tr>
+                      <tr>
+                        <td><b>EBNR</b></td>
+                        <td>Energy per Bit to Noise Ratio</td>
+                      </tr>
+                      <tr>
+                        <td><b>FDM</b></td>
+                        <td>Frequency Division Multiplexing</td>
+                      </tr>
+                      <tr>
+                        <td><b>FEC</b></td>
+                        <td>Forward Error Correction</td>
+                      </tr>
+                      <tr>
+                        <td><b>FFT</b></td>
+                        <td>Fast Fourier Transform</td>
+                      </tr>
+                      <tr>
+                        <td><b>FIR</b></td>
+                        <td>Finite Impulse Response (digital filter)</td>
+                      </tr>
+                      <tr>
+                        <td><b>FM</b></td>
+                        <td>Frequency Modulation</td>
+                      </tr>
+                      <tr>
+                        <td><b>Fs</b></td>
+                        <td>Sample Frequency</td>
+                      </tr>
+                      <tr>
+                        <td><b>FSK</b></td>
+                        <td>Frequency Shift Keying</td>
+                      </tr>
+                      <tr>
+                        <td><b>GA</b></td>
+                        <td>Genetic Algorithm</td>
+                      </tr>
+                      <tr>
+                        <td><b>GHz</b></td>
+                        <td>Gigahertz - 10^9 Hz</td>
+                      </tr>
+                      <tr>
+                        <td><b>GMSK</b></td>
+                        <td>Gaussian Minimum Shift Keying</td>
+                      </tr>
+                      <tr>
+                        <td><b>GSM</b></td>
+                        <td>Global System for Mobile communications</td>
+                      </tr>
+                      <tr>
+                        <td><b>HDTV</b></td>
+                        <td>High Definition Television</td>
+                      </tr>
+                      <tr>
+                        <td><b>HiperLAN2</b></td>
+                        <td>HIgh PErformance Radio Local Area Network,
+WLAN standard                         (Europe) based on OFDM, with a
+maximum data rate of 54                         Mbps. Similar to
+IEEE802.11a</td>
+                      </tr>
+                      <tr>
+                        <td><b>Hz</b></td>
+                        <td>Hertz (cycles per second)</td>
+                      </tr>
+                      <tr>
+                        <td><b>ICI</b></td>
+                        <td>Inter-Carrier Interference</td>
+                      </tr>
+                      <tr>
+                        <td><b>IEEE802.11a</b></td>
+                        <td>WLAN standard (U.S.) based on OFDM, with a
+maximum data                         rate of 54 Mbps. Similar to
+HiperLAN2</td>
+                      </tr>
+                      <tr>
+                        <td><b>IEEE802.11b</b></td>
+                        <td>WLAN standard (U.S.) based on DSSS, with a
+maximum data                         rate of 11 Mbps</td>
+                      </tr>
+                      <tr>
+                        <td><b>IF </b></td>
+                        <td>Intermediate Frequency</td>
+                      </tr>
+                      <tr>
+                        <td><b>IFFT</b></td>
+                        <td>Inverse Fast Fourier Transform</td>
+                      </tr>
+                      <tr>
+                        <td><b>IMD</b></td>
+                        <td>Inter-Modulation Distortion</td>
+                      </tr>
+                      <tr>
+                        <td><b>IQ</b></td>
+                        <td>Inphase Quadrature</td>
+                      </tr>
+                      <tr>
+                        <td><b>ISI</b></td>
+                        <td>Inter-Symbol Interference</td>
+                      </tr>
+                      <tr>
+                        <td><b>ISM</b></td>
+                        <td>Industrial Scientific Medical</td>
+                      </tr>
+                      <tr>
+                        <td><b>IS-95</b></td>
+                        <td>Mobile phone standard using CDMA
+transmission method.</td>
+                      </tr>
+                      <tr>
+                        <td><b>JCU</b></td>
+                        <td>James Cook University</td>
+                      </tr>
+                      <tr>
+                        <td><b>K</b></td>
+                        <td>Kelvin</td>
+                      </tr>
+                      <tr>
+                        <td><b>kbps</b></td>
+                        <td>Kilo bits per second (10^3 bps)</td>
+                      </tr>
+                      <tr>
+                        <td><b>kHz</b></td>
+                        <td>Kilohertz - 10^3 Hz</td>
+                      </tr>
+                      <tr>
+                        <td><b>km</b></td>
+                        <td>Kilometer (10^3 m)</td>
+                      </tr>
+                      <tr>
+                        <td><b><img src="main_graphics/lambda.gif"
+ width="13" height="16"> </b></td>
+                        <td>Lambda - RF wavelength</td>
+                      </tr>
+                      <tr>
+                        <td><b>LO</b></td>
+                        <td>Local Oscillator</td>
+                      </tr>
+                      <tr>
+                        <td><b>LOS</b></td>
+                        <td>Line Of Sight</td>
+                      </tr>
+                      <tr>
+                        <td><b>m</b></td>
+                        <td>Metre</td>
+                      </tr>
+                      <tr>
+                        <td><b>Mbps</b></td>
+                        <td>Mega bits per second (10^6 bps)</td>
+                      </tr>
+                      <tr>
+                        <td><b>MHz</b></td>
+                        <td>Megahertz - 10^6Hz</td>
+                      </tr>
+                      <tr>
+                        <td><b>MPEG</b></td>
+                        <td>Moving Picture Experts Group (Video
+compression standard)</td>
+                      </tr>
+                      <tr>
+                        <td><b>NF</b></td>
+                        <td>Receiver Noise Figure</td>
+                      </tr>
+                      <tr>
+                        <td><b>OBO</b></td>
+                        <td>Output power BackOff</td>
+                      </tr>
+                      <tr>
+                        <td><b>OFDM</b></td>
+                        <td>Orthogonal Frequency Division Multiplexing</td>
+                      </tr>
+                      <tr>
+                        <td><b>PAPR</b></td>
+                        <td>Peak to Average Power Ratio</td>
+                      </tr>
+                      <tr>
+                        <td><b>PC</b></td>
+                        <td>Personal Computer</td>
+                      </tr>
+                      <tr>
+                        <td><b>PDA</b></td>
+                        <td>Personal Digital Assistant</td>
+                      </tr>
+                      <tr>
+                        <td><b><img src="main_graphics/pi.gif"
+ width="14" height="18"> </b></td>
+                        <td>Pi (3.14159265 ….)</td>
+                      </tr>
+                      <tr>
+                        <td><b>PLL</b></td>
+                        <td>Phase Locked Loop</td>
+                      </tr>
+                      <tr>
+                        <td><b>PM</b></td>
+                        <td>Phase Modulation</td>
+                      </tr>
+                      <tr>
+                        <td><b>PRC</b></td>
+                        <td>Peak Reduction Carriers</td>
+                      </tr>
+                      <tr>
+                        <td><b>PRS</b></td>
+                        <td>Pseudo Random Sequence</td>
+                      </tr>
+                      <tr>
+                        <td><b>PSK</b></td>
+                        <td>Phase Shift Keying</td>
+                      </tr>
+                      <tr>
+                        <td><b>QAM</b></td>
+                        <td>Quadrature Amplitude Modulation</td>
+                      </tr>
+                      <tr>
+                        <td><b>QOS</b></td>
+                        <td>Quality Of Service</td>
+                      </tr>
+                      <tr>
+                        <td><b>QPSK</b></td>
+                        <td>Quadrature Phase Shift Keying</td>
+                      </tr>
+                      <tr>
+                        <td><b>RAKE</b></td>
+                        <td>Multiple tap multipath equalisation for CDMA</td>
+                      </tr>
+                      <tr>
+                        <td><b>RC</b></td>
+                        <td>Raised Cosine (Guard Period)</td>
+                      </tr>
+                      <tr>
+                        <td><b>RF</b></td>
+                        <td>Radio Frequency</td>
+                      </tr>
+                      <tr>
+                        <td><b>RMS</b></td>
+                        <td>Root Mean Squared</td>
+                      </tr>
+                      <tr>
+                        <td><b>SFN</b></td>
+                        <td>Single Frequency Network</td>
+                      </tr>
+                      <tr>
+                        <td><b>SHARC</b></td>
+                        <td>Super Harvard ARChitecture, Digital Signal
+Processor                         by Analog Devices)</td>
+                      </tr>
+                      <tr>
+                        <td><b>SIR</b></td>
+                        <td>Signal to Interference Ratio</td>
+                      </tr>
+                      <tr>
+                        <td><b>SNR</b></td>
+                        <td>Signal to Noise Ratio</td>
+                      </tr>
+                      <tr>
+                        <td><b>SSB</b></td>
+                        <td>Single Side Band</td>
+                      </tr>
+                      <tr>
+                        <td><b>SSPA</b></td>
+                        <td>Solid State Power Amplifier</td>
+                      </tr>
+                      <tr>
+                        <td><b>TDM</b></td>
+                        <td>Time Division Multiplexing</td>
+                      </tr>
+                      <tr>
+                        <td><b>TDMA</b></td>
+                        <td>Time Division Multiple Access</td>
+                      </tr>
+                      <tr>
+                        <td><b>TWTA</b></td>
+                        <td>Travelling Wave Tube Amplifier</td>
+                      </tr>
+                      <tr>
+                        <td><b>µm</b></td>
+                        <td>Micrometre (10^-6 m)</td>
+                      </tr>
+                      <tr>
+                        <td><b>UMTS</b></td>
+                        <td>Universal Mobile Telecommunications System</td>
+                      </tr>
+                      <tr>
+                        <td><b>µs</b></td>
+                        <td>Microsecond (10^-6 s)</td>
+                      </tr>
+                      <tr>
+                        <td><b>VSB</b></td>
+                        <td>Vestigal Side Band</td>
+                      </tr>
+                      <tr>
+                        <td><b>W</b></td>
+                        <td>Watt (energy per unit time, one joule per
+second)</td>
+                      </tr>
+                      <tr>
+                        <td><b>W-CDMA</b></td>
+                        <td>Wide-band Code Division Multiple Access</td>
+                      </tr>
+                      <tr>
+                        <td><b>WLAN</b></td>
+                        <td>Wireless Local Area Network</td>
+                      </tr>
+                      <tr>
+                        <td><b>WLL</b></td>
+                        <td>Wireless Local Loop</td>
+                      </tr>
+                    </tbody>
+                  </table>
+<!-- #EndEditable --><!-- ============== End page content ================== --> </td>
+                </tr>
+              </tbody>
+            </table>
+	 </td>
+          </tr>
+        </tbody>
+      </table>
+      <div align="center"></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div align="center" style="color: white; font-size: 10px;">Copyright ©
+2001 Eric   Lawrey, Last updated:<!-- #BeginDate format:Am1 --> June
+26, 2002<!-- #EndDate --></div>
+<!-- #EndTemplate -->
+</body>
+</html>

@@ -1,0 +1,1369 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="Author" content="Eric Lawrey">
+ <meta name="Description" content="This page contains a range of publications and applications notes on OFDM wireless technology, telemetry logging systems, and software radio">
+ <meta name="KeyWords" content="OFDM, Orthogonal Frequency Division Multiplexing, Multiuser, Multiuser OFDM, Adaptive Frequency Hopping, Frequency Hopping, Adaptive Modulation, communcations, research, paper, telemetry, datalogging, temperature sensing, software radio">
+<title>OFDM as a modulation technique for wireless communications, with a CDMA comparison</title>
+ <LINK REL=StyleSheet HREF="../../styles/style.css" TYPE="text/css" MEDIA=screen>
+
+</head>
+
+<body bgcolor="#666666">   <!-- color of the outter page backgroud -->
+ <table border="0" width="700"  background="../../main_graphics/top_right_bar.jpg" cellspacing="0" cellpadding="0" align=center>
+  <tr>
+   <td><img src="../../main_graphics/Top_boarder.jpg" width="285" height="80" alt="Sky DSP logo"></td>
+   <td>
+
+   <!-- =============== Header Graphics and title ======================== -->
+   &nbsp   
+
+   <!-- =============== End Header Graphic ===================== -->
+
+  </td>
+ </tr>
+</table>
+
+<table border="0" width="700"  cellspacing="0" cellpadding="0" align=center>
+  <tr>
+    <td><img src="../../main_graphics/Side_boarder1.jpg" border=0 width="120" height="20"></td>
+    <td width="100%" bgcolor="#000000">
+    <center>
+    <!-- ================ Top Navigation bar =================== -->
+     <a href="index.htm#Table of Contents" class="topnav">Index</a>&nbsp &nbsp
+     <a href="chapter1.htm" class="topnav">Chapter 1</a>&nbsp &nbsp
+     <a href="chapter2.htm" class="topnav">Chapter 2</a>&nbsp &nbsp
+     <a href="chapter3.htm" class="topnav">Chapter 3</a>&nbsp &nbsp 
+     <a href="chapter4.htm" class="topnav">Conclusion</a>&nbsp &nbsp 
+     <a href="appendix.htm" class="topnav">Appendix</a>&nbsp &nbsp 
+     <a href="code.html" class="topnav">Matlab Code</a>&nbsp &nbsp 
+     <a href="audio/audio.htm" class="topnav">Audio Demo</a>&nbsp &nbsp 
+    <!-- ============= End Top Navigation bar ================== -->
+    </center>
+</td>
+</tr>
+</table>
+
+<table border="0" width="700"  height="500" cellspacing="0" cellpadding="0" align=center>
+  <tr>
+    <td valign="top" bgcolor="#5E73DE"> <img src="../../main_graphics/Side_boarder2.jpg" height="70" width="120"> 
+      <!-- ================== Navigation Bar =======================--> <!-- #BeginLibraryItem "/Library/Navbar.lbi" --> 
+<table width=100% align="center" border=0 cellspacing=8>
+  <tr> 
+    <td align="right"><a href="../../index.htm" class="sidebar">Home</a></td>
+  </tr>
+  <tr> 
+    <td align="right"><a href="../index.htm" class="sidebar">Publications</a></td>
+  </tr>
+  <tr>
+    <td align="right"><a href="../../links/index.htm" class="sidebar">Links</a></td>
+  </tr>
+  <tr> 
+    <td align="right"><a href="../../glossary.htm" class="sidebar">Glossary</a></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<!-- #EndLibraryItem --> <!-- ================== End Navigation Bar =======================--> 
+    </td>
+
+    <td width="100%" align="right" height="100%" valign="top">
+     <img src="../../main_graphics/x.gif" height="3" width="580"><br>
+     <table  width="577" height="100%" border="0" bgcolor="black" cellpadding="0" cellspacing="1">
+      <tr>
+        <td bgcolor="#FFFFFF" height="100%" valign="top">
+
+        <!-- inner table where the page contens goes -->
+        <table cellspacing=10 border=0 align=center width="100%">
+         <tr><td width="50%" valign=top>
+
+<!-- ============== Page Content ====================== -->
+
+<center>
+<table CELLSPACING=0 CELLPADDING=2 COLS=1 WIDTH="100%" BGCOLOR="#2030C0" >
+ <tr>
+  <td class = "tablehead">
+   <center>Chapter 1</center>
+  </td>
+ </tr>
+</table>
+</center>
+By Eric Lawrey, Copyright 1997-2001
+<p class="bodytext">
+The telecommunications industry faces the
+problem of providing telephone services to rural areas, where the customer
+base is small, but the cost of installing a wired phone network is very
+high. One method of reducing the high infrastructure cost of a wired system
+is to use a fixed wireless radio network. The problem with this is that
+for rural and urban areas, large cell sizes are required to obtain sufficient
+coverage. This results in problems cased by large signal path loss and
+long delay times in multipath signal propagation.</p>
+
+<p class="bodytext">
+Currently Global System for Mobile telecommunications
+(GSM) technology is being applied to fixed wireless phone systems in rural
+areas or Australia. However, GSM uses Time Division Multiple Access (TDMA),
+which has a high symbol rate leading to problems with multipath causing
+inter-symbol interference.</p>
+
+<p class="bodytext">
+Several techniques are under consideration
+for the next generation of digital phone systems, with the aim of improving
+cell capacity, multipath immunity, and flexibility. These include Code
+Division Multiple Access (CDMA) and Coded Orthogonal Frequency Division
+Multiplexing (COFDM). Both these techniques could be applied to providing
+a fixed wireless system for rural areas. However, each technique has different
+properties, making it more suited for specific applications.</p>
+
+<p class="bodytext">
+COFDM is currently being used in several
+new radio broadcast systems including the proposal for high definition
+digital television, Digital Video Broadcasting (DVB) and Digital Audio
+Broadcasting (DAB). However, little research has been done into the use
+of COFDM as a transmission method for mobile telecommunications systems.</p>
+
+<p class="bodytext">
+With CDMA systems, all users transmit in
+the same frequency band using specialized codes as a basis of channelization.
+The transmitted information is spread in bandwidth by multiplying it by
+a wide bandwidth pseudo random sequence. Both the base station and the
+mobile station know these random codes that are used to modulate the data
+sent, allowing it to de-scramble the received signal.&nbsp;</p>
+
+<p class="bodytext">
+OFDM/COFDM allows many users to transmit
+in an allocated band, by subdividing the available bandwidth into many
+narrow bandwidth carriers. Each user is allocated several carriers in which
+to transmit their data. The transmission is generated in such a way that
+the carriers used are orthogonal to one another, thus allowing them to
+be packed together much closer than standard frequency division multiplexing
+(FDM). This leads to OFDM/COFDM providing a high spectral efficiency.&nbsp;</p>
+<br>
+<hr WIDTH="100%">
+<br><a NAME="1.1 Third Generation Wireless Networks"></a>
+<h2>1.1 Third Generation Wireless Networks</h2>
+
+<p class="bodytext">
+The expansion of the use of digital networks
+has led to the need for the design of new higher capacity communications
+networks. The demand for cellular-type systems in Europe is predicted to
+be between 15 and 20 million users by the year 2000 [1], and is already
+over 30 million (1995) in the U.S. [2]. Wireless services have been growing
+at a rate greater than 50% per year [2], with the current second-generation
+European digital systems (GSM) being expected to be filled to capacity
+by the early 2000’s[3]. The telecommunications industry is also changing,
+with a demand for a greater range of services such as video conferencing,
+Internet services, and data networks, and multimedia. This demand for higher
+capacity networks has led to the development of third generation telecommunications
+systems.&nbsp;</p>
+
+<p class="bodytext">
+One of the proposed third generation telecommunications
+systems is the Universal Mobile Telecommunications System (UMTS), which
+aims to provide a more flexible data rate, a higher capacity, and a more
+tightly integrated service, than current second generation mobile systems.
+This section focuses on the services and aims of the UMTS. Other systems
+around the world are being developed, however many of these technologies
+are expected to be eventually combined into the UMTS.</p>
+
+<p class="bodytext">
+The World Wide Web (WWW) has become an
+important communications media, as its use has increased dramatically over
+the last few years. This has resulted in an increased demand for computer
+networking services. In order to satisfy this, telecommunications systems
+are now being used for computer networking, Internet access and voice communications.
+A WWW survey revealed that more then 60% of users access the Internet from
+residential locations [10], where the bandwidth is often limited to 28.8kbps
+[8]. This restricts the use of the Internet, preventing the use of real
+time audio and video capabilities. Higher speed services are available,
+such as integrated-services digital network (ISDN). These provide data
+rates up to five times as fast, but at a much-increased access cost. This
+has led to the demand of a more integrated service, providing faster data
+rates, and a more universal interface for a variety of services. The emphasis
+has shifted away from providing a fixed voice service to providing a general
+data connection that allows for a wide variety of applications, such as
+voice, Internet access, computer networking, etc.&nbsp</p>
+
+<p class="bodytext">
+The increased reliance on computer networking
+and the Internet has resulted in demand for connectivity to be provided
+“any where, any time”, leading to an increase in the demand for wireless
+systems. This demand has driven the need to develop new higher capacity,
+high reliability wireless telecommunications systems.</</p>
+
+<p class="bodytext">
+The development and deployment of third
+generation telecommunication systems aim to overcome some of the downfalls
+of current wireless systems by providing a high capacity, integrated wireless
+network. There are currently several third generation wireless standards,
+including UMTS, cdmaOne, IMT 2000, and IS-95 [10].&nbsp;</p>
+<br>&nbsp;
+<br><a NAME="1.1.1 Evolution of Telecommunication Systems."></a>
+<h3>1.1.1 Evolution of Telecommunication Systems.</h3>
+
+<p class="bodytext">
+Many mobile radio standard have been developed
+for wireless systems throughout the world, with more standards likely to
+emerge.&nbsp; </p>
+
+<p class="bodytext">
+Most first generations systems were introduced
+in the mid 1980’s, and can be characterized by the use of analog transmission
+techniques, and the use of simple multiple access techniques such as Frequency
+Division Multiple Access (FDMA). First generation telecommunications systems
+such as Advanced Mobile Phone Service (AMPS) [4] only provided voice communications.
+They also suffered from a low user capacity, and security problems due
+to the simple radio interface used.&nbsp;</p>
+
+<p class="bodytext">
+Second generation systems were introduced
+in the early 1990’s, and all use digital technology. This provided an increase
+in the user capacity of around three times [6]. This was achieved by compressing
+the voice waveforms before transmission [7].</p>
+
+<p class="bodytext">Third generation systems are an extension
+on the complexity of second-generation systems and will begin roll out
+of services sometime after the year 2001. The capacity of third generation
+systems is expected to be over ten times original first generation systems.
+This is going to be achieved by using complex multiple access techniques
+such as CDMA, or an extension of TDMA, and by improving flexibility of
+services available.&nbsp;</p>
+
+<p class="bodytext">
+Table 1 and Table 2 show some of the major
+cellular mobile phone standards in North America and Europe.</p>
+<center>
+<table BORDER CELLPADDING=2 WIDTH="450">
+ <tr valign=top>
+  <td WIDTH="22%" class="t_head"> Cellular System </td>
+  <td WIDTH="17%" class="t_head"> Year of Introduction </td>
+  <td WIDTH="17%" class="t_head"> Transmission Type </td>
+  <td WIDTH="14%" class="t_head"> Multiple Access Technique </td>
+  <td WIDTH="15%" class="t_head"> Channel Bandwidth </td>
+  <td WIDTH="15%" class="t_head"> System Generation </td>
+ </tr>
+
+ <tr>
+  <td class="t_body">Advanced Mobile Phone System (AMPS)</td>
+  <td class="t_body">1983</td>
+  <td class="t_body">Analog</td>
+  <td class="t_body">FDMA</td>
+  <td class="t_body">30kHz</td>
+  <td class="t_body">First</td>
+ </tr> 
+
+ <tr>
+  <td class="t_body">Narrowband AMPS (NAMPS)</td> 
+  <td class="t_body">1992</td>
+  <td class="t_body">Analog</td>
+  <td class="t_body">FDMA</td>
+  <td class="t_body">10kHz</td>
+  <td class="t_body">First</td>
+ </tr>
+
+ <tr>
+  <td class="t_body">U.S. Digital Cellular (USDC)</td>
+  <td class="t_body">1991</td>
+  <td class="t_body">Digital</td>
+  <td class="t_body">TDMA</td>
+  <td class="t_body">30kHz</td>
+  <td class="t_body">Second</td>
+ </tr>
+
+ <tr>
+  <td class="t_body">U.S Narrowband Spread Spectrum(IS-95)</td>
+  <td class="t_body">1993</td>
+  <td class="t_body">Digital</td>
+  <td class="t_body">CDMA</td>
+  <td class="t_body">1.25MHz</td>
+  <td class="t_body">Second</td>
+ </tr>
+
+ <tr>
+  <td class="t_body">Wideband cdmaOne</td>
+  <td class="t_body">2000</td>
+  <td class="t_body">Digital</td>
+  <td class="t_body">CDMA</td>
+  <td class="t_body">-</td>
+  <td class="t_body">Third</td>
+ </tr>
+</table>
+</center>
+
+<a NAME="Table 1"></a><p class="caption">Table 1 Major Mobile Standards in North America<sub>[6]</sub> 
+<center>
+<table BORDER CELLPADDING=2 WIDTH="450" >
+<tr>
+ <td class="t_head">Cellular System</td>
+ <td class="t_head">Year of Introduction</td>
+ <td class="t_head">Transmission Type </td>
+ <td class="t_head">Multiple Access Technique</td>
+ <td class="t_head">Channel Bandwidth </td>
+ <td class="t_head">System Generation </td>
+</tr>
+
+<tr>
+ <td class="t_body"> E-TACS </td>
+ <td class="t_body"> 1985 </td>
+ <td class="t_body"> Analog </td>
+ <td class="t_body"> FDMA </td>
+ <td class="t_body"> 25kHz </td>
+ <td class="t_body"> First </td>
+</tr>
+
+<tr>
+ <td class="t_body"> NMT-900 </td>
+ <td class="t_body"> 1986 </td>
+ <td class="t_body"> Analog </td>
+ <td class="t_body"> FDMA </td>
+ <td class="t_body"> 12.5kHz </td>
+ <td class="t_body"> First </td>
+</tr>
+
+<tr>
+ <td class="t_body"> Global System for Mobile (GSM) </td>
+ <td class="t_body"> 1990 </td>
+ <td class="t_body"> Digital </td>
+ <td class="t_body"> TDMA </td>
+ <td class="t_body"> 200kHz </td>
+ <td class="t_body"> Second </td>
+</tr>
+
+<tr>
+ <td class="t_body"> Universal Mobile Tele-communications System (UMTS) </td>
+ <td class="t_body"> >2000 </td>
+ <td class="t_body"> Digital </td>
+ <td class="t_body"> CDMA/ TDMA </td>
+ <td class="t_body"> - </td>
+ <td class="t_body"> Third </td>
+</tr>
+</table>
+</center>
+
+<p class="caption">Table 2 Major Mobile Standards in Europe<sub>[6]</sub></p> 
+
+<p class="bodytext">Figure 1 shows the evolution of current
+services and networks to the aim of combining them into a unified third
+generation network. Many currently separate systems and services such as
+radio paging, cordless telephony, satellite phones, private radio systems
+for companies etc, will be combined so that all these services will be
+provided by third generation telecommunications systems.</p>
+
+<center><img SRC="Image5.gif" height=227 width=516></center>
+<p class="caption"> Figure 1 Evolution of current networks
+to the next generation of wirless networks (reproduced from <sub>[1]</sub>) </p>
+
+<a NAME="1.1.2 Overall Aims of Universal Mobile"></a>
+<h3>1.1.2 Overall Aims of Universal Mobile Telecommunications System</h3>
+
+<p class="bodytext">
+The main aims of the Universal Mobile Telecommunications
+System is to provide a more unified high capacity network, in wireless
+and wired environments. UMTS will enable fixed and wireless services to
+converge. There are to be three main channel capacity connections: a mobile
+rate of 144kbps; a portable rate of 384kbps and an in-building rate of
+2Mbps [10]. It will have the capacity to provide services and features
+requiring less then 2Mbps that would otherwise have been provided with
+a fixed network. UMTS must therefore provide on-demand, variable bandwidth
+allocation. It will also combine a range of applications including cordless
+phones, cellular phones, and mobile data networking for personal, business
+and residential use.</p>
+
+<a NAME="1.1.3 Teleservices"></a>
+<h3>1.1.3 Teleservices</h3>
+
+<p class="bodytext">
+Many services have been identified for
+the UMTS, which can be categorized based on the data rate required, quality
+of service (reliability and allowable bit error rate (BER)), real time
+transfer rate. Each of the services has different characteristics in terms
+of delay tolerance and allowable bit error rates. Table 3 shows characteristics
+for some of the UMTS services.</p>
+<center>
+<table BORDER CELLPADDING=2 WIDTH="500" >
+<tr>
+ <td class="t_head">Applications or Services </td>
+ <td class="t_head">Data Rate Required </td>
+ <td class="t_head">Quality of service required </td>
+ <td class="t_head">Time critical data </td>
+</tr>
+<tr>
+ <td class="t_body"> Messaging (email, etc) </td>
+ <td class="t_body"> Low (1-10kbps) </td>
+ <td class="t_body"> High </td>
+ <td class="t_body"> No </td>
+</tr>
+
+<tr>
+ <td class="t_body"> Voice </td>
+ <td class="t_body"> Low (4-20kpbs) </td>
+ <td class="t_body"> Low (BER &lt; 1e-3) </td>
+ <td class="t_body"> Yes </td>
+</tr>
+
+<tr>
+ <td class="t_body"> Web browsing </td>
+ <td class="t_body"> As high as possible (>10kbps-100kbps) </td>
+ <td class="t_body"> High (BER &lt; 1e-9) </td>
+ <td class="t_body"> Depends on material. Generally not time critical. </td>
+</tr>
+
+<tr>
+ <td class="t_body"> Videoconferencing </td>
+ <td class="t_body"> High (100kbps-1Mbps) </td>
+ <td class="t_body"> Medium&nbsp; </td>
+ <td class="t_body"> Yes </td>
+</tr>
+
+<tr>
+ <td class="t_body"> Video Surveillance </td>
+ <td class="t_body"> Medium (50-300kbps) </td>
+ <td class="t_body"> Medium </td>
+ <td class="t_body"> No </td>
+</tr>
+
+<tr>
+ <td class="t_body"> High Quality Audio </td>
+ <td class="t_body"> High (100-300kbps) </td>
+ <td class="t_body"> Medium </td>
+ <td class="t_body"> Yes </td>
+</tr>
+
+<tr>
+ <td class="t_body"> Database access </td>
+ <td class="t_body"> High (>30kbps) </td>
+ <td class="t_body"> Very High </td>
+ <td class="t_body"> No </td>
+</tr>
+</table>
+</center>
+
+<a NAME="Table 3"></a>
+<p class="caption">Table 3 UMTS Services, showing the data characteristics of each service </p>
+
+<p class="bodytext">
+The data characteristics will determine
+the most suitable transmission methods. The type of data associated with
+each service determines the type of environment in which the service can
+be supported.</p>
+
+<a NAME="1.1.4 UMTS Environments"></a>
+<h3>1.1.4 UMTS Environments</h3>
+
+<p class="bodytext">
+The aim of the UMTS systems is to provide
+an “any where, any time” service, thus the operating environment will vary
+depending on the user location. The environment in which the wireless system
+must operate affects the system capacity and type of services that can
+be provided. Table 4 lists some of the environments in which UMTS will
+be required to provide coverage.&nbsp;</p>
+
+<center><table BORDER CELLPADDING=7 WIDTH="406" >
+ <tr>
+  <td class="t_head">Environment </td>
+  <td class="t_head">Maximum supported Data Rate </td>
+ </tr>
+
+ <tr>
+  <td class="t_body"> Business (indoor) </td>
+  <td class="t_body"> 384kbps </td>
+ </tr>
+ 
+ <tr>
+  <td class="t_body"> Suburban (indoor/outdoor) </td>
+  <td class="t_body"> 144kbps </td>
+ </tr>
+
+ <tr>
+  <td class="t_body"> Urban vehicular (outdoor) </td>
+  <td class="t_body"> 144kbps </td>
+ </tr>
+
+ <tr>
+  <td class="t_body"> Urban pedestrian (outdoor) </td>
+  <td class="t_body"> 144kbps </td>
+ </tr>
+
+ <tr>
+  <td class="t_body"> Fixed (Outdoor) </td>
+  <td class="t_body"> 144kbps / 384kbps </td>
+ </tr>
+
+ <tr>
+  <td class="t_body"> Local high bit rate (Indoor) </td>
+  <td class="t_body"> 2Mbps </td>
+ </tr>
+</table></center>
+
+
+<a NAME="Table 4"></a>
+<p class="caption">Table 4 Maximum supported data rates for UMTS, for various environments. </p>
+
+<p class="bodytext">
+The maximum supported data rate for each
+environment is related to the cell size required to provide adequate coverage
+for the environment.</p>
+
+<a NAME="1.1.5 Cell types"></a>
+<h3>1.1.5 Cell types</h3>
+<p class="bodytext">
+A cellular network is required to ensure
+the UMTS can provide a high capacity network. As with any cellular system,
+the total capacity of the network is dependent on the size of the cells
+used. The smaller the cells are made, the larger the total capacity. However,
+the cell size is limited by the amount of infrastructure. The cell size
+also determines the maximum channel capacity for each cell, as propagation
+effects, such as multipath delay spread and high path loss, force large
+cells to have a lower data rate. Large cells also have to service a large
+number of users, and since the cell capacity is approximately fixed, each
+user can only have a reduced data rate, with respect to a smaller cell.
+In order to optimise the cellular network three cell types are used. These
+are the pico-cell, micro cell, and macro-cell. The three different cell
+types trade off cell size will total capacity and services. Table 5 shows
+the three cell types used in the UMTS system and some of the cell characteristics.</p>
+
+<center>
+<table BORDER CELLPADDING=2 WIDTH="500" >
+ <tr>
+  <td class="t_head">&nbsp;</td>
+  <td class="t_head">Pico-cell </td>
+  <td class="t_head">Micro-cell </td>
+  <td class="t_head">Macro-cell </td>
+ </tr>
+
+ <tr>
+  <td class="t_head"> Cell radius </td>
+  <td class="t_body"> &lt;100m </td>
+  <td class="t_body"> &lt;1000m </td>
+  <td class="t_body"> &lt;20km </td>
+ </tr>
+
+ <tr>
+  <td class="t_head"> Antenna </td>
+  <td class="t_body"> Ceiling/wall mounted </td>
+  <td class="t_body"> Below roof top height </td>
+  <td class="t_body"> Roof top mounting </td>
+ </tr>
+
+ <tr>
+  <td class="t_head"> Max. multipath delay spread </td>
+  <td class="t_body"> 1 <font face="Symbol">m</font>sec </td>
+  <td class="t_body"> 5 <font face="Symbol">m</font>sec </td>
+  <td class="t_body"> 20 <font face="Symbol">m</font>sec </td>
+ </tr>
+
+ <tr>
+  <td class="t_head"> Applications and environments </td>
+  <td class="t_body"> Indoor/Outdoor
+                  <br>Within buildings
+                  <br>City centres
+                  <br>Local high bit rate </td>
+  <td class="t_body"> High density outdoor
+                  <br>Business (indoor)
+                  <br>Fixed (Outdoor)
+                  <br>Inner city areas </td>
+
+  <td class="t_body"> Low density areas
+                  <br>Suburban areas
+                  <br>Urban areas
+                  <br>Fixed (outdoor)&nbsp; </td>
+ </tr>
+
+ <tr>
+  <td class="t_head"> Services and data rate supported </td>
+  <td class="t_body"> All services (up to 2Mbps) </td>
+  <td class="t_body"> Up to 384kbps </td>
+  <td class="t_body"> Limited sub-set
+                 <br>(up to 144kpbs) </td>
+ </tr>
+</table>
+</center>
+
+<a NAME="Table 5"></a>
+<p class="caption">Table 5 Cell Types used in UTMS </p>
+
+<p class="bodytext">
+The size and type of coverage of each cell
+type effects the radio propagation problems that will be encountered. This
+will determine the most suitable radio transmission technique to use.</p>
+
+<a NAME="1.1.6 Radio Interface"></a>
+<h3>1.1.6 Radio Interface</h3>
+
+<p class="bodytext">
+One of the aims identified for UMTS is
+to provide a wireless interface comparable to wired connections. The requirement
+to provide wide band services up to 2Mb/s, with flexible, on demand allocation
+of transmission capacity in a large range of radio environments, will call
+for a revolution in the radio access techniques used.</p>
+
+<p class="bodytext">The radio interface is currently undergoing
+substantial research, with the relative performance of CDMA and TDMA being
+investigated [9]. Currently CDMA appears to be the most likely candidate
+for supporting the high data rate required. However, other techniques such
+as COFDM and hybrid solutions may also be appropriate for UMTS.&nbsp;</p>
+
+<a NAME="1.1.7 Satellite Networking"></a>
+<h3>1.1.7 Satellite Networking</h3>
+
+<p class="bodytext">One of the aims of the UMTS is to provide
+access “any where, any time”. However, cellular networks can only cover
+a limited area due to the high infrastructure costs. For this reason, satellite
+systems will form an integral part of the UMTS network. Satellites will
+be able to provide an extended wireless coverage to remote areas and to
+aeronautical and maritime mobiles. The level of integration of the satellite
+systems with the terrestrial cellular networks is under investigation.
+A fully integrated solution will require mobiles to be dual mode terminals
+that would allow communications with orbiting satellites and terrestrial
+cellular networks. Low Earth Orbit (LEO) satellites are the most likely
+candidates for providing worldwide coverage.</p>
+
+<p class="bodytext">Currently several low earth orbit satellite
+systems are being deployed for providing global telecommunications. These
+include the Teledesic System, which is scheduled to begin operation by
+the end of 2002 with 288 satellites [10], to provide high bandwidth two-way
+communications to virtually anywhere in the world. However, the Teledesic
+System will not be able to meet even 20% of the demand [10], thus the need
+for broadband wireless networks.</p>
+
+<p class="errata">(Addendum,
+10/2001: Current estimates put the release date of the Teledesic System
+sometime in 2005, see www.teledesic.com). </p>
+
+<a NAME="1.1.8 Timetable for System Implementation"></a>
+<h3>1.1.8 Timetable for System Implementation</h3>
+
+<p class="bodytext">Across the globe, each region is moving
+to make third generation systems happen. Japan is looking at having a system
+up and running by year 2001. This is driven by the very high demand for
+mobile communications, which has been so great that their second-generation
+cellular networks are starting to run out of capacity [10]. It is expected
+that Europe will have a wide band CDMA system by the year 2005 [10]. The
+U.S. is expected to implement a third generation system somewhere from
+2000 to 2010 [10].</p>
+
+<p class="bodytext">Manufacturers are creating several standards
+to meet requirements in each sector of the world. To date, the majority
+of systems are based on CDMA standards. Before infrastructure rolls out,
+third generations will be developed on a regional basis.&nbsp;</p>
+
+<p class="bodytext">This process is being guided by the International
+Telecommunications Union’s (ITU) effort to create the IMT 2000 standard.
+ITU will produce the IMT 2000 standard by the year 2000, with the aim of
+combining the regional systems into a unified standard [10].</p>
+
+<a NAME="1.1.9 Conclusion"></a>
+<h3>1.1.9 Conclusion</h3>
+
+<p class="bodytext">Future communications will be driven by
+the need to provide a more integrated high capacity, wide coverage service.
+For the 21<sup>st</sup> century user there should ideally be no distinction
+in service capability between mobile or fixed network access. This will
+be achieved using a variety of technologies including satellite communications,
+advanced radio networking techniques, and high speed fixed networks.&nbsp;</p>
+
+<hr WIDTH="100%">
+
+<a NAME="1.2 Propagation Characteristics of mobile radio"></a>
+<h2>1.2 Propagation Characteristics of mobile radio channels</h2>
+
+<p class="bodytext">In an ideal radio channel, the received
+signal would consist of only a single direct path signal, which would be
+a perfect reconstruction of the transmitted signal. However in a real channel,
+the signal is modified during transmission in the channel. The received
+signal consists of a combination of attenuated, reflected, refracted, and
+diffracted replicas of the transmitted signal. On top of all this, the
+channel adds noise to the signal and can cause a shift in the carrier frequency
+if the transmitter, or receiver is moving (Doppler effect). Understanding
+of these effects on the signal is important because the performance of
+a radio system is dependent on the radio channel characteristics.</p>
+
+<a NAME="1.2.1 Attenuation"></a>
+<h3>1.2.1 Attenuation</h3>
+
+<p class="bodytext">Attenuation is the drop in the signal power
+when transmitting from one point to another. It can be caused by the transmission
+path length, obstructions in the signal path, and multipath effects. Figure
+2 shows some of the radio propagation effects that cause attenuation. Any
+objects that obstruct the line of sight signal from the transmitter to
+the receiver can cause attenuation.&nbsp;</p>
+
+<center><img SRC="Image6.gif" height=204 width=495></center>
+<a NAME="Figure 2"></a>
+<p class="caption">Figure 2 Radio Propagation Effects </p>
+
+<p class="bodytext">Shadowing of the signal can occur whenever
+there is an obstruction between the transmitter and receiver. It is generally
+caused by buildings and hills, and is the most important environmental
+attenuation factor.</p>
+
+<p class="bodytext">Shadowing is most severe in heavily built
+up areas, due to the shadowing from buildings. However, hills can cause
+a large problem due to the large shadow they produce. Radio signals diffract
+off the boundaries of obstructions, thus preventing total shadowing of
+the signals behind hills and buildings. However, the amount of diffraction
+is dependent on the radio frequency used, with low frequencies diffracting
+more then high frequency signals. Thus high frequency signals, especially,
+Ultra High Frequencies (UHF), and microwave signals require line of sight
+for adequate signal strength. To over come the problem of shadowing, transmitters
+are usually elevated as high as possible to minimise the number of obstructions.
+Typical amounts of variation in attenuation due to shadowing are shown
+in Table 6.</p>
+<center>
+<table BORDER CELLPADDING=2 WIDTH="500" >
+ <tr>
+  <td class="t_head">Description </td>
+  <td class="t_head">Typical Attenuation due to Shadowing </td>
+ </tr>
+
+ <tr>
+  <td class="t_body">Heavily built-up urban centre</td>
+  <td class="t_body">20dB variation from street to street</td>
+ </tr>
+
+ <tr>
+  <td class="t_body">Sub-urban area (fewer large buildings)</td>
+  <td class="t_body">10dB greater signal power then built-up urban center</td>
+ </tr>
+
+ <tr>
+  <td class="t_body">Open rural area</td> 
+  <td class="t_body">20dB greater signal power then sub-urban areas</td>
+ </tr>
+
+ <tr>
+  <td class="t_body">Terrain irregularities and tree foliage</td>
+  <td class="t_body">3-12dB signal power variation</td>
+ </tr>
+</table>
+</center>
+
+<a NAME="Table 6"></a>
+<p class="caption">Table 6 Typical shadowing in a radio channel (Values from <sub>[11]</sub>) </p>
+
+<p class="bodytext">Shadowed areas tend to be large, resulting
+in the rate of change of the signal power being slow. For this reason,
+it is termed <i>slow-fading</i>, or <i>log-normal shadowing</i>.</p>
+
+<a NAME="1.2.2 Multipath Effects"></a>
+<h3>1.2.2 Multipath Effects</h3>
+
+<a NAME="1.2.2.1 Rayleigh fading"></a>
+<h4>1.2.2.1 Rayleigh fading</h4>
+
+<p class="bodytext">In a radio link, the RF signal from the
+transmitter may be reflected from objects such as hills, buildings, or
+vehicles. This gives rise to multiple transmission paths at the receiver.
+Figure 3 show some of the possible ways in which multipath signals can
+occur.</p>
+
+<center> <img SRC="multipath.gif"  height=212 width=517> </center>
+<a NAME="Figure 3"></a>
+<p class="caption">Figure 3 Multipath Signals</p>
+
+<p class="bodytext">The relative phase of multiple reflected
+signals can cause constructive or destructive interference at the receiver.
+This is experienced over very short distances (typically at half wavelength
+distances), thus is given the term fast fading. These variations can vary
+from 10-30dB over a short distance. Figure 4 shows the level of attenuation
+that can occur due to the fading.</p>
+
+<center> <img SRC="Image8.gif" height=247 width=343> </center>
+<a NAME="Figure 4"></a>
+<p class="caption">Figure 4 Typical Rayleigh fading while the Mobile Unit is moving (for at 900 MHz)<sub>[15]</sub> </p>
+
+<p class="bodytext">The Rayleigh distribution is commonly used
+to describe the statistical time varying nature of the received signal
+power. It describes the probability of the signal level being received
+due to fading. Table 7 shows the probability of the signal level for the
+Rayleigh distribution.</p>
+
+<center>
+<table BORDER CELLPADDING=7 WIDTH="401" >
+ <tr>
+  <td class="t_head">Signal Level (dB about median) </td>
+  <td class="t_head">% Probability of Signal Level being less then the value given </td>
+ </tr>
+
+ <tr>
+  <td class="t_body"> 10 </td>
+  <td class="t_body"> 99 </td>
+ </tr>
+
+ <tr>
+  <td class="t_body"> 0 </td>
+  <td class="t_body"> 50 </td>
+ </tr>
+
+ <tr>
+  <td class="t_body"> -10 </td>
+  <td class="t_body"> 5 </td>
+ </tr>
+
+ <tr>
+  <td class="t_body"> -20 </td>
+  <td class="t_body"> 0.5 </td>
+ </tr>
+
+ <tr>
+  <td class="t_body"> -30 </td>
+  <td class="t_body"> 0.05 </td>
+ </tr>
+</table></center>
+
+
+<a NAME="Table 7"></a>
+<p class="caption">Table 7 Cummulative distribution for Rayleigh distribution (Value from <sub>[15]</sub>) </p>
+
+<a NAME="1.2.2.2 Frequency Selective Fading"></a>
+<h4>1.2.2.2 Frequency Selective Fading</h4>
+
+<p class="bodytext">In any radio transmission, the channel
+spectral response is not flat. It has dips or fades in the response due
+to reflections causing cancellation of certain frequencies at the receiver.
+Reflections off near-by objects (e.g. ground, buildings, trees, etc) can
+lead to multipath signals of similar signal power as the direct signal.
+This can result in deep nulls in the received signal power due to destructive
+interference.</p>
+
+<p class="bodytext">For narrow bandwidth transmissions if the
+null in the frequency response occurs at the transmission frequency then
+the entire signal can be lost. This can be partly overcome in two ways.&nbsp;</p>
+
+<p class="bodytext">By transmitting a wide bandwidth signal
+or spread spectrum as CDMA, any dips in the spectrum only result in a small
+loss of signal power, rather than a complete loss. Another method is to
+split the transmission up into many small bandwidth carriers, as is done
+in a COFDM/OFDM transmission. The original signal is spread over a wide
+bandwidth and so nulls in the spectrum are likely to only affect a small
+number of carriers rather than the entire signal. The information in the
+lost carriers can be recovered by using forward error correction techniques.</p>
+
+<a NAME="1.2.2.3 Delay Spread"></a>
+<h4>1.2.2.3 Delay Spread</h4>
+
+<p class="bodytext">The received radio signal from a transmitter
+consists of typically a direct signal, plus reflections off objects such
+as buildings, mountings, and other structures. The reflected signals arrive
+at a later time then the direct signal because of the extra path length,
+giving rise to a slightly different arrival times, spreading the received
+energy in time. Delay spread is the time spread between the arrival of
+the first and last significant multipath signal seen by the receiver.</p>
+
+<p class="bodytext">In a digital system, the delay spread can
+lead to inter-symbol interference. This is due to the delayed multipath
+signal overlapping with the following symbols. This can cause significant
+errors in high bit rate systems, especially when using time division multiplexing
+(TDMA). Figure 5 shows the effect of inter-symbol interference due to delay
+spread on the received signal. As the transmitted bit rate is increased
+the amount of inter-symbol interference also increases. The effect starts
+to become very significant when the delay spread is greater then ~50% of
+the bit time.</p>
+
+<center><img SRC="delayspread.gif"  height=357 width=347></center>
+<a NAME="Figure 5"></a>
+<p class="caption">Figure 5 Multipath Delay Spread </p>
+
+<p class="bodytext">Table 8 shows the typical delay spread
+for various environments. The maximum delay spread in an outdoor environment
+is approximately 20 us, thus significant inter-symbol interference can
+occur at bit rates as low as 25 kbps.</p>
+
+<center>
+<table BORDER CELLPADDING=2 WIDTH="500" >
+ <tr>
+  <td class="t_head"> Environment or cause</td>
+  <td class="t_head"> Delay Spread </td>
+  <td class="t_head"> Maximum Path Length Difference </td>
+ </tr>
+
+<tr>
+  <td class="t_body"> Indoor (room) </td>
+  <td class="t_body"> 40 nsec - 200 nsec </td>
+  <td class="t_body"> 12 m - 60 m </td>
+</tr>
+
+<tr>
+  <td class="t_body"> Outdoor </td>
+  <td class="t_body"> 1 <font face="Symbol">m</font> sec - 20 <font face="Symbol">m</font> sec </td>
+  <td class="t_body"> 300 m - 6 km </td>
+</tr>
+</table></center>
+
+<a NAME="Table 8"></a>
+<p class="caption">Table 8 Typical Delay Spread </p>
+
+<p class="bodytext">Inter-symbol interference can be minimized
+in several ways. One method is to reduce the symbol rate by reducing the
+data rate for each channel (i.e. split the bandwidth into more channels
+using frequency division multiplexing, or OFDM). Another is to use a coding
+scheme that is tolerant to inter-symbol interference such as CDMA.&nbsp;</p>
+
+<a NAME="1.2.3 Doppler Shift"></a>
+<h3>1.2.3 Doppler Shift</h3>
+
+<p class="bodytext">When a wave source and a receiver are moving
+relative to one another the frequency of the received signal will not be
+the same as the source. When they are moving toward each other the frequency
+of the received signal is higher then the source, and when they are approaching
+each other the frequency decreases. This is called the Doppler effect.
+An example of this is the change of pitch in a car’s horn as it approaches
+then passes by. This effect becomes important when developing mobile radio
+systems.&nbsp;</p>
+
+<p class="bodytext">The amount the frequency changes due to
+the Doppler effect depends on the relative motion between the source and
+receiver and on the speed of propagation of the wave. The Doppler shift
+in frequency can be written:</p>
+
+<center><img SRC="Image10.gif" height=41 width=77> </center>
+<p class="bodytext">(from <sub>[12]</sub>)</p>
+
+<p class="bodytext">Where <i><font face="Symbol">D</font>f
+</i>is the change in frequency of the source seen at the receiver <i>, f<sub>o</sub></i>
+is the frequency of the source, v is the speed difference between the source
+and transmitter, and c is the speed of light.</p>
+
+<p class="bodytext">For example: Let<i> f<sub>o</sub>=
+</i>1GHz, and<i> v = </i>60km/hr (16.7m/s) then the Doppler shift will be:
+
+<center><img SRC="Image11.gif" height=41 width=172></center>
+
+<p class="bodytext">This shift of 55Hz in the carrier will
+generally not effect the transmission. However, Doppler shift can cause
+significant problems if the transmission technique is sensitive to carrier
+frequency offsets (for example OFDM) or the relative speed is higher (for
+example in low earth orbiting satellites).</p>
+
+<hr WIDTH="100%">
+<a NAME="1.3 Multiple Access Techniques"></a>
+<h2>1.3Multiple Access Techniques</h2>
+
+<p class="bodytext">Multiple access schemes are used to allow
+many simultaneous users to use the same fixed bandwidth radio spectrum.
+In any radio system, the bandwidth that is allocated to it is always limited.
+For mobile phone systems the total bandwidth is typically 50 MHz, which
+is split in half to provide the forward and reverse links of the system.
+Sharing of the spectrum is required in order increase the user capacity
+of any wireless network. FDMA, TDMA and CDMA are the three major methods
+of sharing the available bandwidth to multiple users in wireless system.
+There are many extensions, and hybrid techniques for these methods, such
+as OFDM, and hybrid TDMA and FDMA systems. However, an understanding of
+the three major methods is required for understanding of any extensions
+to these methods.</p>
+
+<a NAME="1.3.1 Frequency Division Multiple Access"></a>
+<h3>1.3.1 Frequency Division Multiple Access</h3>
+
+<p class="bodytext">For systems using Frequency Division Multiple
+Access (FDMA), the available bandwidth is subdivided into a number of narrower
+band channels. Each user is allocated a unique frequency band in which
+to transmit and receive on. During a call, no other user can use the same
+frequency band. Each user is allocated a forward link channel (from the
+base station to the mobile phone) and a reverse channel (back to the base
+station), each being a single way link. The transmitted signal on each
+of the channels is continuous allowing analog transmissions. The channel
+bandwidth used in most FDMA systems is typically low (30kHz) as each channel
+only needs to support a single user. FDMA is used as the primary subdivision
+of large allocated frequency bands and is used as part of most multi-channel
+systems.</p>
+
+<p class="bodytext">Figure 6 and Figure 7 shows the allocation
+of the available bandwidth into several channels.</p>
+
+<center><img SRC="FDMA.jpg"  height=240 width=301></center>
+<a NAME="Figure 6"></a>
+<p class="caption">Figure 6 FDMA showing that the each narrow band channel is allocated to a single
+user</p>
+
+<center><img SRC="Image13.gif" height=159 width=342></center>
+<a NAME="Figure 7"></a>
+<p class="caption">Figure 7 FDMA spectrum, where the available bandwidth is subdivided into narrower
+band channels </p>
+
+<a NAME="1.3.2 Time Division Multiple Access"></a>
+<h3>1.3.2 Time Division Multiple Access</h3>
+
+<p class="bodytext">Time Division Multiple Access (TDMA) divides
+the available spectrum into multiple time slots, by giving each user a
+time slot in which they can transmit or receive. Figure 8 shows how the
+time slots are provided to users in a round robin fashion, with each user
+being allotted one time slot per frame.&nbsp;</p>
+
+<center> <img SRC="Image14.gif" height=86 width=491> </center>
+<a NAME="Figure 8"></a>
+<p class="caption">Figure 8 TDMA scheme where each user is allocated a small time slot </p>
+
+<p class="bodytext">TDMA systems transmit data in a buffer
+and burst method, thus the transmission of each channel is non-continuous.
+The input data to be transmitted is buffered over the previous frame and
+burst transmitted at a higher rate during the time slot for the channel.
+TDMA can not send analog signals directly due to the buffering required,
+thus is only used for transmitting digital data. TDMA can suffer from multipath
+effects as the transmission rate is generally very high, resulting in significant
+inter-symbol interference.&nbsp;</p>
+
+<p class="bodytext">TDMA is normally used in conjunction with
+FDMA to subdivide the total available bandwidth into several channels.
+This is done to reduce the number of users per channel allowing a lower
+data rate to be used. This helps reduce the effect of delay spread on the
+transmission. Figure 9 shows the use of TDMA with FDMA. Each channel based
+on FDMA, is further subdivided using TDMA, so that several users can transmit
+of the one channel. This type of transmission technique is used by most
+digital second generation mobile phone systems. For GSM, the total allocated
+bandwidth of 25MHz is divided into 125, 200kHz channels using FDMA. These
+channels are then subdivided further by using TDMA so that each 200kHz
+channel allows 8-16 users [13].</p>
+
+<center><img SRC="FDMA_TDMA.jpg"  height=240 width=301></center>
+<a NAME="Figure 9"></a>
+<p class="caption">Figure 9 TDMA / FDMA hybrid, showing that the bandwidth is split into frequency
+channels and time slots </p>
+
+<a NAME="1.3.3 Code Division Multiple Access"></a>
+<h3>1.3.3 Code Division Multiple Access</h3>
+<p class="bodytext">Code Division Multiple Access (CDMA) is
+a spread spectrum technique that uses neither frequency channels nor time
+slots. With CDMA, the narrow band message (typically digitised voice data)
+is multiplied by a large bandwidth signal that is a pseudo random noise
+code (PN code). All users in a CDMA system use the same frequency band
+and transmit simultaneously. The transmitted signal is recovered by correlating
+the received signal with the PN code used by the transmitter. Figure 10
+shows the general use of the spectrum using CDMA.</p>
+
+<center><img SRC="CDMA.jpg"  height=240 width=301></center>
+<a NAME="Figure 10"></a>
+<p class="caption">Figure 10 Code division multiple access (CDMA) </p>
+
+<p class="bodytext">CDMA technology was originally developed
+by the military during World War II [14]. Researchers were spurred into
+looking at ways of communicating that would be secure and work in the presence
+of jamming. Some of the properties that have made CDMA useful are:</p>
+
+<ul>
+ <li>
+  <font face="Arial,Helvetica">&middot; Signal hiding and non-interference
+   with existing systems.</font></li>
+
+<li>
+<font face="Arial,Helvetica">&middot; Anti-jam and interference rejection</font></li>
+
+<li>
+<font face="Arial,Helvetica">&middot; Information security</font></li>
+
+<li>
+<font face="Arial,Helvetica">&middot; Accurate Ranging&nbsp;</font></li>
+
+<li>
+<font face="Arial,Helvetica">&middot; Multiple User Access</font></li>
+
+<li>
+<font face="Arial,Helvetica">&middot; Multipath tolerance</font></li>
+</ul>
+
+<p class="bodytext">For many years, spread spectrum technology
+was considered solely for military applications. However, with rapid developments
+in LSI and VLSI designs, commercial systems are starting to be used.&nbsp;</p>
+
+<a NAME="1.3.4 CDMA Process Gain"></a>
+<h3>1.3.4 CDMA Process Gain</h3>
+
+<p class="bodytext">One of the most important concepts required
+in order to understand spread spectrum techniques is the idea of process
+gain. The process gain of a system indicates the gain or signal to noise
+improvement exhibited by a spread spectrum system by the nature of the
+spreading and despreading process. The process gain of a system is equal
+to the ratio of the spread spectrum bandwidth used, to the original information
+bandwidth. Thus, the process gain can be written as:</p>
+<center><img SRC="Image17.gif" height=45 width=88></center>
+
+<p class="bodytext">Where BW<sub>RF</sub> is the transmitted
+bandwidth after the data is spread, and BW<sub>info</sub> is the bandwidth
+of the information data being sent.</p>
+
+<p class="bodytext">Figure 11 shows the process of a CDMA transmission.
+The data to be transmitted (a) is spread before transmission by modulating
+the data using a PN code. This broadens the spectrum as shown in (b). In
+this example the process gain is 125 as the spread spectrum bandwidth is
+125 times greater the data bandwidth. Part (c) shows the received signal.
+This consists of the required signal, plus background noise, and any interference
+from other CDMA users or radio sources. The received signal is recovered
+by multiplying the signal by the original spreading code. This process
+causes the wanted received signal to be despread back to the original transmitted
+data. However, all other signals that are uncorrelated to the PN spreading
+code become more spread. The wanted signal in (d) is then filtered removing
+the wide spread interference and noise signals.</p>
+
+<center><img SRC="Image18.gif" height=402 width=387></center>
+<p class="caption">Figure 11 Basic CDMA transmission. </p>
+
+<a NAME="1.3.5 CDMA Generation"></a>
+<h3>1.3.5 CDMA Generation</h3>
+<p class="bodytext">CDMA is achieved by modulating the data
+signal by a pseudo random noise sequence (PN code), which has a chip rate
+higher then the bit rate of the data. The PN code sequence is a sequence
+of ones and zeros (called chips), which alternate in a random fashion.
+Modulating the data with this PN sequence generates the CDMA signal. The
+CDMA signal is generated by modulating the data by the PN sequence. The
+modulation is performed by multiplying the data (XOR operator for binary
+signals) with the PN sequence. Figure 12 shows a basic CDMA transmitter.&nbsp;</p>
+
+<center><img SRC="Image19.gif" height=152 width=398></center>
+<a NAME="Figure 12"></a>
+<p class="caption">Figure 12 Simple direct sequence modulator </p>
+
+<p class="bodytext">The PN code used to spread the data can
+be of two main types. A short PN code (typically 10-128 chips in length)
+can be used to modulate each data bit. The short PN code is then repeated
+for every data bit allowing for quick and simple synchronization of the
+receiver. Figure 13 shows the generation of a CDMA signal using a 10-chip
+length short code. Alternatively a long PN code can be used. Long codes
+are generally thousands to millions of chips in length, thus are only repeated
+infrequently. Because of this they are useful for added security as they
+are more difficult to decode.&nbsp;</p>
+
+<center><img SRC="Image20.gif" height=164 width=533></center>
+<p class="caption">Figure 13 Direct sequence signals </p>
+
+<a NAME="1.3.6 CDMA Forward Link Encoding"></a>
+<h3>1.3.6 CDMA Forward Link Encoding</h3>
+
+<p class="bodytext">The forward link, from the base station
+to the mobile, of a CDMA system can use special orthogonal PN codes, called
+Walsh codes, for separating the multiple users on the same channel. These
+are based on a Walsh matrix, which is a square matrix with binary elements
+and dimensions that are a power of two.&nbsp; It is generated from the
+basis that Walsh(1) = W<sub>1</sub> = 0 and that:</p>
+
+<center><img SRC="Image21.gif" height=50 width=110></center>
+
+<p class="bodytext">Where W<sub>n</sub> is the Walsh matrix
+of dimension n. For example:</p>
+
+<center><img SRC="Image22.gif" height=48 width=84>
+<br><img SRC="Image23.gif" height=96 width=130></center>
+
+<p class="bodytext">Walsh codes are orthogonal, which means
+that the dot product of any two rows is zero. This is due to the fact that
+for any two rows exactly half the number of bits match and half do not.&nbsp;</p>
+<p class="bodytext">Each row of a Walsh matrix can be used
+as the PN code of a user in a CDMA system. By doing this the signals from
+each user is orthogonal to every other user, resulting in no interference
+between the signals. However, in order for Walsh codes to work the transmitted
+chips from all users must be synchronized. If the Walsh code used by one
+user is shifted in time by more than about 1/10 of chip period, with respect
+to all the other Walsh codes, it looses its orthogonal nature resulting
+in inter-user interference. This is not a problem for the forward link
+as signals for all the users originate from the base station, ensuring
+that all the signal remain synchronized.&nbsp;</p>
+
+<a NAME="1.3.7 CDMA Reverse Link Encoding"></a>
+<h3>1.3.7 CDMA Reverse Link Encoding</h3>
+
+<p class="bodytext">The reverse link is different to the forward
+link because the signals from each user do not originate from a same source
+as in the forward link. The transmission from each user will arrive at
+a different time, due to propagation delay, and synchronization errors.
+Due to the unavoidable timing errors between the users, there is little
+point in using Walsh codes as they will no longer be orthogonal. For this
+reason, simple pseudo random sequences are typically used. These sequences
+are chosen to have a low cross correlation to minimise interference between
+users.&nbsp;</p>
+
+<p class="bodytext">The capacity is different for the forward
+and the reverse links because of the differences in modulation. The reverse
+link is not orthogonal, resulting in significant inter-user interference.
+For this reason the reverse channel sets the capacity of the system.</p>
+
+<a NAME="1.3.8 Orthogonal Frequency Division Multiplexing"></a>
+<h3>1.3.8 Orthogonal Frequency Division Multiplexing</h3>
+
+<p class="bodytext">Orthogonal Frequency Division Multiplexing
+(OFDM) is a multicarrier transmission technique, which divides the available
+spectrum into many carriers, each one being modulated by a low rate data
+stream. OFDM is similar to FDMA in that the multiple user access is achieved
+by subdividing the available bandwidth into multiple channels, which are
+then allocated to users. However, OFDM uses the spectrum much more efficiently
+by spacing the channels much closer together. This is achieved by making
+all the carriers orthogonal to one another, preventing interference between
+the closely spaced carriers.&nbsp;</p>
+
+<p class="bodytext">Coded Orthogonal Frequency Division Multiplexing
+(COFDM) is the same as OFDM except that forward error correction is applied
+to the signal before transmission. This is to overcome errors in the transmission
+due to lost carriers from frequency selective fading, channel noise and
+other propagation effects. For this discussion the terms OFDM and COFDM
+are used interchangeably, as the main focus of this thesis is on OFDM,
+but it is assumed that any practical system will use forward error correction,
+thus would be COFDM.&nbsp;</p>
+
+<p class="bodytext">In FDMA each user is typically allocated
+a single channel, which is used to transmit all the user information. The
+bandwidth of each channel is typically 10 kHz-30 kHz for voice communications.
+However, the minimum required bandwidth for speech is only 3 kHz. The allocated
+bandwidth is made wider then the minimum amount required to prevent channels
+from interfering with one another. This extra bandwidth is to allow for
+signals from neighbouring channels to be filtered out, and to allow for
+any drift in the centre frequency of the transmitter or receiver. In a
+typical system up to 50% of the total spectrum is wasted due to the extra
+spacing between channels. This problem becomes worse as the channel bandwidth
+becomes narrower, and the frequency band increases.&nbsp;</p>
+
+<p class="bodytext">Most digital phone systems use vocoders
+to compress the digitised speech. This allows for an increased system capacity
+due to a reduction in the bandwidth required for each user. Current vocoders
+require a data rate somewhere between 4-13kbps [13], with depending on
+the quality of the sound and the type used. Thus each user only requires
+a minimum bandwidth of somewhere between 2-7 kHz, using QPSK modulation.
+However, simple FDMA does not handle such narrow bandwidths very efficiently.&nbsp;</p>
+<p class="bodytext">TDMA partly overcomes this problem by using
+wider bandwidth channels, which are used by several users. Multiple users
+access the same channel by transmitting in their data in time slots. Thus,
+many low data rate users can be combined together to transmit in a single
+channel that has a bandwidth sufficient so that the spectrum can be used
+efficiently.&nbsp;</p>
+
+<p class="bodytext">There are however, two main problems with
+TDMA. There is an overhead associated with the change over between users
+due to time slotting on the channel. A change over time must be allocated
+to allow for any tolerance in the start time of each user, due to propagation
+delay variations and synchronization errors. This limits the number of
+users that can be sent efficiently in each channel. In addition, the symbol
+rate of each channel is high (as the channel handles the information from
+multiple users) resulting in problems with multipath delay spread.</p>
+
+<p class="bodytext">OFDM overcomes most of the problems with
+both FDMA and TDMA. OFDM splits the available bandwidth into many narrow
+band channels (typically 100-8000). The carriers for each channel are made
+orthogonal to one another, allowing them to be spaced very close together,
+with no overhead as in the FDMA example. Because of this there is no great
+need for users to be time multiplex as in TDMA, thus there is no overhead
+associated with switching between users.</p>
+
+<p class="bodytext">The orthogonality of the carriers means
+that each carrier has an integer number of cycles over a symbol period.
+Due to this, the spectrum of each carrier has a null at the centre frequency
+of each of the other carriers in the system. This results in no interference
+between the carriers, allowing then to be spaced as close as theoretically
+possible. This overcomes the problem of overhead carrier spacing required
+in FDMA.&nbsp;</p>
+
+<p class="bodytext">Each carrier in an OFDM signal has a very
+narrow bandwidth (i.e. 1 kHz), thus the resulting symbol rate is low. This
+results in the signal having a high tolerance to multipath delay spread,
+as the delay spread must be very long to cause significant inter-symbol
+interference (e.g. > 100 <font face="Symbol">m</font>sec).</p>
+
+<a NAME="1.3.9 OFDM generation"></a>
+<h3>1.3.9 OFDM generation</h3>
+
+<p class="bodytext">To generate OFDM successfully the relationship
+between all the carriers must be carefully controlled to maintain the orthogonality
+of the carriers. For this reason, OFDM is generated by firstly choosing
+the spectrum required, based on the input data, and modulation scheme used.
+Each carrier to be produced is assigned some data to transmit. The required
+amplitude and phase of the carrier is then calculated based on the modulation
+scheme (typically differential BPSK, QPSK, or QAM). The required spectrum
+is then converted back to its time domain signal using an Inverse Fourier
+Transform. In most applications, an Inverse Fast Fourier Transform (IFFT)
+is used. The IFFT performs the transformation very efficiently, and provides
+a simple way of ensuring the carrier signals produced are orthogonal.&nbsp;</p>
+
+<p class="bodytext">The Fast Fourier Transform (FFT) transforms
+a cyclic time domain signal into its equivalent frequency spectrum. This
+is done by finding the equivalent waveform, generated by a sum of orthogonal
+sinusoidal components. The amplitude and phase of the sinusoidal components
+represent the frequency spectrum of the time domain signal. The IFFT performs
+the reverse process, transforming a spectrum (amplitude and phase of each
+component) into a time domain signal. An IFFT converts a number of complex
+data points, of length that is a power of 2, into the time domain signal
+of the same number of points. Each data point in frequency spectrum used
+for an FFT or IFFT is called a bin.</p>
+
+<p class="bodytext">The orthogonal carriers required for the
+OFDM signal can be easily generated by setting the amplitude and phase
+of each frequency bin, then performing the IFFT. Since each bin of an IFFT
+corresponds to the amplitude and phase of a set of orthogonal sinusoids,
+the reverse process guarantees that the carriers generated are orthogonal.&nbsp;</p>
+
+<center> <img SRC="OFDMgen.gif"  height=250 width=446> </center>
+<a NAME="Figure 14"></a>
+<p class="caption">Figure 14 Basic FFT, OFDM transmitter and receiver </p>
+
+<p class="bodytext">Figure 14 shows the configuration for a
+basic OFDM transmitter and receiver. The signal generated is at base-band
+and so to generate an RF signal the signal must be filtered and mixed to
+the desired transmission frequency.&nbsp;</p>
+
+<a NAME="1.3.10 Adding a Guard Period to OFDM"></a>
+<h3>1.3.10 Adding a Guard Period to OFDM</h3>
+
+<p class="bodytext">One of the most important properties of
+OFDM transmissions is its high level of robustness against multipath delay
+spread. This is a result of the long symbol period used, which minimises
+the inter-symbol interference. The level of multipath robustness can be
+further increased by the addition of a guard period between transmitted
+symbols. The guard period allows time for multipath signals from the pervious
+symbol to die away before the information from the current symbol is gathered.
+The most effective guard period to use is a cyclic extension of the symbol.
+If a mirror in time, of the end of the symbol waveform is put at the start
+of the symbol as the guard period, this effectively extends the length
+of the symbol, while maintaining the orthogonality of the waveform. Using
+this cyclic extended symbol the samples required for performing the FFT
+(to decode the symbol), can be taken anywhere over the length of the symbol.
+This provides multipath immunity as well as symbol time synchronization
+tolerance.</p>
+
+<p class="bodytext">As long as the multipath delay echoes stay
+within the guard period duration, there is strictly no limitation regarding
+the signal level of the echoes: they may even exceed the signal level of
+the shorter path! The signal energy from all paths just add at the input
+to the receiver, and since the FFT is energy conservative, the whole available
+power feeds the decoder. If the delay spread is longer then the guard interval
+then they begin to cause inter-symbol interference. However, provided the
+echoes are sufficiently small they do not cause significant problems. This
+is true most of the time as multipath echoes delayed longer than the guard
+period will have been reflected of very distant objects.</p>
+<p class="bodytext">Other variations of guard periods are possible.
+One possible variation is to have half the guard period a cyclic extension
+of the symbol, as above, an the other half a zero amplitude signal. This
+will result in a signal as shown in Figure 15. Using this method the symbols
+can be easily identified. This possibly allows for symbol timing to be
+recovered from the signal, simply by applying envelop detection. The disadvantage
+of using this guard period method is that the zero period does not give
+any multipath tolerance, thus the effective active guard period is halved
+in length. It is interesting to note that this guard period method has
+not been mentioned in any of the research papers read, and it is still
+not clear whether symbol timing needs to be recovered using this method.</p>
+
+<center><img SRC="Image25.gif" BORDER=0 height=515 width=542></center>
+<a NAME="Figure 15"></a>
+<p class="caption">Figure
+15 Section of an OFDM signal showing 5 symbols, using a guard period which
+is half a cyclic extension of the symbol, and half a zero amplitude signal.
+(For a signal using a 2048 point FFT and 512 sample total guard period) </p>
+
+<p class="errata">(Errata Note
+10/2001: The best method for guard period implementation to use a cyclic
+extension of the transmitted symbol over the entire guard period interval,
+rather than only half of the guard period as described above).</p>
+
+<center><a href="chapter2.htm">Next Chapter 2</a></center>
+
+
+
+<!-- ============== End page content ================== -->
+
+         </td>
+        </tr>
+       </table>    	
+      </td>
+     </tr>
+    </table>
+   </td>
+  </tr>
+ </table>
+<div align=center style="color:white; font-size: 10px">Copyright &copy; 2001 Sky DSP</div>
+</body>
+
+</html>

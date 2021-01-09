@@ -1,0 +1,389 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="Author" content="Eric Lawrey">
+ <meta name="Description" content="This page contains a range of publications and applications notes on OFDM wireless technology, telemetry logging systems, and software radio">
+ <meta name="KeyWords" content="OFDM, Orthogonal Frequency Division Multiplexing, Multiuser, Multiuser OFDM, Adaptive Frequency Hopping, Frequency Hopping, Adaptive Modulation, communcations, research, paper, telemetry, datalogging, temperature sensing, software radio">
+<title>OFDM as a modulation technique for wireless communications, with a CDMA comparison</title>
+ <LINK REL=StyleSheet HREF="../../styles/style.css" TYPE="text/css" MEDIA=screen>
+
+</head>
+
+<body bgcolor="#666666">   <!-- color of the outter page backgroud -->
+ <table border="0" width="700"  background="../../main_graphics/top_right_bar.jpg" cellspacing="0" cellpadding="0" align=center>
+  <tr>
+   <td><img src="../../main_graphics/Top_boarder.jpg" width="285" height="80" alt="Sky DSP logo"></td>
+   <td>
+
+   <!-- =============== Header Graphics and title ======================== -->
+   &nbsp   
+
+   <!-- =============== End Header Graphic ===================== -->
+
+  </td>
+ </tr>
+</table>
+
+<table border="0" width="700"  cellspacing="0" cellpadding="0" align=center>
+  <tr>
+    <td><img src="../../main_graphics/Side_boarder1.jpg" border=0 width="120" height="20"></td>
+    <td width="100%" bgcolor="#000000">
+    <center>
+    <!-- ================ Top Navigation bar =================== -->
+     <a href="index.htm#Table of Contents" class="topnav">Index</a>&nbsp &nbsp
+     <a href="chapter1.htm" class="topnav">Chapter 1</a>&nbsp &nbsp
+     <a href="chapter2.htm" class="topnav">Chapter 2</a>&nbsp &nbsp
+     <a href="chapter3.htm" class="topnav">Chapter 3</a>&nbsp &nbsp 
+     <a href="chapter4.htm" class="topnav">Conclusion</a>&nbsp &nbsp 
+     <a href="appendix.htm" class="topnav">Appendix</a>&nbsp &nbsp 
+     <a href="code.html" class="topnav">Matlab Code</a>&nbsp &nbsp 
+     <a href="audio/audio.htm" class="topnav">Audio Demo</a>&nbsp &nbsp 
+    <!-- ============= End Top Navigation bar ================== -->
+    </center>
+</td>
+</tr>
+</table>
+
+<table border="0" width="700"  height="500" cellspacing="0" cellpadding="0" align=center>
+  <tr>
+    <td valign="top" bgcolor="#5E73DE"> <img src="../../main_graphics/Side_boarder2.jpg" height="70" width="120"> 
+      <!-- ================== Navigation Bar =======================--> <!-- #BeginLibraryItem "/Library/Navbar.lbi" --> 
+<table width=100% align="center" border=0 cellspacing=8>
+  <tr> 
+    <td align="right"><a href="../../index.htm" class="sidebar">Home</a></td>
+  </tr>
+  <tr> 
+    <td align="right"><a href="../index.htm" class="sidebar">Publications</a></td>
+  </tr>
+  <tr>
+    <td align="right"><a href="../../links/index.htm" class="sidebar">Links</a></td>
+  </tr>
+  <tr> 
+    <td align="right"><a href="../../glossary.htm" class="sidebar">Glossary</a></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<!-- #EndLibraryItem --> <!-- ================== End Navigation Bar =======================--> 
+    </td>
+
+    <td width="100%" align="right" height="100%" valign="top">
+     <img src="../../main_graphics/x.gif" height="3" width="580"><br>
+     <table  width="577" height="100%" border="0" bgcolor="black" cellpadding="0" cellspacing="1">
+      <tr>
+        <td bgcolor="#FFFFFF" height="100%" valign="top">
+
+        <!-- inner table where the page contens goes -->
+        <table cellspacing=10 border=0 align=center width="100%">
+         <tr><td width="50%" valign=top>
+
+
+<!-- ============== Page Content ====================== -->
+
+<centre>
+<table CELLSPACING=0 CELLPADDING=2 COLS=1 WIDTH="100%" BGCOLOR="#2030C0" >
+ <tr>
+  <td class = "tablehead">
+   <center>The suitability of OFDM as a modulation technique for wireless telecommunications,
+  with a CDMA comparison.</center>
+  </td>
+ </tr>
+</table>
+
+
+<P class="dochead"> Revised: 16/10/2001 (Fixed up several mistakes in the simulations and fixed up spelling and grammar).</P>
+
+
+<table WIDTH="100%" >
+ <tr>
+  <td><img SRC="pdf.gif" NOSAVE BORDER=0 height=38 width=37></td>
+                      <td width = 220px class="dochead"> 
+                      <a href="../../resources/Thesis_Eric_Lawrey_OFDM_vs_CDMA.pdf">
+                      <!-- <a href="../../survey/4yrthesis.htm">-->
+                      <!-- <a href="../../survey/survey2_4th.htm"> -->
+                      Print Friendly Version in PDF</a> (519 kB)<br>
+      This is a PDF of the complete thesis, with no Matlab Code
+      <br>
+                        <a href="../../resources/Thesis_Eric_Lawrey_OFDM_vs_CDMA_old.pdf">Original 
+                        version of the thesis</a> (966 kB) </td>
+  <td class="dochead">
+   Thesis submitted by <b>Eric Lawrey</b> in October 1997
+   in partial fulfilment of the requirements for the Degree of Bachelor of Engineering with Honours in
+   Computer Systems Engineering at James Cook University.
+  </td>
+ </tr>
+</table>
+
+<table CELLSPACING=0 CELLPADDING=2 COLS=1 WIDTH="100%" BGCOLOR="#2030C0" >
+ <tr>
+  <td class = "tablehead"><a NAME="Abstract"></a>
+   <center>Abstract</center>
+  </td>
+ </tr>
+</table>
+
+
+<br><font face="Arial,Helvetica">This thesis investigates the effectiveness
+of Orthogonal Frequency Division Multiplexing (OFDM) as a modulation technique
+for wireless radio applications. The main aim was to assess the suitability
+of OFDM as a modulation technique for a fixed wireless phone system for
+rural areas of Australia. However, its suitability for more general wireless
+applications is also assessed.</font>
+<p><font face="Arial,Helvetica">Several of the main factors affecting the
+performance of a OFDM system were measured, including multipath delay spread,
+channel noise, distortion (clipping), and timing requirements. The performance
+of OFDM was assessed by using computer simulations performed using Matlab,
+and practical measurements. These measurements were performed by recording
+a low bandwidth (audio) OFDM signal, generated using Matlab, on to a tape
+player. This recorded signal was then played back and recorded using the
+sound card of a PC. This was then decoded using a Matlab script.</font>
+<p><font face="Arial,Helvetica">Most third generation mobile phone systems
+are proposing to use Code Division Multiple Access (CDMA) as their modulation
+technique. For this reason, CDMA was also investigated so that the performance
+of CDMA could be compared with OFDM.&nbsp;</font>
+<p><font face="Arial,Helvetica">It was found that OFDM performs extremely
+well compared with CDMA, providing a very high tolerance to multipath delay
+spread, peak power clipping, and channel noise. In addition to this it
+provides a high spectral efficiency.</font>
+<p><font face="Arial,Helvetica">OFDM was found to have total immunity to
+multipath delay spread provided the reflection time is less than the guard
+period used in the OFDM signal. In fact, multipath signals lead to a strengthening
+of the received signal, improving the performance. In a typical system
+a delay spread of up to 100 msec could be tolerated, corresponding to multipath
+reflections of 30 km. The only problem caused by multipath is frequency
+selective fading, which can result in carriers being heavily attenuated
+due to destructive interference at the receiver. This can result in the
+carriers being lost in the noise.&nbsp;</font>
+<p><font face="Arial,Helvetica">For the modulation schemes investigated
+(BPSK, QPSK and 16 QAM), clipping of the OFDM signal was found to have
+little effect on the performance of the system, allowing the peak power
+of the signal to be clipped by up to 6 - 9dB before the symbol error rate
+became significant. This tolerance to clipping reduces the dynamic range
+overhead required in output stages of OFDM transmitters.</font>
+<p><font face="Arial,Helvetica">The noise performance of OFDM was found
+to depend solely on the modulation technique used for modulating each carrier
+of the signal. The performance of the OFDM signal was found to be the same
+as for a single carrier system, using the same modulation technique. The
+minimum signal to noise ratio (SNR) required for BPSK was ~7 dB, where
+as it was ~12 dB for QPSK and ~25 dB for 16PSK.</font>
+<p><font face="Arial,Helvetica">CDMA was found to perform poorly in a single
+cellular system, with each cell only allowing 7-16 simultaneous users in
+a cell, compared with 128 for OFDM. This was for a 1.25 MHz bandwidth and
+19.5 kbps user data rate. This low cell capacity of CDMA was attributed
+to the use of non-orthogonal codes used in the reverse transmission link,
+leading to a high level of inter-user interference.</font>
+<p><font face="Arial,Helvetica">The only main weak point that was found
+with using OFDM, was that it is very sensitive to frequency, and phase
+errors between the transmitter and receiver. The main sources of these
+errors are frequency stability problems; phase noise of the transmitter;
+and any frequency offset errors between the transmitter and receiver. This
+problem can be mostly overcome by synchronizing the clocks between the
+transmitter and receiver, by designing the system appropriately, or by
+reducing the number of carriers used.</font>
+<br>&nbsp;
+<br>&nbsp;
+<br>&nbsp;
+
+<table CELLSPACING=0 CELLPADDING=2 COLS=1 WIDTH="100%" BGCOLOR="#2030C0" >
+ <tr>
+  <td class = "tablehead">
+   <a NAME="Table of Contents"></a>   
+   <center>Table of Contents</center>
+  </td>
+ </tr>
+</table>
+
+<p><b><font face="Arial,Helvetica"><font size=+1><a href="code.html">Download
+OFDM Matlab Code</a></font></font></b>
+<br><font face="Arial,Helvetica">This is the code that was used in the
+thesis.</font>
+<p><b><font face="Arial,Helvetica"><font size=+1><a href="audio/audio.htm">Audio
+Data Demonstration</a></font></font></b>
+<br><font face="Arial,Helvetica">Shows the effect of noise and signal clipping
+on audio data sent using OFDM</font>
+                  <p><b><font face="Arial"><font size=+1><a href="chapter1.htm">1. Introduction</a></font></font></b> 
+                  <dir><b><font face="Arial"><font size=+0><a href="chapter1.htm#1.1 Third Generation Wireless Networks">1.1
+Third Generation Wireless Networks</a></font></font></b>
+<dir><i><font face="Arial"><font size=-1><a href="chapter1.htm#1.1.1 Evolution of Telecommunication Systems.">1.1.1
+Evolution of Telecommunication Systems.</a></font></font></i>
+<br><i><font face="Arial"><font size=-1><a href="chapter1.htm#1.1.2 Overall Aims of Universal Mobile">1.1.2
+Overall Aims of Universal Mobile Telecommunications System</a></font></font></i>
+<br><i><font face="Arial"><font size=-1><a href="chapter1.htm#1.1.3 Teleservices">1.1.3
+Teleservices</a></font></font></i>
+<br><i><font face="Arial"><font size=-1><a href="chapter1.htm#1.1.4 UMTS Environments">1.1.4
+UMTS Environments</a></font></font></i>
+<br><i><font face="Arial"><font size=-1><a href="chapter1.htm#1.1.5 Cell types">1.1.5
+Cell types</a></font></font></i>
+<br><i><font face="Arial"><font size=-1><a href="chapter1.htm#1.1.6 Radio Interface">1.1.6
+Radio Interface</a></font></font></i>
+<br><i><font face="Arial"><font size=-1><a href="chapter1.htm#1.1.7 Satellite Networking">1.1.7
+Satellite Networking</a></font></font></i>
+<br><i><font face="Arial"><font size=-1><a href="chapter1.htm#1.1.8 Timetable for System Implementation">1.1.8
+Timetable for System Implementation</a></font></font></i>
+<br><i><font face="Arial"><font size=-1><a href="chapter1.htm#1.1.9 Conclusion">1.1.9
+Conclusion</a></font></font></i></dir>
+<b><font face="Arial"><font size=+0><a href="chapter1.htm#1.2 Propagation Characteristics of mobile radio">1.2
+Propagation Characteristics of mobile radio channels</a></font></font></b>
+<dir><i><font face="Arial"><font size=-1><a href="chapter1.htm#1.2.1 Attenuation">1.2.1
+Attenuation</a></font></font></i>
+<br><i><font face="Arial"><font size=-1><a href="chapter1.htm#1.2.2 Multipath Effects">1.2.2
+Multipath Effects</a></font></font></i>
+<br><i><font face="Arial"><font size=-1><a href="chapter1.htm#1.2.3 Doppler Shift">1.2.3
+Doppler Shift</a></font></font></i></dir>
+<b><font face="Arial"><font size=+0><a href="chapter1.htm#1.3 Multiple Access Techniques">1.3
+Multiple Access Techniques</a></font></font></b>
+<dir><i><font face="Arial"><font size=-1><a href="chapter1.htm#1.3.1 Frequency Division Multiple Access">1.3.1
+Frequency Division Multiple Access</a></font></font></i>
+<br><i><font face="Arial"><font size=-1><a href="chapter1.htm#1.3.2 Time Division Multiple Access">1.3.2
+Time Division Multiple Access</a></font></font></i>
+<br><i><font face="Arial"><font size=-1><a href="chapter1.htm#1.3.3 Code Division Multiple Access">1.3.3
+Code Division Multiple Access</a></font></font></i>
+<br><i><font face="Arial"><font size=-1><a href="chapter1.htm#1.3.4 CDMA Process Gain">1.3.4
+CDMA Process Gain</a></font></font></i>
+<br><i><font face="Arial"><font size=-1><a href="chapter1.htm#1.3.5 CDMA Generation">1.3.5
+CDMA Generation</a></font></font></i>
+<br><i><font face="Arial"><font size=-1><a href="chapter1.htm#1.3.6 CDMA Forward Link Encoding">1.3.6
+CDMA Forward Link Encoding</a></font></font></i>
+<br><i><font face="Arial"><font size=-1><a href="chapter1.htm#1.3.7 CDMA Reverse Link Encoding">1.3.7
+CDMA Reverse Link Encoding</a></font></font></i>
+<br><i><font face="Arial"><font size=-1><a href="chapter1.htm#1.3.8 Orthogonal Frequency Division Multiplexing">1.3.8
+Orthogonal Frequency Division Multiplexing</a></font></font></i>
+<br><i><font face="Arial"><font size=-1><a href="chapter1.htm#1.3.9 OFDM generation">1.3.9
+OFDM generation</a></font></font></i>
+<br><i><font face="Arial"><font size=-1><a href="chapter1.htm#1.3.10 Adding a Guard Period to OFDM">1.3.10
+Adding a Guard Period to OFDM</a></font></font></i></dir>
+</dir>
+<b><font face="Arial"><font size=+1><a href="chapter2.htm">2. OFDM Results</a></font></font></b>
+<dir><b><font face="Arial"><font size=+0><a href="chapter2.htm#2.1 OFDM Model Used">2.1
+OFDM Model Used</a></font></font></b>
+<dir><i><font face="Arial"><font size=-1><a href="chapter2.htm#2.1.1 Serial to Parallel Conversion">2.1.1
+Serial to Parallel Conversion</a></font></font></i>
+<br><i><font face="Arial"><font size=-1><a href="chapter2.htm#2.1.2 Modulation of Data">2.1.2
+Modulation of Data</a></font></font></i>
+<br><i><font face="Arial"><font size=-1><a href="chapter2.htm#2.1.3 Inverse Fourier Transform">2.1.3
+Inverse Fourier Transform</a></font></font></i>
+<br><i><font face="Arial"><font size=-1><a href="chapter2.htm#2.1.4 Guard Period">2.1.4
+Guard Period</a></font></font></i>
+<br><i><font face="Arial"><font size=-1><a href="chapter2.htm#2.1.5 Channel">2.1.5
+Channel</a></font></font></i>
+<br><i><font face="Arial"><font size=-1><a href="chapter2.htm#2.1.6 Receiver">2.1.6
+Receiver</a></font></font></i>
+<br><i><font face="Arial"><font size=-1><a href="chapter2.htm#2.1.7 Test Setup Used">2.1.7
+OFDM Simulation Parameters</a></font></font></i></dir>
+<b><font face="Arial"><font size=+0><a href="chapter2.htm#2.2 OFDM Simulated Results">2.2
+OFDM Simulated Results</a></font></font></b>
+<dir><i><font face="Arial"><font size=-1><a href="chapter2.htm#2.2.1 Multipath Delay Spread Immunity">2.2.1
+Multipath Delay Spread Immunity</a></font></font></i>
+<br><i><font face="Arial"><font size=-1><a href="chapter2.htm#2.2.2 Peak Power Clipping">2.2.2
+Peak Power Clipping</a></font></font></i>
+<br><i><font face="Arial"><font size=-1><a href="chapter2.htm#2.2.3 Gaussian Noise Tolerance of OFDM">2.2.3
+Gaussian Noise Tolerance of OFDM</a></font></font></i>
+<br><i><font face="Arial"><font size=-1><a href="chapter2.htm#2.2.4 Timing Requirements">2.2.4
+Timing Requirements</a></font></font></i></dir>
+<b><font face="Arial"><font size=+0><a href="chapter2.htm#2.3 Practical Measurements">2.3
+Practical Measurements</a></font></font></b>
+<dir><i><font face="Arial"><font size=-1><a href="chapter2.htm#2.3.1 Extended Model">2.3.1
+Extended Model</a></font></font></i>
+<br><i><font face="Arial"><font size=-1><a href="chapter2.htm#2.3.2 Transmission Protocol">2.3.2
+Transmission Protocol</a></font></font></i>
+<br><i><font face="Arial"><font size=-1><a href="chapter2.htm#2.3.3 Video Recorder">2.3.3
+Video Recorder</a></font></font></i>
+<br><i><font face="Arial"><font size=-1><a href="chapter2.htm#2.3.4 Peak OFDM Performance for the VCR link">2.3.4
+Peak OFDM Performance for the VCR link</a></font></font></i>
+<br><i><font face="Arial"><font size=-1><a href="chapter2.htm#2.3.5 Audio Tape Player">2.3.5
+Audio Tape Player</a></font></font></i></dir>
+<b><font face="Arial"><font size=+0><a href="chapter2.htm#2.4 Picture quality verse signal to noise ratio">2.4
+Picture quality verse signal to noise ratio</a></font></font></b>
+<dir><i><font face="Arial"><font size=-1><a href="chapter2.htm#2.4.1 Setup">2.4.1
+Experimental comparison between QPSK and power averaged 256PSK</a></font></font></i>
+<br><i><font face="Arial"><font size=-1><a href="chapter2.htm#2.4.2 Results">2.4.2
+Results</a></font></font></i></dir>
+<b><font face="Arial"><font size=+0><a href="chapter2.htm#2.5 Mathematical Model for OFDM performance">2.5
+Mathematical Model for OFDM performance</a></font></font></b>
+<dir><i><font face="Arial"><font size=-1><a href="chapter2.htm#2.5.1 RMS Demodulated Phase Error">2.5.1
+RMS Demodulated Phase Error</a></font></font></i>
+<br><i><font face="Arial"><font size=-1><a href="chapter2.htm#2.5.2 BER verses Channel Noise">2.5.2
+BER verses Channel Noise</a></font></font></i></dir>
+<b><font face="Arial"><font size=+0><a href="chapter2.htm#2.6 OFDM system implementation">2.6
+OFDM system implementation</a></font></font></b>
+<dir><i><font face="Arial"><font size=-1><a href="chapter2.htm#2.6.1 Using general purpose DSPs">2.6.1
+Using general purpose DSPs</a></font></font></i>
+<br><i><font face="Arial"><font size=-1><a href="chapter2.htm#2.6.2 Future DSP Processing Power">2.6.2
+Future DSP Processing Power</a></font></font></i>
+<br><i><font face="Arial"><font size=-1><a href="chapter2.htm#2.6.3 Hardware FFT Implementation">2.6.3
+Hardware FFT Implementation</a></font></font></i></dir>
+</dir>
+<b><font face="Arial"><font size=+1><a href="chapter3.htm#3. CDMA Results">3.
+CDMA Results</a></font></font></b>
+<dir><b><font face="Arial"><font size=+0><a href="chapter3.htm#3.1 Simulated Model">3.1
+Simulated Model</a></font></font></b>
+<dir><i><font face="Arial"><font size=-1><a href="chapter3.htm#3.1.1 Forward Link">3.1.1
+Forward Link</a></font></font></i>
+<br><i><font face="Arial"><font size=-1><a href="chapter3.htm#3.1.2 Reverse Path">3.1.2
+Reverse Path</a></font></font></i></dir>
+<b><font face="Arial"><font size=+0><a href="chapter3.htm#3.2 Simulation Results">3.2
+Simulation Results</a></font></font></b>
+<dir><i><font face="Arial"><font size=-1><a href="chapter3.htm#3.2.1 BER verses the number of users in a cell">3.2.1
+BER verses the number of users in a cell</a></font></font></i></dir>
+<b><font face="Arial"><font size=+0><a href="chapter3.htm#3.3 Mathematical Model for Reverse Link">3.3
+Mathematical Model for Reverse Link</a></font></font></b>
+<dir><i><font face="Arial"><font size=-1><a href="chapter3.htm#3.3.1 Cell Capacity for a CDMA system">3.3.1
+Cell Capacity for a CDMA system</a></font></font></i>
+<br><i><font face="Arial"><font size=-1><a href="chapter3.htm#3.3.2 Capacity of a single CDMA cell">3.3.2
+Capacity of a single CDMA cell</a></font></font></i>
+<br><i><font face="Arial"><font size=-1><a href="chapter3.htm#3.3.3 Capacity of CDMA and OFDM with Multiple">3.3.3
+Capacity of CDMA and OFDM with Multiple Cells</a></font></font></i></dir>
+</dir>
+<b><font face="Arial"><font size=+1><a href="chapter4.htm#4. Conclusion">4.
+Conclusion</a></font></font></b>
+<p><b><font face="Arial"><font size=+1><a href="appendix.htm#Bibliography">Bibliography</a></font></font></b>
+<p><b><font face="Arial"><font size=+1><a href="appendix.htm#Appendix I.">Appendix
+I. Acronyms</a></font></font></b>
+<p><b><font face="Arial"><font size=+1><a href="appendix.htm#Appendix II.">Appendix
+II. OFDM Guassian Noise Performance Prediction</a></font></font></b>
+<p><b><font face="Arial"><font size=+1><a href="appendix.htm#Appendix III.">Appendix
+III. BER verses Eb/No for a CDMA system</a></font></font></b></td>
+</tr>
+
+<tr>
+<td>
+
+<table CELLSPACING=0 CELLPADDING=2 COLS=1 WIDTH="100%" BGCOLOR="#2030C0" >
+ <tr>
+  <td class = "tablehead"><a NAME="Acknowledgements"></a>
+   <center>Acknowledgements</center>
+  </td>
+ </tr>
+</table>
+<p class="bodytext">I would like to thank my supervisor Prof.
+Keith Kikkert for the endless hours of help, suggestions, ideas and advise
+during the development of this thesis. I would also like to thank Prof.
+Greg Allen for his advise, focus, and pep talks to keep me on track.
+
+<p class="bodytext">Finally, I would like to thank my computer
+for only crashing seriously once during the writing of this thesis.</p>
+
+<center>
+<table CELLPADDING=3 COLS=1 WIDTH="100%" BGCOLOR="#2030C0">
+ <tr>
+  <td><font face="Arial,Helvetica" style="color:white">Copyright 1997-2001 Eric Lawrey, 
+   <a href="mailto:Eric@skydsp.com" class="topnav">Eric@skydsp.com</a>&nbsp;&nbsp;
+   Last Updated: 2nd December 2001</font></td>
+ </tr>
+</table>
+</center>
+<!-- ============== End page content ================== -->
+
+         </td>
+        </tr>
+       </table>    	
+      </td>
+     </tr>
+    </table>
+   </td>
+  </tr>
+ </table>
+<div align=center style="color:white; font-size: 10px">Copyright &copy; 2001 Sky DSP</div>
+</body>
+
+</html>

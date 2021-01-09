@@ -1,0 +1,813 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="Author" content="Eric Lawrey">
+ <meta name="Description" content="This page contains a range of publications and applications notes on OFDM wireless technology, telemetry logging systems, and software radio">
+ <meta name="KeyWords" content="OFDM, Orthogonal Frequency Division Multiplexing, Multiuser, Multiuser OFDM, Adaptive Frequency Hopping, Frequency Hopping, Adaptive Modulation, communcations, research, paper, telemetry, datalogging, temperature sensing, software radio, demo, tutorial, information">
+ <title>OFDM as a modulation technique for wireless communications, with a CDMA comparison</title>
+ <LINK REL=StyleSheet HREF="../../../styles/style.css" TYPE="text/css" MEDIA=screen>
+
+</head>
+
+<body bgcolor="#666666">   <!-- color of the outter page backgroud -->
+ <table border="0" width="700"  background="../../../main_graphics/top_right_bar.jpg" cellspacing="0" cellpadding="0" align=center>
+  <tr>
+   <td><img src="../../../main_graphics/Top_boarder.jpg" width="285" height="80" alt="Sky DSP logo"></td>
+   <td>
+
+   <!-- =============== Header Graphics and title ======================== -->
+   &nbsp
+
+   <!-- =============== End Header Graphic ===================== -->
+
+  </td>
+ </tr>
+</table>
+
+<table border="0" width="700"  cellspacing="0" cellpadding="0" align=center>
+  <tr>
+    <td class="tbody"><img src="../../../main_graphics/Side_boarder1.jpg" border=0 width="120" height="20"></td>
+    <td width="100%" bgcolor="#000000">
+    <center>
+    <!-- ================ Top Navigation bar =================== -->
+     <a href="../index.htm#Table of Contents" class="topnav">Index</a>&nbsp &nbsp
+     <a href="../chapter1.htm" class="topnav">Chapter 1</a>&nbsp &nbsp
+     <a href="../chapter2.htm" class="topnav">Chapter 2</a>&nbsp &nbsp
+     <a href="../chapter3.htm" class="topnav">Chapter 3</a>&nbsp &nbsp 
+     <a href="../chapter4.htm" class="topnav">Conclusion</a>&nbsp &nbsp 
+     <a href="../appendix.htm" class="topnav">Appendix</a>&nbsp &nbsp 
+     <a href="../code.html" class="topnav">Matlab Code</a>&nbsp &nbsp 
+     <a href="audio.htm" class="topnav">Audio Demo</a>&nbsp &nbsp 
+    <!-- ============= End Top Navigation bar ================== -->
+    </center>
+</td>
+</tr>
+</table>
+
+<table border="0" width="700"  height="500" cellspacing="0" cellpadding="0" align=center>
+  <tr>
+    <td valign="top" bgcolor="#5E73DE"> <img src="../../../main_graphics/Side_boarder2.jpg" height="70" width="120"> 
+      <!-- ================== Navigation Bar =======================--> <!-- #BeginLibraryItem "/Library/Navbar.lbi" --> 
+<table width=100% align="center" border=0 cellspacing=8>
+  <tr> 
+    <td align="right"><a href="../../../index.htm" class="sidebar">Home</a></td>
+  </tr>
+  <tr> 
+    <td align="right"><a href="../../index.htm" class="sidebar">Publications</a></td>
+  </tr>
+  <tr>
+    <td align="right"><a href="../../../links/index.htm" class="sidebar">Links</a></td>
+  </tr>
+  <tr> 
+    <td align="right"><a href="../../../glossary.htm" class="sidebar">Glossary</a></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<!-- #EndLibraryItem --> <!-- ================== End Navigation Bar =======================--> 
+    </td>
+
+    <td width="100%" align="right" height="100%" valign="top">
+     <img src="../../../main_graphics/x.gif" height="3" width="580"><br>
+     <table  width="577" height="100%" border="0" bgcolor="black" cellpadding="0" cellspacing="1">
+      <tr>
+        <td bgcolor="#FFFFFF" height="100%" valign="top">
+
+        <!-- inner table where the page contens goes -->
+        <table cellspacing=10 border=0 align=center width="100%">
+         <tr><td width="50%" valign=top>
+
+
+<!-- ============== Page Content ====================== -->
+
+<center><table CELLSPACING=0 CELLPADDING=2 WIDTH="100%" BGCOLOR="#2030C0" >
+ <tr>
+  <td class = "tablehead">
+   <center>OFDM Audio Tests</center>
+  </td>
+ </tr>
+</table>
+</center>
+
+<p class="bodytext">By Eric Lawrey, Copyright 1997</p>
+<p class="bodytext">This page shows some OFDM examples to demonstrate
+the effect of noise on the OFDM signal and several other tests. The aim
+was to be able to demonstrate these effects on the OFDM signal.</p>
+
+<br>
+<center>
+<table CELLSPACING=0 CELLPADDING=2 WIDTH="100%" BGCOLOR="#2030C0" >
+ <tr>
+  <td class = "tablehead">
+   <center>OFDM Setup</center>
+  </td>
+ </tr>
+</table>
+</center>
+<br>
+<center><table BORDER >
+<tr>
+<td class="thead">Parameter</td>
+<td class="thead">Value</td>
+</tr>
+
+<tr>
+<td class="tbody">FFT size</td>
+<td class="tbody">2048</td>
+</tr>
+
+<tr>
+<td class="tbody">
+Number of Carriers
+</td>
+
+<td class="tbody">
+800
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+Guard Period
+</td>
+
+<td class="tbody">
+512 samples
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+Guard Type
+</td>
+
+<td class="tbody">
+Half cyclic extension, half zero amplitude
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+Sample rate of OFDM signal
+</td>
+
+<td class="tbody">
+44.1kHz
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+Bandwidth
+</td>
+
+<td class="tbody">
+17.5kHz
+</td>
+</tr>
+</table></center>
+
+<p class="bodytext">
+<center>
+<a href="QPSK/Original.wav"><img SRC="sound.gif" height=22 width=23 align=top>
+Original Sound Transmission </a>(Music by the Corrs)</center></p>
+
+<br>
+<center>
+<table CELLSPACING=0 CELLPADDING=2 WIDTH="100%" BGCOLOR="#2030C0" >
+ <tr>
+  <td class = "tablehead">
+   <center>OFDM Noise Tolerance</center>
+  </td>
+ </tr>
+</table>
+</center>
+<br>
+
+<p class="bodytext">The small sound clip was used as the data
+source for the OFDM transmission. The wavefile was transfered across the
+simulated link as channel noise was varied. This shows effect of the channel
+noise of the data being transfered.</p>
+
+<br>
+<center>
+<table CELLSPACING=0 CELLPADDING=2 WIDTH="100%" BGCOLOR="#2030C0" >
+ <tr>
+  <td class = "tablehead">
+   <center>QPSK Noise Tolerance</center>
+  </td>
+ </tr>
+</table>
+</center>
+<br>
+
+
+<center><img SRC="OFDMsignalQPSK.gif" height=70 width=540></center>
+<p class="caption">Figure 1 Complete OFDM signal for sound
+transmission (using QPSK)</p>
+
+<center>
+                    <a href="../../../resources/OFDMsignal.wav"><img SRC="sound.gif" height=22 width=23 align=TOP>OFDM 
+                    signal (683kB)</a>
+</center>
+
+<center><table BORDER >
+<tr>
+<td class="tbody">Parameter</td>
+<td class="tbody">Value</td>
+</tr>
+
+<tr>
+<td class="tbody">Multipath</td>
+
+<td class="tbody">None</td>
+</tr>
+
+<tr>
+<td class="tbody">Peak Power Compression</td>
+
+<td class="tbody">None</td>
+</tr>
+
+<tr>
+<td class="tbody">Input Data Wave Format</td>
+
+<td class="tbody">4.33sec, Mono, 11kHz, 8bit</td>
+</tr>
+
+<tr>
+<td class="tbody">OFDM signal length</td>
+
+<td class="tbody">15.26sec</td>
+</tr>
+</table></center>
+<br>
+<center><table BORDER >
+<tr>
+<td class="thead">Parameter</td>
+
+<td class="thead">Result</td>
+</tr>
+
+<tr>
+<td class="tbody">SNR</td>
+
+<td class="tbody">12dB</td>
+</tr>
+
+<tr>
+<td class="tbody">Bit Error Rate</td>
+
+<td class="tbody">0.000277</td>
+</tr>
+
+<tr>
+<td class="tbody">RMS phase error</td>
+
+<td class="tbody">12.1 degrees</td>
+</tr>
+
+<tr>
+<td class="tbody">Total Number of errors</td>
+
+<td class="tbody">53</td>
+</tr>
+
+<tr>
+<td class="tbody">Received Data</td>
+
+<td class="tbody"><a href="QPSK/SNR12dB_QPSK.wav"><img SRC="sound.gif" BORDER=0 height=22 width=23 align=TOP>SNR12dB_QPSK.wav (47kB)</a></td>
+</tr>
+</table></center>
+<br>
+
+<center><table BORDER >
+<tr>
+<td class="thead">Parameter</td>
+
+<td class="thead">Result</td>
+</tr>
+
+<tr>
+<td class="tbody">SNR</td>
+
+<td class="tbody">8dB</td>
+</tr>
+
+<tr>
+<td class="tbody">Bit Error Rate</td>
+
+<td class="tbody">0.02145</td>
+</tr>
+
+<tr>
+<td class="tbody">RMS phase error</td>
+
+<td class="tbody">19.37 degrees</td>
+</tr>
+
+<tr>
+<td class="tbody">Total Number of errors</td>
+
+<td class="tbody">4105</td>
+</tr>
+
+<tr>
+<td class="tbody">Received Data</td>
+
+<td class="tbody"><a href="QPSK/SNR8dB_QPSK.wav"><img SRC="sound.gif" BORDER=0 height=22 width=23 align=TOP>SNR8dB_QPSK.wav (47kB)</a></td>
+</tr>
+</table></center>
+<br>
+<center><table BORDER >
+<tr>
+<td class="thead">Parameter</td>
+
+<td class="thead">Result</td>
+</tr>
+
+<tr>
+<td class="tbody">SNR</td>
+
+<td class="tbody">4dB</td>
+</tr>
+
+<tr>
+<td class="tbody">Bit Error Rate</td>
+
+<td class="tbody">0.1591</td>
+</tr>
+
+<tr>
+<td class="tbody">RMS phase error</td>
+
+<td class="tbody">33.31 degrees</td>
+</tr>
+
+<tr>
+<td class="tbody">Total Number of errors</td>
+
+<td class="tbody">3.044e+004</td>
+</tr>
+
+<tr>
+<td class="tbody">Received Data</td>
+
+<td class="tbody"><a href="QPSK/SNR4dB_QPSK.wav"><img SRC="sound.gif" BORDER=0 height=22 width=23 align=TOP>SNR4dB_QPSK.wav (47kB)</a></td>
+</tr>
+</table></center>
+
+
+
+<br><center><table CELLSPACING=0 CELLPADDING=2 WIDTH="100%" BGCOLOR="#2030C0" >
+ <tr>
+  <td class = "tablehead">
+   <center>256PSK Noise Tolerance</center>
+  </td>
+ </tr>
+</table>
+</center>
+<br>
+
+<center><img SRC="OFDMsignal.gif" height=70 width=540></center>
+
+<p class="caption">Figure 2 Complete OFDM signal for sound transmission (using QPSK)</p>
+
+<center>
+                    <a href="../../../resources/orig_256PSK.wav"><img SRC="sound.gif" height=22 width=23 align=TOP>OFDM 
+                    signal (203kB)</a>
+</center>
+
+<p class="bodytext">The 256PSK modulation was achieved by sending
+each 8bit sample of the input data sound file, was sent as one carrier
+on one symbol. Using this, the amplitude of the input wave file is mapped
+to a proportional phase angle, thus any phase error occuring in the transmission
+results in noise on the data soud file.</p>
+
+
+<center><table BORDER >
+<tr>
+<td class="thead">Parameter</td>
+
+<td class="thead">Value</td>
+</tr>
+
+<tr>
+<td class="tbody">Multipath</td>
+
+<td class="tbody">None</td>
+</tr>
+
+<tr>
+<td class="tbody">Peak Power Compression</td>
+
+<td class="tbody">None</td>
+</tr>
+
+<tr>
+<td class="tbody">Input Data Wave Format</td>
+
+<td class="tbody">4.33sec, Mono, 11kHz, 8bit</td>
+</tr>
+
+<tr>
+<td class="tbody">OFDM signal length</td>
+
+<td class="tbody">4.702sec</td>
+</tr>
+</table></center>
+<br>
+
+<center><table BORDER >
+<tr>
+<td class="thead">Parameter</td>
+
+<td class="thead">Result</td>
+</tr>
+
+<tr>
+<td class="tbody">SNR</td>
+
+<td class="tbody">12dB</td>
+</tr>
+
+<tr>
+<td class="tbody">Bit Error Rate</td>
+
+<td class="tbody">0.9534</td>
+</tr>
+
+<tr>
+<td class="tbody">RMS phase error</td>
+
+<td class="tbody">11.89 degrees</td>
+</tr>
+
+<tr>
+<td class="tbody">Total Number of errors</td>
+
+<td class="tbody">4.561e+004</td>
+</tr>
+
+<tr>
+<td class="tbody">Received Data</td>
+
+<td class="tbody"><a href="256PSK/SNR12dB_256PSK.wav"><img SRC="sound.gif" BORDER=0 height=22 width=23 align=TOP>SNR12dB_256PSK.wav (47kB)</a></td>
+</tr>
+</table></center>
+<br>
+
+<center><table BORDER >
+<tr>
+<td class="thead">Parameter</td>
+
+<td class="thead">Result</td>
+</tr>
+
+<tr>
+<td class="tbody">SNR</td>
+
+<td class="tbody">8dB</td>
+</tr>
+
+<tr>
+<td class="tbody">Bit Error Rate</td>
+
+<td class="tbody">0.9716</td>
+</tr>
+
+<tr>
+<td class="tbody">RMS phase error</td>
+
+<td class="tbody">19.35 degrees</td>
+</tr>
+
+<tr>
+<td class="tbody">Total Number of errors</td>
+
+<td class="tbody">4.648e+004</td>
+</tr>
+
+<tr>
+<td class="tbody">Received Data</td>
+
+<td class="tbody"><a href="256PSK/SNR8dB_256PSK.wav"><img SRC="sound.gif" BORDER=0 height=22 width=23 align=TOP>SNR8dB_256PSK.wav (47kB)</a></td>
+</tr>
+</table></center>
+
+<center><table BORDER >
+<tr>
+<td class="thead">Parameter</td>
+
+<td class="thead">Result</td>
+</tr>
+
+<tr>
+<td class="tbody">SNR</td>
+
+<td class="tbody">4dB</td>
+</tr>
+
+<tr>
+<td class="tbody">Bit Error Rate</td>
+
+<td class="tbody">0.982</td>
+</tr>
+
+<tr>
+<td class="tbody">RMS phase error</td>
+
+<td class="tbody">33.05 degrees</td>
+</tr>
+
+<tr>
+<td class="tbody">Total Number of errors</td>
+
+<td class="tbody">4.698e+004</td>
+</tr>
+
+<tr>
+<td class="tbody">Received Data</td>
+
+<td class="tbody"><a href="256PSK/SNR4dB_256PSK.wav"><img SRC="sound.gif" BORDER=0 height=22 width=23 align=TOP>SNR4dB_256PSK.wav (47kB)</a></td>
+</tr>
+</table></center>
+
+
+
+<br><center><table CELLSPACING=0 CELLPADDING=2 WIDTH="100%" BGCOLOR="#2030C0" >
+ <tr>
+  <td class = "tablehead">
+   <center>256PSK wuth Data Averaging</center>
+  </td>
+ </tr>
+</table>
+</center>
+<br>
+
+<p class="bodytext">4 repeats of each symbol were sent using
+256PSK modulation. This gives the same data rate and bandwidth as QPSK.
+The phase angle of the 4 repeats of each symbol were averaged at the receiver,
+effectively reducing the noise by 6dB. This results in the signal having
+better performance then QPSK for SNR conditions &lt;~9dB.</p>
+
+<center><table BORDER >
+<tr>
+<td class="tbody">SNR</td>
+<td class="tbody">12dB</td>
+</tr>
+
+<tr>
+<td class="tbody">Received Data</td>
+<td class="tbody"><a href="256PSK/SNR12dB_4Avg.wav"><img SRC="sound.gif" BORDER=0 height=22 width=23 align=TOP>SNR12dB_4Avg.wav (47kB)</a></td>
+</tr>
+</table></center>
+<br>
+
+<center><table BORDER >
+<tr>
+<td class="tbody">SNR</td>
+
+<td class="tbody">4dB</td>
+</tr>
+
+<tr>
+<td class="tbody">Received Data</td>
+
+<td class="tbody"><a href="256PSK/SNR4dB_4Avg.wav"><img SRC="sound.gif" BORDER=0 height=22 width=23 align=TOP>SNR4dB_4Avg.wav (47kB)</a></td>
+</tr>
+</table></center>
+
+
+
+<br><center><table CELLSPACING=0 CELLPADDING=2 WIDTH="100%" BGCOLOR="#2030C0" >
+ <tr>
+  <td class = "tablehead">
+   <center>Peak Power Clipping</center>
+  </td>
+ </tr>
+</table>
+</center>
+<br>
+<center><img SRC="Comp12dB.gif" height=72 width=540></center>
+
+<p class="caption">Figure 3 Clipped OFDM signal (clipped by 12dB)</p>
+
+<center>
+                    <a href="../../../resources/OFDMcomp12dB.wav"><img SRC="sound.gif" height=22 width=23 align=TOP>OFDM 
+                    signal (683kB)</a>
+</center>
+
+<center><table WIDTH="50%" >
+<tr>
+<td class="tbody">Note: The clipped OFDM signal
+is much louder as the peak to RMS power of the signal is much lower, resulting
+in more signal energy of the same maximum amplitude. The signal was rescaled
+back up in amplitude after clipping.</td>
+</tr>
+</table></center>
+
+<p class="bodytext">In this test the OFDM signal is clipped
+so that the peak power of the signal is reduced. Clipping of the OFMD signal
+causes intermodulation distortion leading to an increase in the bit error
+rate. This test also shows the peak to RMS power ratio for the OFDM signal
+before and after clipping. The non-clipped OFDM signal has a peak to RMS
+power ratio of 13.8dB, which is quite high. This could explain why clipping
+the signal by up to 9dB has little effect on the error rate.</p>
+
+<table BORDER COLS=2 WIDTH="100%" >
+<tr>
+<td class="tbody">Close up of 12dB clipped OFDM signal
+<br><a href="QPSK/Comp12dBClose.gif"><img SRC="Comp12dBsm.gif" BORDER=0 height=120 width=150></a>
+<p class="bodytext">Click on the image for larger version</p>
+
+<p class="bodytext">This shows a close up of the clipped OFDM
+signal. It can be seen that the signal is still very complex, however the
+signal is more dense the the original signal</p></td>
+
+<td class="tbody">Close up of original OFDM signal
+<br><a href="QPSK/OFDMClose.gif"><img SRC="OFDMsm.gif" BORDER=0 height=119 width=150></a>
+<br><p class="bodytext">Click on the image for a larger version</p>
+<br><p class="bodytext">This is a close up of the OFDM signal.
+It shows that the signal simply looks like white noise.<p>
+</td>
+</tr>
+</table>
+
+<p class="bodytext">The next table shows the effect of clipping
+a normal wave file. The original sound file was clipped in the same way
+as the OFDM signal, to give an idea of how much distortion is caused by
+clipping a signal. Clipping the signal doesn't have as much effect as you
+would expect. The music is still quite understandable.</p>
+
+<center><table BORDER >
+<tr>
+<td class="tbody">Peak Power Compression</td>
+
+<td class="tbody">12dB</td>
+
+<td class="tbody">20dB</td>
+</tr>
+
+<tr>
+<td class="tbody">Clipped Original Wave File</td>
+
+<td class="tbody"><a href="QPSK/orig_COMP12dB.wav"><img SRC="sound.gif" height=22 width=23 align=TOP></a>(47kB)</td>
+
+<td class="tbody"><a href="QPSK/orig_COMP20dB.wav"><img SRC="sound.gif" height=22 width=23 align=TOP></a>(47kB)</td>
+</tr>
+</table></center>
+<br>
+
+
+<center><table BORDER >
+<tr>
+<td class="thead">Parameter</td>
+<td class="thead">Value</td>
+</tr>
+
+<tr>
+<td class="tbody">Multipath</td>
+<td class="tbody">None</td>
+</tr>
+
+<tr>
+<td class="tbody">Input Data Wave Format</td>
+<td class="tbody">4.33sec, Mono, 11kHz, 8bit</td>
+</tr>
+
+<tr>
+<td class="tbody">OFDM Max Signal Level</td>
+<td class="tbody">0.0889</td>
+</tr>
+
+<tr>
+<td class="tbody">OFDM RMS Signal Level</td>
+<td class="tbody">0.0182</td>
+</tr>
+
+<tr>
+<td class="tbody">OFDM Peak to RMS power ratio</td>
+<td class="tbody">13.7635dB</td>
+</tr>
+
+<tr>
+<td class="tbody">OFDM signal length</td>
+<td class="tbody">15.36sec</td>
+</tr>
+</table></center>
+
+<p class="caption">The results in the above table are for the original OFDM signal before any clipping.</p>
+
+<center><table BORDER >
+<tr>
+<td class="thead">Parameter</td>
+<td class="thead">Result</td>
+</tr>
+
+<tr>
+<td class="tbody">Peak Power Compression&nbsp;</td>
+<td class="tbody">12dB</td>
+</tr>
+
+<tr>
+<td class="tbody">Bit Error Rate</td>
+<td class="tbody">0.003543</td>
+</tr>
+
+<tr>
+<td class="tbody">RMS phase error</td>
+<td class="tbody">15.14 degrees</td>
+</tr>
+
+<tr>
+<td class="tbody">Total Number of errors</td>
+<td class="tbody">678</td>
+</tr>
+
+<tr>
+<td class="tbody">Max Signal Level</td>
+<td class="tbody">0.02174</td>
+</tr>
+
+<tr>
+<td class="tbody">RMS Signal Level</td>
+<td class="tbody">0.01393</td>
+</tr>
+
+<tr>
+<td class="tbody">Peak to RMS power ratio</td>
+<td class="tbody">3.867dB</td>
+</tr>
+
+<tr>
+<td class="tbody">Received Data</td>
+<td class="tbody"><a href="QPSK/COMP12dB_QPSK.wav"><img SRC="sound.gif" BORDER=0 height=22 width=23 align=TOP>COMP12dB_QPSK.wav (47kB)</a></td>
+</tr>
+</table></center>
+<br>
+
+<center><table BORDER >
+<tr>
+<td class="thead">Parameter</td>
+<td class="thead">Result</td>
+</tr>
+
+<tr>
+<td class="tbody">Peak Power Compression&nbsp;</td>
+<td class="tbody">20dB</td>
+</tr>
+
+<tr>
+<td class="tbody">Bit Error Rate</td>
+<td class="tbody">0.1205</td>
+</tr>
+
+<tr>
+<td class="tbody">RMS phase error</td>
+<td class="tbody">29.59 degrees</td>
+</tr>
+
+<tr>
+<td class="tbody">Total Number of errors</td>
+<td class="tbody">2.306e+004</td>
+</tr>
+
+<tr>
+<td class="tbody">Max Signal Level</td>
+<td class="tbody">0.008691</td>
+</tr>
+
+<tr>
+<td class="tbody">RMS Signal Level</td>
+<td class="tbody">0.007097</td>
+</tr>
+
+<tr>
+<td class="tbody">Peak to RMS power ratio</td>
+<td class="tbody">1.76dB</td>
+</tr>
+
+<tr>
+<td class="tbody">Received Data</td>
+<td class="tbody"><a href="QPSK/COMP20dB_QPSK.wav"><img SRC="sound.gif" BORDER=0 height=22 width=23 align=TOP>COMP20dB_QPSK.wav (47kB)</a></td>
+</tr>
+</table></center>
+<br>
+
+
+<!-- ============== End page content ================== -->
+
+         </td>
+        </tr>
+       </table>    	
+      </td>
+     </tr>
+    </table>
+   </td>
+  </tr>
+ </table>
+<div align=center style="color:white; font-size: 10px">Copyright &copy; 2001 Sky DSP</div>
+</body>
+
+</html>

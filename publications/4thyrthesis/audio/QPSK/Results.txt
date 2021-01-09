@@ -1,0 +1,98 @@
+
+OFDM Settings:
+==============
+Modulation: 		QPSK
+FFT size:		2048
+Num Carriers:		800
+Guard Period:		512 samples
+Guard Type:		Half cyclic extension, Half zero
+Data Averaging:		No repeats of the data
+Frame Length:		30 symbols
+
+Original Tx
+============
+Max Signal Level (peak) = 0.0889
+RMS Signal Level = 0.0182
+Peak to RMS ratio = 13.7635dB
+
+=================
+SNR12dB_QPSK.wav
+=================
+SNR:			12dB
+Multipath:		None
+Peak Power Compression:	None
+Input Wavefile Length:	4.33 sec
+Input Wavefile : 	Mono, 11kHz, 8bit
+Results:
+=========
+OFDM signal Generated:	15.26 sec
+BER = 0.000277    
+RMS phase error = 12.1  degrees  	
+Total number of errors = 53
+
+=================
+SNR 8dB_QPSK.wav
+=================
+SNR:			8dB
+Multipath:		None
+Peak Power Compression:	None
+Input Wavefile Length:	4.33 sec
+Input Wavefile : 	Mono, 11kHz, 8bit
+
+Results:
+=========
+BER = 0.02145    
+RMS phase error = 19.37  degrees  
+Total number of errors = 4105
+
+=================
+SNR4dB_QPSK.wav
+=================
+SNR:			4dB
+Multipath:		None
+Peak Power Compression:	None
+Input Wavefile Length:	4.33 sec
+Input Wavefile : 	Mono, 11kHz, 8bit
+
+Results:
+=========
+BER = 0.1591    
+RMS phase error = 33.31  degrees  
+Total number of errors = 3.044e+004
+
+=================
+COMP12dB_QPSK.wav
+=================
+SNR:			>80dB
+Multipath:		None
+Peak Power Compression:	12dB
+Input Wavefile Length:	4.33 sec
+Input Wavefile : 	Mono, 11kHz, 8bit
+
+Results:
+=========
+Max Signal Level: 0.02174
+RMS Signal Level: 0.01393
+Peak to RMS power ratio : 3.867dB
+BER = 0.003543    
+RMS phase error = 15.14 degrees   
+Total number of errors = 678
+
+=================
+COMP12dB_QPSK.wav
+=================
+SNR:			>80dB
+Multipath:		None
+Peak Power Compression:	20dB
+Input Wavefile Length:	4.33 sec
+Input Wavefile : 	Mono, 11kHz, 8bit
+
+Results:
+=========
+Max Signal Level: 0.008691
+RMS Signal Level: 0.007097
+Peak to RMS power ratio : 1.76dB
+BER = 0.1205    
+RMS phase error = 29.59 degrees    
+Total number of errors = 2.306e+004
+

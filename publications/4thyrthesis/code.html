@@ -1,0 +1,162 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="Author" content="Eric Lawrey">
+ <meta name="Description" content="This page contains a range of publications and applications notes on OFDM wireless technology, telemetry logging systems, and software radio">
+ <meta name="KeyWords" content="OFDM, Orthogonal Frequency Division Multiplexing, Multiuser, Multiuser OFDM, Adaptive Frequency Hopping, Frequency Hopping, Adaptive Modulation, communcations, research, paper, telemetry, datalogging, temperature sensing, software radio">
+ <title>Thesis code by Eric Lawrey</title>
+ <LINK REL=StyleSheet HREF="../../styles/style.css" TYPE="text/css" MEDIA=screen>
+
+</head>
+
+<body bgcolor="#666666">   <!-- color of the outter page backgroud -->
+ <table border="0" width="700"  background="../../main_graphics/top_right_bar.jpg" cellspacing="0" cellpadding="0" align=center>
+  <tr>
+   <td><img src="../../main_graphics/Top_boarder.jpg" width="285" height="80" alt="Sky DSP logo"></td>
+   <td>
+
+   <!-- =============== Header Graphics and title ======================== -->
+   &nbsp   
+
+   <!-- =============== End Header Graphic ===================== -->
+
+  </td>
+ </tr>
+</table>
+
+<table border="0" width="700"  cellspacing="0" cellpadding="0" align=center>
+  <tr>
+    <td><img src="../../main_graphics/Side_boarder1.jpg" border=0 width="120" height="20"></td>
+    <td width="100%" bgcolor="#000000">
+    <center>
+    <!-- ================ Top Navigation bar =================== -->
+     <a href="index.htm#Table of Contents" class="topnav">Index</a>&nbsp &nbsp
+     <a href="chapter1.htm" class="topnav">Chapter 1</a>&nbsp &nbsp
+     <a href="chapter2.htm" class="topnav">Chapter 2</a>&nbsp &nbsp
+     <a href="chapter3.htm" class="topnav">Chapter 3</a>&nbsp &nbsp 
+     <a href="chapter4.htm" class="topnav">Conclusion</a>&nbsp &nbsp 
+     <a href="appendix.htm" class="topnav">Appendix</a>&nbsp &nbsp 
+     <a href="code.html" class="topnav">Matlab Code</a>&nbsp &nbsp 
+     <a href="audio/audio.htm" class="topnav">Audio Demo</a>&nbsp &nbsp 
+    <!-- ============= End Top Navigation bar ================== -->
+    </center>
+</td>
+</tr>
+</table>
+
+<table border="0" width="700"  height="500" cellspacing="0" cellpadding="0" align=center>
+  <tr>
+    <td valign="top" bgcolor="#5E73DE"> <img src="../../main_graphics/Side_boarder2.jpg" height="70" width="120"> 
+      <!-- ================== Navigation Bar =======================--> <!-- #BeginLibraryItem "/Library/Navbar.lbi" --> 
+<table width=100% align="center" border=0 cellspacing=8>
+  <tr> 
+    <td align="right"><a href="../../index.htm" class="sidebar">Home</a></td>
+  </tr>
+  <tr> 
+    <td align="right"><a href="../index.htm" class="sidebar">Publications</a></td>
+  </tr>
+  <tr>
+    <td align="right"><a href="../../links/index.htm" class="sidebar">Links</a></td>
+  </tr>
+  <tr> 
+    <td align="right"><a href="../../glossary.htm" class="sidebar">Glossary</a></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<!-- #EndLibraryItem --> <!-- ================== End Navigation Bar =======================--> 
+    </td>
+
+    <td width="100%" align="right" height="100%" valign="top">
+     <img src="../../main_graphics/x.gif" height="3" width="580"><br>
+     <table  width="577" height="100%" border="0" bgcolor="black" cellpadding="0" cellspacing="1">
+      <tr>
+        <td bgcolor="#FFFFFF" height="100%" valign="top">
+
+        <!-- inner table where the page contens goes -->
+        <table cellspacing=10 border=0 align=center width="100%">
+         <tr><td width="50%" valign=top>
+
+
+<!-- ============== Page Content ====================== -->
+
+<center>
+<table CELLSPACING=0 CELLPADDING=2 WIDTH="100%" BGCOLOR="#2030C0" >
+ <tr>
+  <td class = "tablehead">
+   <center>OFDM Transceiver code</center>
+  </td>
+ </tr>
+</table>
+</center>
+
+<p class="bodytext">This code was used for making the practical
+measurements in section 2.3 of my thesis. This Matlab code allows an OFDM
+signal to be generated based on an input data file. The data can be random
+data, a grey scale image, a wave file, or any type of file. The generated
+OFDM signal is stored as a windows wave file, allowing it to be viewed,
+listened to and manipulated in other programs. The modified wave file can
+then be decoded by the receiver software to extract the original data.
+This code was developed for the experiments that I performed in my honours
+thesis, and thus has not been fully debugged.</p>
+
+<p class="bodytext">This is the original code developed for
+the thesis and so has several problems with it. The BER performance given
+by the simulations is infact Symbol Error Rate.</p>
+
+                  <li><a href="../../resources/ofdmmatlab5.zip">Matlab 5 Code for OFDM generation 
+                    and reception (150kB)</a></li>
+                  <li><a href="../../resources/OFDMcode.zip">Matlab 4.2 Code for OFDM generation 
+                    and reception (160kB)</a></li>
+<br>
+<table CELLSPACING=0 CELLPADDING=2 WIDTH="100%" BGCOLOR="#2030C0" >
+ <tr>
+  <td class = "tablehead">
+   <center>OFDM and CDMA Simulation code</center>
+  </td>
+ </tr>
+</table>
+
+
+<p class="bodytext">This code was used for generating the
+performance graphs shown in my thesis. I have updated it to run on Matlab
+5.3, however it should still run on Matlab 4. The OFDM simulations are
+each in a different directory. The cdma code uses generalised code that
+allows for various different tests. The BER performance given by the simulations
+is infact Symbol Error Rate.</p>
+
+<p class="bodytext"><b>OFDM</b></p>
+<p class="bodytext">
+<li>BER verses Multipath Delay Spread (Figure 17)</li>
+<li>Effect of peak power clipping on OFDM (Figure 18)</li>
+<li>BER verses SNR for OFDM with DBPSK DQPSK, D16PSK (Figure 19)</li>
+<li>Effect of frame synchronisation error on the BER for OFDM (Figure 20)</li>
+<p></p>
+
+<p class="bodytext"><b>CDMA</b></p>
+<p class="bodytext">
+<li>BER verse number of users for reverse link(Figure 34)</li>
+<li>BER verses Multipath delay spread (Figure 35)</li>
+<li>Equivalent number of users due to multipath signals (Figure 36)</li>
+<li>BER verses Peak Power Clipping (Figure 37)</li>
+<p></p>
+
+                  <li><a href="../../resources/thesissim.zip">OFDM and CDMA simulation code (95kB)</a></li>
+<br>
+<center><a href="../index.htm">Up Publications</a></center>
+
+<!-- ============== End page content ================== -->
+
+         </td>
+        </tr>
+       </table>    	
+      </td>
+     </tr>
+    </table>
+   </td>
+  </tr>
+ </table>
+<div align=center style="color:white; font-size: 10px">Copyright &copy; 2001 Sky DSP</div>
+</body>
+
+</html>

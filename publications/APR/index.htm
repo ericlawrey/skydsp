@@ -1,0 +1,586 @@
+<html><!-- #BeginTemplate "/Templates/skydsp paper.dwt" -->
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="Author" content="Eric Lawrey">
+ <meta name="Description" content="This page contains a range of publications and applications notes on OFDM wireless technology, telemetry logging systems, and software radio">
+ <meta name="KeyWords" content="OFDM, Orthogonal Frequency Division Multiplexing, Multiuser, Multiuser OFDM, Adaptive Frequency Hopping, Frequency Hopping, Adaptive Modulation, communcations, research, paper, telemetry, datalogging, temperature sensing, software radio">
+<!-- #BeginEditable "doctitle" --> 
+<title>Welcome to SkyDSP, OFDM systems, telemetry, software radio</title>
+<!-- #EndEditable --> 
+<LINK REL=StyleSheet HREF="../../styles/style.css" TYPE="text/css" MEDIA=screen>
+
+</head>
+
+<body bgcolor="#666666">   <!-- color of the outter page backgroud -->
+ <table border="0" width="700" background="../../main_graphics/top_right_bar.jpg" height="80" cellspacing="0" cellpadding="0" align=center>
+  <tr>
+    <td width="285" height="80"><img src="../../main_graphics/Top_boarder.jpg" border=0 width="283" height="80" alt="Sky DSP logo"></td>
+   <td width="100%">
+
+   <!-- =============== Header Graphics ======================== -->
+   <font color=white>
+      <H1><!-- #BeginEditable "Page%20Title" --><!-- #EndEditable --></H1>
+      </font>
+
+   <!-- =============== End Header Graphic ===================== -->
+
+  </td>
+ </tr>
+</table>
+
+<table border="0" width="700"  height="20" cellspacing="0" cellpadding="0" bgcolor="#000000" align=center>
+  <tr>
+    <td><img src="../../main_graphics/Side_boarder1.jpg" border=0 width="120" height="20"></td>
+    <td width="100%">&nbsp;</td>
+  </tr>
+</table>
+<table border="0" width="700"  height="500" cellspacing="0" cellpadding="0" align=center>
+  <tr>
+    <td valign="top" bgcolor="#5E73DE"> <img src="../../main_graphics/Side_boarder2.jpg" height="70" width="120"> 
+      <!-- ================== Navigation Bar =======================--> <!-- #BeginLibraryItem "/Library/Navbar.lbi" --> 
+<table width=100% align="center" border=0 cellspacing=8>
+  <tr> 
+    <td align="right"><a href="../../index.htm" class="sidebar">Home</a></td>
+  </tr>
+  <tr> 
+    <td align="right"><a href="../index.htm" class="sidebar">Publications</a></td>
+  </tr>
+  <tr>
+    <td align="right"><a href="../../links/index.htm" class="sidebar">Links</a></td>
+  </tr>
+  <tr> 
+    <td align="right"><a href="../../glossary.htm" class="sidebar">Glossary</a></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<!-- #EndLibraryItem --><!-- ================== End Navigation Bar =======================--> 
+    </td>
+
+    <td width="100%" align="right" height="100%" valign="top">
+     <img src="../../main_graphics/x.gif" height="3" width="577"><br>
+     <table  width="577" height="100%" border="0" bgcolor="black" cellpadding="0" cellspacing="1">
+      <tr>
+        <td bgcolor="#FFFFFF" height="100%" valign="top">
+
+        <!-- inner table where the page contens goes -->
+        <table cellspacing=10 border=0 align=center width=100%>
+         <tr>
+                <td width=50% valign=top> <!--============== Page Content ================ --> 
+                  <center>
+                    <table cellspacing=0 cellpadding=2 width="100%" bgcolor="#2030C0" >
+                      <tr> 
+                        <td class = "tablehead"> 
+                          <center>
+                            <!-- #BeginEditable "Paper%20Title" -->Maximizing 
+                            Signal Strength for OFDM Inside Buildings<!-- #EndEditable --> 
+                          </center>
+                        </td>
+                      </tr>
+                    </table>
+                  </center>
+                  <table width="50%" >
+                    <tr> 
+                      <td><img src="../../main_graphics/pdf.gif" width="37" height="38"></td>
+                      <td class="tbody"><!-- #BeginEditable "PDF%20link" -->
+                        <div align="left"><a href="../../resources/apr.pdf">Print 
+                          friendly version</a> (221kB)</div>
+                        <!-- #EndEditable --></td>
+                    </tr>
+                  </table>
+                  <table border=0 cellspacing=0 cellpadding=0 cols=2 width="100%" >
+                    <tr> 
+                      <td class="dochead" width="50%"> <!-- #BeginEditable "Authors" --><!-- #EndEditable --> 
+                        <br>
+                        <!-- #BeginLibraryItem "/Library/Engineering Address.lbi" -->Electrical and Computer Engineering <br>
+                        James Cook University, Douglas Campus, Townsville, Queensland, 
+                        4814, Australia <!-- #EndLibraryItem --> <br>
+                        Email: <!-- #BeginLibraryItem "/Library/email address.lbi" -->ofdm@skydsp.com<!-- #EndLibraryItem -->, 
+                        Keith.Kikkert@jcu.edu.au</td>
+                      <td class="dochead" width="50%"> 
+                        <p><b>Published:</b> <!-- #BeginEditable "Publication" -->E. 
+                          Lawrey, C. J. Kikkert, &quot;Maximising Signal Strength 
+                          of OFDM inside buildings&quot;, IEEE Transactions on 
+                          Microwave Theory and Techniques, Nov 2001, pp. 2131-2136<!-- #EndEditable --></p>
+                        </td>
+                    </tr>
+                  </table>
+                  <!-- #BeginEditable "Paper%20Contents" --> 
+                  <p>IEEE retains the copyright to this paper, which can be found 
+                    at <a href="http://www.ieee.org/copyright/">www.ieee.org/copyright/</a></p>
+                  <h2>Abstract</h2>
+                  <p> Propagation inside buildings suffer from large shadowing 
+                    and high multipath effects. This is a serious problem for 
+                    Wireless Local Area Network (WLAN) systems. This paper shows 
+                    that shadowing and path loss can be minimized by exploiting 
+                    the multipath tolerance of Orthogonal Frequency Division Multiplexing 
+                    (OFDM). This can be achieved by using multiple transmission 
+                    antennas spread over the area of a WLAN cell. These antennas 
+                    act as repeaters, transmitting and receiving the same signal 
+                    at the same time. This decreases the average path loss, but 
+                    increases the multipath delay spread. Using OFDM allows the 
+                    advantage of reduced path loss to be utilized without detrimental 
+                    effects of Inter-Symbol Interference (ISI) caused by the increased 
+                    delay spread. The reduced path loss allows an increased system 
+                    capacity, quality of service or a decrease in intercellular 
+                    interference in a cellular WLAN.</p>
+                  <p><b>Index terms--</b> Access point repeater, broad-band communications, 
+                    indoor radio communication, multipath channels, orthogonal 
+                    frequency division multiplexing, wireless LAN.</p>
+                  <h2>I. Introduction</h2>
+                  <p>Wireless networking is an emerging technology allowing users 
+                    the freedom of movement. The aim of wireless local area network 
+                    (WLAN) systems is to provide users with a data rate comparable 
+                    with wired networks within a limited geographic area. Currently 
+                    most WLAN products use direct-sequence spread-spectrum (DSSS) 
+                    techniques, based on the IEEE 802.11b Standard, providing 
+                    a data rate of 11 Mb/s in the 2.4- GHz industrial-scientific-medical 
+                    (ISM) band [1]. The next generation of WLAN systems will be 
+                    based on two similar WLAN standards known as: Hiperlan/2 (Europe), 
+                    and IEEE802.11a (U.S.) [2]. These support a physical layer 
+                    transmission rate of up to 54 Mb/s and use orthogonal frequency-division 
+                    multiplexing (OFDM) for the physical layer implementation.</p>
+                  <p>OFDM is a multi-carrier modulation scheme, which has a high 
+                    immunity to multipath effects and allows a wide range of carrier 
+                    modulation schemes to be used. Hiperlan/2 adaptively changes 
+                    the forward error correcting coding rate and the carrier modulation 
+                    scheme (BPSK, QPSK, 16 quadrature amplitude modulation (QAM), 
+                    64 QAM) allowing the data rate to be maximized based on the 
+                    current radio channel characteristics. Using a higher spectral 
+                    efficiency modulation scheme, such as 64 QAM, allows the data 
+                    rate to be increased, but requires a higher SNR for a fixed 
+                    error rate. Thus, minimizing the path loss, allows the SNR 
+                    and corresponding data rate to be maximized.</p>
+                  <p>Shadowing can result in numerous regions of the building 
+                    having an inadequate coverage, resulting in a poor quality 
+                    of service (QOS). This is a significant problem as the QOS 
+                    of WLAN systems is very important if they are to replace wired 
+                    networking. Shadowing also increases the average path loss 
+                    compared with free space, requiring more transmission power, 
+                    in order to maintain communications.</p>
+                  <p align="center"><img src="fig1.gif" width="270" height="132" alt="Multicell system and APR system"></p>
+                  <p class="caption">Fig. 1, Methods for obtaining spatial diversity. 
+                    Access point repeater (APR). Base station (BS). Power splitter/combiner 
+                    (PS). (a) Cellular system with four cells controlled by four 
+                    BSs, connected with a wired network for hand off between cells. 
+                    (b) Single multiple transmission cell using APRs.</p>
+                  <p>High-quality coverage of a building can be obtained by using 
+                    a cellular system as shown in Fig. 1(a). Each base station 
+                    (BS) forms a cell covering a small area of the building. These 
+                    cells operate at different frequencies to prevent interference 
+                    between them. The path loss is minimized, as the distance 
+                    from the mobile station to the closest BS is minimized. Additionally 
+                    if the transmission path to the closest BS is blocked, the 
+                    mobile can connect to another cell. However, this type of 
+                    implementation can be expensive, due to the requirement of 
+                    a number of BSs. Additionally, it requires multiple frequency 
+                    bands for cellular implementation and hand offs between cells, 
+                    increasing the system complexity. This paper presents a simpler 
+                    and cheaper method for obtaining reliable coverage, in an 
+                    environment that suffers from shadowing. </p>
+                  <h2>II. Spatial Diversity by Multiple Repeat Transmissions </h2>
+                  <p>A form of spatial diversity can also be achieved by splitting 
+                    the signal from a single central BS and transmitting the same 
+                    signal from multiple locations around the building to be covered. 
+                    This is shown in Fig. 1(b). Shadowing is reduced because there 
+                    are multiple opportunities to receive the signal. Even if 
+                    several paths are blocked by walls or buildings, others may 
+                    have a reasonable transmission path. Using multiple transmitters 
+                    effectively reduces the transmission distance, as the closest 
+                    transmitter dominates the signal power. </p>
+                  <p>An example of how spatial diversity maximizes power efficiency 
+                    is lighting of a building. If you were trying to illuminate 
+                    a typical large building with a single light bulb, the high 
+                    opacity of the walls would result in many deep shadowed regions. 
+                    The amount of power that would be required, for all parts 
+                    of the building to be reasonably bright, would be extremely 
+                    high, as shadowed regions would be lit solely from reflections 
+                    and gaps in obstructing walls, such as doorways. However, 
+                    by using one light per room, the illumination will be much 
+                    more even, with minimal shadowing and a reduced total lighting 
+                    power. The same is also true for radio signals; thus by using 
+                    multiple transmitters spread over the area of a building, 
+                    we can reduce the average path loss.</p>
+                  <p>Most communication systems need two-way communications using 
+                    a forward and reverse link. Due to the reciprocal nature of 
+                    radio propagation, the properties of the reverse link will 
+                    be the same as the forward link. Thus, the path loss for the 
+                    reverse link can also be minimized by using multiple receive 
+                    antennas connected to a single central BS. The receive and 
+                    transmit antennas can be combined into one unit, referred 
+                    to here as an access point repeater (APR). The use of APRs 
+                    can provide a significant improvement with minimal expense.</p>
+                  <p>The problem with using APRs is that the mobile receiver will 
+                    see signals from all APR transmitters. The propagation delay 
+                    from each transmitter will be different and, thus, will arrive 
+                    at the receiver with a different delay. This is equivalent 
+                    to receiving the signal distorted by strong multipath. This 
+                    causes frequency-selective fading, and an increase in the 
+                    delay spread of the transmission, which can result in inter-symbol 
+                    interference (ISI). This is particularly a problem for modulation 
+                    schemes such as frequency shift keying (FSK), as the maximum 
+                    symbol rate is limited by ISI caused by delay spread. </p>
+                  <p>DSSS systems have a high multipath tolerance due to use of 
+                    a RAKE receiver [3]. A RAKE receiver uses correlation to resolve 
+                    delayed copies of the signal caused by multipath propagation. 
+                    These are then aligned in time and combined. This allows the 
+                    signals from each of the transmitters to be resolved and combined. 
+                    The maximum delay spread that can be tolerated by an IEEE802.11b 
+                    DSSS WLAN system, using a 16-tap RAKE receiver, is 125 ns 
+                    at 11 Mb/s and 250 ns at 5.5 Mb/s [4]. This level of multipath 
+                    tolerance should allow APRs to be spaced out with a maximum 
+                    diameter of about 20-35 m, although problems might arise due 
+                    to the increased delay spread. This small antenna spacing 
+                    means that there would be little advantage in using multiple 
+                    APR with an IEEE802.11b system as sufficient coverage can 
+                    easily be obtained over 20-35 m with a single transmitter.</p>
+                  <p>OFDM has a higher multipath tolerance than DSSS, and can 
+                    transmit using a higher spectral efficiency. Minimizing the 
+                    path loss allows the SNR to be increased, provided inter-cellular 
+                    interference is low. This improved SNR can be utilized by 
+                    adaptively setting the modulation scheme based on the SNR, 
+                    allowing the throughput of the system to be increased. </p>
+                  <p>The high multipath tolerance of OFDM is due the low symbol 
+                    rate used, and the use of a guard period between symbols. 
+                    The guard period is a cyclic extension of each OFDM symbol, 
+                    giving protection against ISI, provided it is longer than 
+                    the delay spread of the radio channel. Typically, the guard 
+                    period is made to be a small fraction of the OFDM symbol time 
+                    and, thus, by using a large number of narrow bandwidth carriers, 
+                    the delay spread tolerance can be varied to suit the radio 
+                    conditions. </p>
+                  <p>Multipath causes frequency-selective fading, which can result 
+                    in carriers of the OFDM signal being lost in nulls in the 
+                    spectrum. These nulls are typically handled by including forward 
+                    error correction to compensate for the lost data. Adding multiple 
+                    transmitters will result in an increased delay spread, resulting 
+                    in a decrease in the correlation bandwidth of the channel. 
+                    This will not cause any detrimental effects on the OFDM transmission, 
+                    provided that enough carriers are used. </p>
+                  <p>Indoor propagation normally suffers from a combination of 
+                    Rician and Rayleigh fading [5]. Using multiple APRs will increase 
+                    the multipath energy, resulting in more areas in the building 
+                    suffering from Rayleigh fading. However, this increase in 
+                    fading should be more than compensated for by the decreased 
+                    path loss due to the multiple APRs. More research is needed 
+                    to establish the extent of the additional multipath when using 
+                    APRs. </p>
+                  <p>The use of multiple transmitters to obtain improved coverage 
+                    was first introduced in the digital audio broadcasting (DAB) 
+                    system [6]. DAB uses OFDM with a low symbol rate and a long 
+                    guard period. With DAB, it is possible for all transmitters 
+                    to use the same frequency and transmit copies of the same 
+                    signal, referred to as a single-frequency network (SFN). For 
+                    VHF band transmissions, DAB uses 1536 carriers with a the 
+                    symbol time of 1 ms, and a guard period of 246 ms, allowing 
+                    transmitters to be up 96 km apart in a SFN, before the delay 
+                    spread is too large. </p>
+                  <p>Hiperlan/2 has a guard period of 800 ns, which would provide 
+                    an effective delay spread protection of up to 250 ns. This 
+                    would allow APRs within each cell, to be placed with a maximum 
+                    diameter of 40-60 m, which is sufficient for coverage of most 
+                    buildings. Additional research is needed to verify this.</p>
+                  <h2>III. Implementation of an APR</h2>
+                  <p>All APRs within the same cell transmit and receive the same 
+                    signal, thus only one BS is needed per cell. For transmission, 
+                    the signal generated by a BS is split N ways, where N is the 
+                    number of APRs. Coaxial cable or some other medium, such as 
+                    optic fibre, is used to deliver the signal to each APR. The 
+                    signal then is amplified at the APR to compensate for any 
+                    losses in the coax transmission. For reception, the reverse 
+                    process is used. Each APR has a low noise amplifier (LNA) 
+                    to compensate for losses in the coax, in order to maintain 
+                    a low noise figure. The received signals from all APRs are 
+                    combined, then demodulated at the BS. Phase differences between 
+                    the APRs have little or no effect as they corrected for, in 
+                    the OFDM demodulation process. </p>
+                  <p align="center"><img src="fig2.gif" width="270" height="134" alt="APR diagram"></p>
+                  <p class="caption">Fig. 2. Possible implementation of an APR.</p>
+                  <p>Fig 2. shows a simple implementation of an APR, which can 
+                    be used when the loss in the coaxial cable is low (< 20 dB). 
+                    The master head amplifier operates at the RF frequency and, 
+                    thus, no frequency translation is required. A low frequency 
+                    control signal can be used to select whether to transmit or 
+                    receive. For a full duplex system, the RF switches can be 
+                    replaced with diplexers. </p>
+                  <p>In larger systems where the cable losses are too large, the 
+                    signal can be transmitted on the cable at an IF frequency. 
+                    A common clock reference must be used by all APRs to ensure 
+                    frequency synchronization, otherwise frequency errors will 
+                    reduce the orthogonality of the OFDM, causing inter-carrier 
+                    interference. A suitable out-of-band clock reference must 
+                    be transmitted from the base station. This common clock can 
+                    then be frequency multiplied using a phase-locked-loop (PLL) 
+                    to generate the local oscillator (LO) for the IF-RF mixing. 
+                    For such a design, care must be taken to ensure the phase 
+                    noise of the clock reference is low and that the clock signal 
+                    does not interfere with the received signal.</p>
+                  <p>Another method for distributing high frequency RF signals 
+                    is to use optic fiber. The RF signals can be converted to 
+                    optical signals and transmitted over long distances with optic 
+                    fiber. This type of technology is currently being developed 
+                    for use in mobile phone applications as a method for producing 
+                    pico-sized cells [7]. </p>
+                  <h2>IV. Experimental Setup</h2>
+                  <p>An experiment was set up to test the effectiveness of using 
+                    multiple transmitters (i.e., APR) to minimize shadowing in 
+                    an indoor environment. The forward link from the BS to the 
+                    mobile stations was tested, by measuring the effective path 
+                    loss from fixed transmitters to a mobile receiver. The path 
+                    loss from a single transmitter (simulating a single access 
+                    point) was compared with the path loss when using two transmitters 
+                    (simulating two APRs). </p>
+                  <p align="center"><img src="fig3.gif" width="350" height="129" alt="Measurement location map"></p>
+                  <p align="center"><img src="fig3_key.gif" width="180" height="50"></p>
+                  <p class="caption">Fig. 3, Path-loss measurement locations in 
+                    the ECE building. Lines represent internal walls. The thin 
+                    lines are plaster board walls, and the thick ones are concrete 
+                    walls.</p>
+                  <p>The path loss was measured at 235 locations on the second 
+                    floor of the Electrical and Computer Engineering (ECE) building 
+                    at James Cook University, Townsville, Qld., Australia. The 
+                    measurement locations and the building layout are shown in 
+                    Fig. 3. The internal walls are shown as dark lines. The selection 
+                    of the measurement locations, the position of the transmitters, 
+                    and the construction of the building can easily influence 
+                    the overall path-loss probability distribution. However, the 
+                    results presented will be representative of the improvement 
+                    that could be expected in a typical building of similar construction 
+                    to the one the measurements were taken in. </p>
+                  <p align="center"><img src="fig4.gif" width="300" height="124" alt="Transmitter experiment setup"></p>
+                  <p class="caption">Fig. 4, Transmitter set up simulating Access 
+                    Point Repeaters. The total transmitter power from Tx2a and 
+                    Tx2b were matched to the Tx1 power.</p>
+                  <p>The transmitter set up is shown in Fig. 4. Simple monopole 
+                    antennas were used and were assumed to have an effective gain 
+                    of 0 dBi, including matching losses. The uncertainty in the 
+                    gain of the antennas resulted in an absolute error in the 
+                    path-loss measurements of approximately 3 dB and a differential 
+                    error between the single and dual transmitter measurements 
+                    of 1dB. The signal strength at each location was measured 
+                    using a spectrum analyzer on a trolley, and converted to path 
+                    loss by compensating for transmitter power and receiver gain. 
+                    A slightly different frequency was used for the single and 
+                    dual transmitters to allow simultaneous measurements of the 
+                    path loss. The receiver antenna was placed on a rotating platform 
+                    that was turned during the received power measurement. Video 
+                    averaging on the spectrum analyzer was used to average the 
+                    power over a 0.6 m circular path swept by the antenna. This 
+                    was done to remove the effects of frequency selective fading, 
+                    and obtain an accurate measure of the path loss. Even though 
+                    the path loss was measured using a continuous wave transmission, 
+                    the results are still valid for a wide-bandwidth modulation 
+                    schemes. </p>
+                  <p>Due to limitations of the equipment available, the measurements 
+                    were performed at 1 GHz, rather than 5 GHz. This will tend 
+                    to reduce the effects of shadowing, as the opacity of most 
+                    materials is lower at lower RF frequencies; thus, we would 
+                    expect the effectiveness of using APRs to improve at higher 
+                    RF frequencies. </p>
+                  <h2>V. Discussion of Measured Results</h2>
+                  <p>Fig. 5 shows the path loss for the single transmitter. The 
+                    path loss increases rapidly with distance from the transmitter. 
+                    The path loss in the bottom left corner of Fig. 5 at location 
+                    5 x 5 m has a high path loss of over 100 dB, which is equivalent 
+                    to 1 km of free-space loss, even though it is less than 20 
+                    m from the transmitter. Fig. 6 shows the path loss when two 
+                    transmitters were used. In this case the path loss is lower 
+                    and much more even.</p>
+                  <p align="center"><img src="fig5.gif" width="330" height="162" alt="Single transmitter measured pathloss "></p>
+                  <p class="caption">Fig. 5, Measured path loss with one transmitter 
+                    over the area of the building at 990 MHz. The dark lines are 
+                    the internal walls. The X shows the location of the transmitters. 
+                  </p>
+                  <p class="caption"><img src="fig6.gif" width="330" height="124" alt="Dual transmitter measured pathloss "> 
+                  </p>
+                  <p class="caption">Fig. 6, Measured path loss for two transmitters 
+                    at 990 MHz. This simulates two APRs. Note the total transmitter 
+                    power is the same as for the one transmitter measurements. 
+                    The X shows the location of the transmitters. </p>
+                  <p>Fig. 7 shows the measured and simulated probability distribution 
+                    of the path loss. It shows that the measured path loss is 
+                    more than 7 dB lower when using two transmitters as compared 
+                    with one. This result is to be expected, as the longest distance 
+                    to a transmitter was reduced by 1.62 times. The typical path-loss 
+                    exponent of an obstructed path within a building is 4 - 6 
+                    [8], as compared to a path loss exponent of 2 for free-space 
+                    loss. We would therefore, expect the path loss to be reduced 
+                    by 8.4 - 12.6 dB for a reduction in distance of 1.6 times. 
+                    Since the transmission power is split over two transmitters 
+                    this will reduce the received power by 3 dB, thus resulting 
+                    in an overall improvement of 5.4 - 9.6 dB. This compares well 
+                    with the measured improvement of 7 dB. Even though there are 
+                    two transmitters, the received signal power tends to be dominated 
+                    by the closest transmitter due to the rapid fall of power 
+                    with distance. This is why the improvement in signal power 
+                    can be estimated with reasonable accuracy by considering the 
+                    reduction in distance to the transmitter.</p>
+                  <p align="center"><img src="fig7.gif" width="350" height="230" alt="Pathloss probability distribution"></p>
+                  <p class="caption">Figure 7, Path loss probability distribution 
+                    within the measured and simulated building.</p>
+                  <h2>VI. Reduction in Cellular Interference</h2>
+                  <p>At a large distance, multiple APRs appear as a point source 
+                    and, thus, the received power is the same as when using a 
+                    single access point, where the total transmitted power is 
+                    the same. This means that the interference to neighboring 
+                    systems is approximately the same regardless of the number 
+                    of APRs used for fixed total transmission power. The near-field 
+                    path loss can be reduced by 7 dB using two APRs, allowing 
+                    the total transmitted power to be reduced by up to 7 dB for 
+                    the same SNR. This will reduce the overall interference to 
+                    nearby WLAN systems by 7 dB. Further improvements could be 
+                    made using a higher number of APRs. Using one APR per room 
+                    could potentially decrease the near field path loss by 20-30 
+                    dB, allowing a large reduction in external interference with 
+                    suitable power control. The reduced interference will allow 
+                    a better frequency reuse in a cellular system.</p>
+                  <h2>VII. Shadow Modeling</h2>
+                  <p>A simplified ray trace path loss model was developed to allow 
+                    investigation into the use of multiple APRs. This is similar 
+                    to the model used in [9]. The two dimensional (2-D) model 
+                    calculates the path loss along radial rays, which are converted 
+                    to a fixed rectangular data grid using interpolation. The 
+                    rectangular grid allows the signal power from multiple transmitter 
+                    sources to the added together. </p>
+                  <p align="center"><img src="fig8.gif" width="270" height="249" alt="ray tracer pathloss calculations"></p>
+                  <p class="caption">Fig. 8. Attenuation calculations for a ray 
+                    passing through two objects. </p>
+                  <p>The path loss along each ray is found by calculating its 
+                    intercept to each object in the environment. The loss through 
+                    each object is calculated based on the reflection coefficient 
+                    of the object surface and the distance through the object. 
+                    Each surface the ray intercepts results in energy being reflected 
+                    causing a jump in the accumulated attenuation. As shown in 
+                    Fig. 8(a), surface 1 - 4 result in jumps in the cumulated 
+                    object loss shown in Fig. 8(b). In this model, the amount 
+                    of reflected energy is constant regardless of the angle of 
+                    the ray. This reflected energy is not calculated as another 
+                    ray, and is ignored to keep the model simple.</p>
+                  <p>In addition to reflected losses, each object absorbs energy 
+                    as the ray passes through it. This is calculated as a loss 
+                    proportional, in dB, to the distance traveled through the 
+                    object medium. The loss along the ray is accumulated as the 
+                    ray passes through multiple objects. This loss is then added 
+                    to the loss calculated by the standard free-space radio path-loss 
+                    equation to obtain the overall attenuation with distance. 
+                    The radio path-loss equation is</p>
+                  <p align="center"><img src="eq1.gif" width="175" height="62" alt="Pl=-10*log10((lambda/(4*pi*R))^alpha)"></p>
+                  <p>where <i>PL</i> is the path loss (in decibels), <i>lambda</i> 
+                    is the wavelength of the radio signal (in meters), <i>r</i> 
+                    is the distance from the transmitter (in meters), and <i>alpha 
+                    (a) </i> is the path loss exponent. For free space propagation, 
+                    <i>a</i> = 2. The simulation calculates the path loss due 
+                    to objects and, thus, ideally, the path-loss exponent used 
+                    in the simulation should be 2. However due to the simplicity 
+                    of the model, a path loss exponent of 2.65 was found to best 
+                    match the measured results. </p>
+                  <h2>VIII. Model Verification, Tuning and Limitations</h2>
+                  <p>The radio model was compared to the measured results to verify 
+                    the model accuracy and to adjust the model parameters to give 
+                    realistic results. The material properties of the walls were 
+                    measured directly and are show in Table I. These values compare 
+                    well with values measured in [9]. The walls were found to 
+                    be non homogeneous, caused by wiring, reinforcing, studs, 
+                    and near by objects, making accurate measurements difficult. 
+                  </p>
+                  <p>In the simulation, the material properties of the walls were 
+                    optimized to obtain a good match between the simulated and 
+                    measured building path loss shown in Fig. 5 and Fig. 6. The 
+                    resulting simulation parameters were found to closely match 
+                    the direct wall loss measurements, as shown in Table I. Fig. 
+                    7 shows the resulting match between the measured and simulated 
+                    results. This figure shows the percentage area of the building 
+                    (Y-axis), which has a path loss worse than a specified path 
+                    loss in the X-axis. For example, 20% of the building has a 
+                    path loss of greater than 90dB when using a single transmitter, 
+                    where as it is only 3% for two transmitters. </p>
+                  <p>There is a good match between the simulated and measured 
+                    results, despite the simplicity of the model. If the wall 
+                    loss were considerably higher, then the path loss would have 
+                    been dominated by diffraction and multiple reflections, resulting 
+                    in a poor accuracy in the path-loss prediction. </p>
+                  <h2>IX. Simulated Results</h2>
+                  <p>Fig. 9 and Fig. 10 show the simulated path loss for a single 
+                    and double transmitter respectively, for the same building 
+                    and transmitter location as measured data shown in Fig. 5 
+                    and Fig. 6. The probability distribution of the path loss 
+                    is shown in Fig. 8. The main difference between the simulated 
+                    and measured results is that the simulated results are smoother, 
+                    which is the result of the simple environment model. </p>
+                  <p align="center"><img src="fig9.gif" width="330" height="125" alt="Simulated single transmitter pathloss "></p>
+                  <p class="caption">Figure 9, Simulated path loss for one transmitter 
+                    at 990 MHz. The X shows the transmitter location.</p>
+                  <p align="center"><img src="fig10.gif" width="330" height="125" alt="Simulated dual transmitter pathloss "></p>
+                  <p class="caption">Figure 10, Simulated path loss for two transmitters. 
+                    The X shows the location of the transmitters.</p>
+                  <p>In addition to simulating one and two transmitters, the path 
+                    loss was simulated with four and eight transmitters. The transmitters 
+                    were positioned in the simulation to approximately maximize 
+                    their effectiveness. Fig. 11 shows the path loss distribution 
+                    for all the simulated results. The path loss for the worst 
+                    2% of the area of the building was improved by 7 dB when using 
+                    two transmitters, 16 dB for four transmitters and 22 dB for 
+                    eight transmitters. </p>
+                  <p align="center"><img src="fig11.gif" width="350" height="230"></p>
+                  <p class="caption">Figure 11, Cumulative probability distribution 
+                    for simulated results, showing the result for one, two, four 
+                    and eight transmitters.</p>
+                  <h2>X. Conclusion</h2>
+                  <p>Using multiple APRs is a low-cost method that can be used 
+                    to reduce shadowing and near-field path loss within a building. 
+                    This allows a reduction in intercellular interference with 
+                    suitable power control. It was shown experimentally to decrease 
+                    the near-field path loss by 7 dB @ 1 GHz within an indoor 
+                    environment, using two repeaters as compared with a single 
+                    transmitter. Simulated results show that the improvement can 
+                    be as much as 20 dB for eight transmitters. Using multiple 
+                    APRs will result in an increase in the received multipath, 
+                    however OFDM systems, including Hiperlan/2 and IEEE 802.11a, 
+                    should be able to tolerate this without detrimental effects. 
+                    This tolerance should allow a maximum spacing of 40-60 m between 
+                    any two APRs in a Hiperlan/2 cell. </p>
+                  <h2>References</h2>
+                  <p>[1] B. Crow, I. Widjaja, J. G. Kim, P. Sakai, "IEEE 802.11 
+                    wireless local area networks", IEEE Commun. Mag., pp. 116-126, 
+                    Sept. 1997. </p>
+                  <p>[2] HiperLAN/2 - The Broadband Radio Transmission Technology 
+                    Operating in the 5 GHz Frequency Band, M. Johnsson, (1999), 
+                    [Online]. Available: <a href="http://www.hiperlan2.com/site/specific/specmain/specwh.htm">http://www.hiperlan2.com/site/specific/specmain/specwh.htm</a> 
+                  </p>
+                  <p>[3] U. Grob, A. L. Welti, E. Zollinger, R. Küng, H. Kaufmann, 
+                    "Microcellular Direct-Sequence Spread-Spectrum Radio System 
+                    Using N-Path RAKE Receiver", IEEE J. Select. Areas Commun., 
+                    vol. 8, pp. 772-779, June 1990. </p>
+                  <p>[4] HFA3863 data sheet (2000), [Online]. Available: <a href="http://www.intersil.com/data/FN/FN4/FN4856/FN4856.pdf%20">http://www.intersil.com/data/FN/FN4/FN4856/FN4856.pdf 
+                    </a> </p>
+                  <p>[5] R. Bultitude, S. Mahmoud, W. Sullivan, "A Comparison 
+                    of Indoor Radio Propagation Characteristics at 910 MHz and 
+                    1.75 GHz", IEEE J. Select. Areas Commun., vol. 7, January 
+                    1989. </p>
+                  <p>[6] Digital audio broadcasting - Overview and Summary of 
+                    the DAB System, [Online]. Available: <a href="http://www.worlddab.org/public_documents/eureka_brochure.pdf%20">http://www.worlddab.org/public_documents/eureka_brochure.pdf 
+                    </a></p>
+                  <p>[7] C. Lim, A. Nirmalathas, D. Novak, "Dynamic Range Of A 
+                    Multi-Section Laser In A Millimetre-Wave Fibre-Wireless Uplink", 
+                    in Proc. Asia-Pacific Microwave Conf., Sydney, N.S.W., Australia, 
+                    Dec. 2000, pp. 539-543 </p>
+                  <p>[8] The Mobile Communications Handbook. Boca Raton, FL: CRC 
+                    Press, 1996, pp. 355-369. [9] S. Y. Seidel and T. S. Rappaport, 
+                    "914 MHz path loss prediction models for indoor communications 
+                    in multifloored buildings", IEEE Trans. Antennas Propagat., 
+                    vol. 40, pp. 207-217, Feb. 1992. </p>
+                  <!-- #EndEditable --><!-- ============== End page content ================== --> 
+                </td>
+        </tr>
+       </table>    	
+      </td>
+     </tr>
+    </table>
+      <div align="center"></div>
+    </td>
+  </tr>
+ </table>
+<div align=center style="color:white; font-size: 10px">Copyright &copy; 2001 Eric 
+  Lawrey, Last updated: <!-- #BeginDate format:Am1 -->July 10, 2002<!-- #EndDate --></div>
+</body>
+
+<!-- #EndTemplate --></html>

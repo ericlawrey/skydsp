@@ -1,0 +1,524 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.7 [en] (Win98; I) [Netscape]">
+   <meta name="Author" content="Eric Lawrey">
+   <meta name="Description" content="This paper describes Adaptive Frequency Hopping for use in Multiuser OFDM. Each user is allocated carriers based on the SNR for that user. It looks at the advantages and overheads associated with this user allocation scheme.">
+   <meta name="KeyWords" content="OFDM, Orthogonal Frequency Division Multiplexing, Multiuser, Multiuser OFDM, Adaptive Frequency Hopping, Frequency Hopping, Adaptive Modulation, communcations, research, paper">
+   <title>Adaptive Modulation</title>
+ <LINK REL=StyleSheet HREF="../../styles/style.css" TYPE="text/css" MEDIA=screen>
+
+</head>
+
+<body bgcolor="#666666">   <!-- color of the outter page backgroud -->
+ <table border="0" width="700"  background="../../main_graphics/top_right_bar.jpg" cellspacing="0" cellpadding="0" align=center>
+  <tr>
+   <td><img src="../../main_graphics/Top_boarder.jpg" width="285" height="80" alt="Sky DSP logo"></td>
+   <td>
+
+   <!-- =============== Header Graphics and title ======================== -->
+   &nbsp   
+
+   <!-- =============== End Header Graphic ===================== -->
+
+  </td>
+ </tr>
+</table>
+
+<table border="0" width="700"  cellspacing="0" cellpadding="0" align=center>
+  <tr>
+    <td><img src="../../main_graphics/Side_boarder1.jpg" border=0 width="140" height="21"></td>
+    <td width="100%" bgcolor="#000000">
+    <center>
+    <!-- ================ Top Navigation bar =================== -->
+
+    <!-- ============= End Top Navigation bar ================== -->
+    </center>
+</td>
+</tr>
+</table>
+
+<table border="0" width="700"  height="500" cellspacing="0" cellpadding="0" align=center>
+  <tr>
+    <td bgcolor="#5E73DE" width="120" style="background-image: url('../../main_graphics/Side_boarder2.jpg');
+        background-repeat: no-repeat; background-position: left top" valign="top"> <!--style="background-image: url('../../main_graphics/Side_boarder2.jpg');-->
+        <img src="../../main_graphics/x.gif" height="10" width="120">
+
+     <center>
+     <!-- ================== Navigation Bar =======================-->
+     <table width="100%" align="center" border=0 cellspacing=8>
+      <tr><td align="right"><a href="../../index.htm" class="sidebar">Home</a></td></tr>
+      <tr><td align="right"><a href="../../aboutus/index.htm" class="sidebar">About Us</a></td></tr>
+      <tr><td align="right"><a href="../../products/index.htm" class="sidebar">Products & Services</a></td></tr>
+      <tr><td align="right"><a href="../index.htm" class="sidebar">Publications & Application Notes</a></td></tr>
+      <tr><td align="right"><a href="../../news/index.htm" class="sidebar">News & Events</a></td></tr>
+      <tr><td align="right"><a href="../../contact/index.htm" class="sidebar">Contact Us</a></td></tr>
+     </table>
+     </center>
+     <!-- ================== End Navigation Bar =======================-->
+    </td>
+
+    <td width="100%" align="right" height="100%" valign="top">
+     <img src="../../main_graphics/x.gif" height="3" width="580"><br>
+     <table  width="577" height="100%" border="0" bgcolor="black" cellpadding="0" cellspacing="1">
+      <tr>
+        <td bgcolor="#FFFFFF" height="100%" valign="top">
+
+        <!-- inner table where the page contens goes -->
+        <table cellspacing=10 border=0 align=center width="100%">
+         <tr><td width="50%" valign=top>
+
+
+<!-- ============== Page Content ====================== -->
+
+<center>
+<table CELLSPACING=0 CELLPADDING=2 WIDTH="100%" BGCOLOR="#2030C0" >
+ <tr>
+  <td class = "tablehead">
+   <center>Adaptive Frequency Hopping for Multiuser OFDM</center>
+  </td>
+ </tr>
+</table>
+</center>
+
+
+<table WIDTH="50%" >
+<tr>
+<td><img SRC="images/pdf.gif"  BORDER=0 height=38 width=37></td>
+<td class="tbody"><a href="icics99_361withHeader.pdf">Print Friendly Version in PDF</a>(774KB)</td>
+</tr>
+</table>
+
+<table BORDER=0 CELLSPACING=0 CELLPADDING=0 COLS=2 WIDTH="100%" >
+<tr>
+<td class="dochead">
+<b>Eric Lawrey, Cornelis Jan Kikkert</b>
+<br>Electrical and Computer Engineering
+<br>James Cook University, Douglas Campus, Townsville, Queensland, 4814,
+Australia
+<br>Email: Eric@skydsp.com, Keith.Kikkert@jcu.edu.au</td>
+
+<td class="dochead">
+<b>Published:</b> Second International Conference on Information,
+Communications &amp; Signal Processing,
+<br>ICICS’99, Singapore, 7-10 December, 1999,
+<br>Organised by the School of Electrical &amp; Electronic Engineering,
+Nanyang Technological University
+</td>
+</tr>
+</table>
+
+<h1>Abstract</h1>
+<p class="bodytext">This paper presents adaptive frequency hopping as a new user allocation
+scheme for multiuser OFDM. Users are allocated carriers that have the highest
+SNR of available system carriers. This process is updated regularly to
+track channel fading. Adaptive frequency hopping greatly reduces frequency
+selective fading, improves interference rejection, and consequently improves
+the received SNR. Additionally Doppler spread is minimised due to the avoidance
+of nulls in the spectrum. These effects improve the system capacity and
+user access reliability. Improvements in system capacity out weigh the
+overhead required for implementation of adaptive frequency hopping for
+applications that have a user data rate of greater than 20 kbps at 100
+km/hr and 5 kbps for fixed transmissions.</p>
+
+<h1>1 Introduction</h1>
+<p class="bodytext">Multiuser OFDM is a promising new modulation technique for wireless communications
+[1]. It includes many of the advantages of broadcast OFDM that is used
+for Digital Audio Broadcasting (DAB) [2] and for Digital Video Broadcasting
+(DVB) in Europe and Australia. OFDM was selected for these systems primarily
+because of its high spectral efficiency and multipath tolerance.</p>
+<p class="bodytext">In a multiuser OFDM system, data is transmitted as a set of parallel
+low bandwidth (1 kHz - 50 kHz) carriers. The frequency spacing between
+these carriers is chosen to be the reciprocal of the useful symbol period.
+The resulting carriers are orthogonal to each other at the receiver provided
+correct time windowing is used. Transmitted carriers are independent of
+each other even though their spectra overlap. OFDM signals can be easily
+generated and received using a Fast Fourier Transform (FFT). For a multiuser
+OFDM system each user is allocated a fraction of the system carriers.
+<p class="bodytext">Wahlqvist [3] presented one implementation of a multiuser OFDM system.
+A user allocation scheme using random frequency hopping scheme was presented.
+This paper presents a new user carrier allocation scheme where each user
+is allocated carriers that have the highest Signal to Noise Ratio (SNR).
+Adaptive frequency hopping involves characterising the radio channels of
+each link, and allocating carriers appropriately.</p>
+
+<h1>2 User allocation</h1>
+<p class="bodytext">There are several methods for allocating carriers to users in a multiuser
+OFDM system. The main four schemes are to use a group of carriers with
+a fixed frequency, randomly hopped group of carriers, spread out carriers
+in a comb pattern and adaptive frequency hopping.</p>
+<p class="bodytext">Due to the overlapping nature of OFDM any loss of orthogonality can
+result in high levels of inter-carrier interference. Frequency and time
+synchronisation errors result in loss of orthogonality between carriers.
+A frequency offset error of 1-2% of the carrier spacing results a carrier
+power to interference ratio of 20dB[4]. In the forward link all user carriers
+are transmitted from the base station, and thus all carriers can be transmitted
+with perfect frequency and time synchronisation with respect to each other.However
+in the reverse link, carriers from each user are transmitted from different
+sources, leading to possible inter-user interference. Distortion products
+can result in inter-user interference, particularly if the received power
+from one user is significantly larger than neighbouring user carriers.</p>
+
+<h2>2.1 Fixed frequency grouped carriers</h2>
+<p class="bodytext">The simplest user carrier allocation scheme is to assign each user a group
+of fixed frequency carriers. Grouping the carriers minimises inter-user
+interference due to distortion, power level variation and frequency errors.
+However, having a fixed group of carriers makes the transmission susceptible
+to fading, as the whole group of carriers can be lost in a null in the
+spectrum. Time interleaving with forward error correction can improve fading
+performance of a moving station. However for stationary applications, static
+nulls can greatly degrade performance.</p>
+
+<h2>2.2 Grouped carriers with random frequency hopping</h2>
+<p class="bodytext">The problem of static fading can be partly overcome by randomly frequency
+hopping the carriers. In the user allocation scheme described by [2], groups
+of carriers are transmitted in short time blocks. These blocks are randomly
+frequency hopped to ensure that the time period spent in a null would is
+relatively short, approximately 11 symbols. To recover data lost during
+a null, time interleaving and forward error correction is used. These come
+at the cost of reduced system data capacity and increased delay.</p>
+<h2>2.3 Comb Spread Carriers</h2>
+<p class="bodytext">Static nulls can occur for fixed wireless applications causing problems
+if the transmission uses a single group of carriers with a fixed frequency.
+Instead carriers can be allocated in a fixed comb pattern, spreading them
+over the entire system bandwidth. This improves the frequency diversity,
+preventing all the carriers used by a user being lost in a single null
+in the spectrum.
+</p>
+<p class="bodytext">Using a comb pattern reduces the probability that all carriers will
+be lost in a null, however it increases the chance that some of the carriers
+will be in a null due to the increased frequency span of the carrier comb
+pattern. It is therefore essential that forward error correction be used
+in order to recover data lost in null carriers.
+</p>
+<p class="bodytext">Additionally this allocation scheme may be susceptible to inter-user
+interference due to the overlapping nature of OFDM carriers. Transmitting
+as a comb pattern requires user carriers to be interleaved with one another,
+resulting in a large amount of overlapping energy between the users. Any
+slight loss of orthogonality due to frequency or timing errors can result
+in significant inter-user interference. By comparison grouping the user
+carriers reduces the energy overlap between users, thus reducing inter-user
+interference. Despite these problems this type of user allocation is useful
+in applications that can not use adaptive hopping or random hopping, due
+to the added complexity.</p>
+
+<h2>2.4 Adaptive Frequency Hopping</h2>
+
+<p class="bodytext">A new adaptive frequency hopping technique is proposed for multiuser OFDM
+such that blocks of carriers are hopped based on the current channel conditions.
+After the radio channel has been characterised each user is allocated carriers
+which have the highest SNR ratio for that user. Since each user will be
+in a different location the fading pattern will be different for each remote
+station. The strongest carriers for one user are likely to be different
+from other users. Thus most users can be allocated carriers with a high
+SNR, allowing the entire system bandwidth to be used without any nulls.
+</p>
+<p class="bodytext">All users must be frequency and time synchronised to each other in order
+to use this technique. This technique is suited to low velocity applications
+that suffer from frequency selective fading, and those that have a moderate
+user data rate (>50kbps).</p>
+<p class="bodytext">Two implementations of AFH are presented, single group AFH and multi-group
+AFH. With single group AFH all user carriers are allocated as a single
+group of consecutive carriers. With multi-group AFH carriers are allocated
+in independent small blocks (2-10) of carriers.</p>
+
+<h1>3 Advantages of Adaptive Frequency Hopping</h1>
+
+<h2>3.1 Frequency Selective Fading Minimisation</h2>
+
+<p class="bodytext">Adaptive frequency hopping achieves large performance gains by avoiding
+nulls in the channel frequency response caused by frequency selective fading.
+Provided that the system bandwidth is significantly greater than the coherence
+bandwidth of the channel, there is a high probability that there will be
+at least one peak in the frequency response of the channel available to
+the user. The larger the system bandwidth the more chance there is of finding
+a group of carriers with a high SNR.</p>
+<br>
+
+<center><a href="images/figure1lg.jpg"><img SRC="images/figure1.jpg"  height=266 width=350></a></center>
+<p class="caption">Figure 1. Single user Adaptive Frequency Hopping
+Note: The bright regions are the strongest received signals</p>
+
+<center><a href="images/figure2lg.gif"><img SRC="images/figure2.gif"  height=280 width=350></a></center>
+<p class="caption">Figure 2. Received power verses distance travelled for Adaptive
+Frequency Hopping and for a fixed frequency</p>
+
+<p class="bodytext">Figures 1 and 2 show results for a single user adaptive frequency hopping
+system. The radio channel model used for this experiment was measured for
+a link between two rooms in the Electrical and Computer Engineering building
+at JCU. The transmitter and receiver were spaced 24 m apart. This radio
+link is short resulting in a large coherence bandwidth. As a result a large
+system bandwidth was used. These measurements were obtained using a sweeping
+tone transmitter and a spectrum analyser as the receiver. The receiver
+was moved along a guide tack after each frequency response measurement
+was made.
+</p>
+<p class="bodytext">Figure 1 shows simulated adaptive frequency hopping for the measured
+radio channel. For this experiment the bandwidth allocated to the user
+was 5 % of the system bandwidth and 50 % of the channel coherence bandwidth.
+The frequency allocations used for AFH were updated every 2cm. It was assumed
+that the time required for updating the frequency re-allocations was negligible.
+This is a reasonable assumption for systems where the AFH overhead is low.
+The frequency groups used are shown as an outline.
+</p>
+<p class="bodytext">Figure 2 shows for the same measured channel, the received power verses
+the distance travelled. The received power for the worst user carrier at
+each point in space is shown. The adaptive hopping receiver suffers much
+less fading and has a much greater average power level than when no hopping
+is used. A comb user allocation pattern results in a high probability of
+at least one of the carriers being in a null, thus giving a poor performance.</p>
+
+<h3>Effect of User Bandwidth&nbsp;</h3>
+<p class="bodytext">Increasing the user bandwidth increases the chance that some of the carriers
+being used will be in a null. Figure 3 shows the effect of increasing the
+user bandwidth while having a fixed system bandwidth. The results were
+obtained using the measured data shown in figure 1. At a low user bandwidth
+both single and multi group AFH perform the same. This is because the user
+bandwidth is much lower than the coherence bandwidth of the radio channel.
+As the user bandwidth increases the effectiveness of single group AFH falls
+off significantly, due to the user carriers spaning a bandwidth approaching
+or greater than the coherence bandwidth of the channel. Since the carriers
+are allocated as a single group, carriers at the edges of the group will
+tend to be in a null. Multi-group AFH doesn’t suffer the same problems
+as user bandwidth is increased.</p>
+
+<center><a href="images/figure3lg.gif"><img SRC="images/figure3.gif"  height=274 width=350></a></center>
+<p class="caption">Figure 3. Average (with respect to distance) minimum user carrier
+power verses user bandwidth for a fixed system bandwidth.</p>
+
+<p class="bodytext">When no frequency hopping was used there was a variation in the performance
+depending on the particular centre frequency used. The error bars shown
+on figure 3 show one standard deviation in the performance variation.&nbsp;
+</p>
+<p class="bodytext">Multi-group AFH performs much better than single group AFH when then
+user bandwidth approaches or exceeds the channel coherence bandwidth.</p>
+
+<h3>Effect of System Bandwidth&nbsp;</h3>
+
+<p class="bodytext">The effect of changing the system bandwidth is shown in figure 4. This
+plot shows the average (over distance) minimum carrier power for a low
+bandwidth user as the system bandwidth is increased. Both single and multi
+group AFH perform similarly as the user bandwidth is small. As the system
+bandwidth is increased it improves the chance of finding stronger carriers,
+thus the performance of AFH improves with an increase in the system bandwidth.
+The system bandwidth has no effect of a fixed group of carriers, as the
+system carriers are not used as a resource. When using a comb pattern increasing
+the system bandwidth spreads the carriers over a wider number of nulls
+in the spectrum. This increases the chance of having at least one carrier
+in a deep fade. However the average power for a comb pattern would remain
+constant as the system bandwidth is increased.</p>
+
+<h3>Effect of AFH update rate&nbsp;</h3>
+<p class="bodytext">The frequency response of a radio channel changes with movement of the
+transmitter or receiver. It is therefore important that in any AFH system
+that it tracks these changes in the channel. The more often the AFH is
+updated the better the performance will be. However, the information overhead
+required will be approximately proportional to the update rate thus it
+is important minimise the update rate without loosing the effectiveness
+of the AFH. Figure 5 shows the effect of changing the hop update rate on
+performance of AFH. The update rate has been specified as a distance. The
+update rate can be calculated from the velocity of movement.</p>
+<br>&nbsp;
+
+<center><a href="images/figure5lg.gif"><img SRC="images/figure5.gif"  height=277 width=350></a></center>
+<p class="caption">Figure 4. Average (with respect to distance) minimum user carrier
+power verses system bandwidth</p>
+
+<p class="bodytext">Figure 5 shows that increasing the distance between updates of AFH decreases
+the performance as would be expected. Using a hop distance of 7 cm results
+in about 1 dB loss in performance, 12 cm gives about a 2dB loss. Thus a
+hop distance of less than one third the RF wavelength would be sufficient
+(10 cm at 1GHz). The frequency hopping distance will be proportional to
+the wavelength of the RF signal used. Results shown here are for an RF
+frequency of 1GHz.</p>
+
+<h3>Performance improvement by AFH&nbsp;</h3>
+<p class="bodytext">The addition of the AFH reduces the fast fading. This reduction in signal
+power variation allows the fading margin used to be decreased when designing
+an RF link. This allows the average transmission power to be reduced or
+a higher modulation used with the same transmission power.
+</p>
+<p class="bodytext">The results shown in figures 3-5 are distance averaged minimum user
+carrier power. This measure smooths out deep fades. However during deep
+fades data is nearly always lost, thus the depth of the fade in not important.
+Forward error correction must be used to recover this information. However
+using AFH greatly reduces deep fading (as can be seen in figure 2), reducing
+the need for forward error correction. As less forward error correction
+is required, a higher user data rate can be used.
+</p>
+<p class="bodytext">AFH improves the average received power by 6-8dB and reduces the worst
+case carrier fading by 15-25dB. AFH allows the system capacity to be increased
+by reducing the forward error correction required and allowing a higher
+modulation to be used. The average power gain of 6-8dB allows the modulation
+to be increased by 1 bits/Hz/sec, while the reduced fading should allow
+the forward error correction to be reduced by 50%. This will result in
+an overall system capacity gain of 75-300%.</p>
+
+<h2>3.2 Doppler Spread Minimisation</h2>
+<p class="bodytext">An additional advantage of adaptive hopping is that it reduces Doppler
+spread. Doppler spread causes frequency spreading of the transmitted signal
+resulting in a reduction in the orthogonality of the carriers for a multiuser
+OFDM system. In a multipath channel, delayed reflected signals will each
+have a different Doppler shift due to the direction of the reflection.
+As the transmitter or receiver moves the relative strength of the reflected
+components will change resulting in a fast fluctuation of the Doppler shift.
+This fluctuation is referred to as Doppler spread. It can be calculated
+from the rate of change of the phase response of the radio channel.
+</p>
+<p class="bodytext">As a receiver passes through or near a null in the spectrum, the signal
+will shift from one dominant multipath component to another, resulting
+in a change in the Doppler shift. The level of Doppler shift can become
+many times (>10) greater than the average Doppler shift. In regions where
+the signal is strong the Doppler shift is approximately constant and equal
+to the average Doppler shift, thus resulting in minimal Doppler spread.
+Using adaptive frequency hopping minimises transmission near nulls and
+thus also minimises Doppler spread.</p>
+
+<h2>3.3 Interference Rejection</h2>
+<p class="bodytext">Adaptive frequency hopping will provide strong interference rejection.
+Carriers that are interfered with will have a low SNR, and thus will not
+be used for transmission. Since the frequency hopping is regularly updated
+any changes in frequency of the interferer will be compensated for very
+quickly (&lt;10ms). Interference rejection will be limited by the overlapping
+nature of the carriers in multiuser OFDM. An interferer who is one carrier
+spacing away will only be attenuated by 13 dB. After ten carrier spacings
+the attenuation will only be 28dB.</p>
+
+<h1>4 Overhead Requirements for Adaptive frequency hopping</h1>
+
+<h2>4.1 Adaptive Frequency Hopping Update Rate</h2>
+
+<p class="bodytext">In a multipath environment the frequency response of the radio channel
+will change significantly in half a wavelength as can be seen in figure
+1. For a 1 GHz transmission it is therefore important that the frequency
+update rate is faster than every 15 cm moved. The faster the frequency
+hopping is updated the better the performance. Updating faster than 0.1
+x wavelength only gives minimal further improvements. Typically an update
+distance of 10 cm is sufficient for a 1 GHz transmission. At a velocity
+of 60 km/Hr this results in a required update rate of 160 times per sec.</p>
+
+<h2>4.2 Information Overhead</h2>
+
+<h3>Full Duplex System&nbsp;</h3>
+
+<p class="bodytext">Most two-way communication systems use a full duplex transmission, in which
+the forward and reverse links use a different transmission frequency. In
+order to implement an AFH system for this type of system each of the forward
+and reverse links must be characterised before frequency allocations can
+be made. The number of radio channels that must be characterised is 2N,
+where N is the number of users. In a multiuser OFDM system each link can
+be characterised by transmitting a reference symbol in which the transmitted
+data is known. The receiver can then compare the received signal with the
+ideal signal allowing the phase and amplitude noise of each carrier to
+be measured, and consequently an estimate of the carrier SNR. The number
+of reference symbols that must be transmitted is N+1, i.e. one from the
+base station in the forward link and one from each user. Transmitting a
+comb pattern of pilot carriers can reduce the number of reference symbols
+required. Multiple users can transmit interleaved comb pilot carriers,
+allowing the reverse link of up to 20 users to be characterised per reference
+symbol. This reduces the number of reference symbols to N/M+1 where M is
+the number of carriers between pilot carriers in the comb pattern.</p>
+
+<center><table COLS=1 WIDTH="380" >
+<tr>
+<td class="tbody"><img SRC="table1.gif" ALT="Text Box: Full Duplex ApplicationSystem" BORDER=0 height=174 width=368>
+<center><b>Table 1.</b> Information overhead required for implementation
+of AFH.</center>
+</td>
+</tr>
+</table></center>
+
+<p class="bodytext">Table 1. shows an estimate of the information overhead that would be
+required for implementing AFH in difference applications. AFH is less suitable
+for applications where the user data rate is low and the velocity is high
+as can be seen by the large overhead required for the mobile phone application.
+This level of overhead outweighs the benefits obtained by using AFH. However
+in high data rate applications the overhead can be very low.</p>
+
+<h3>Half Duplex System&nbsp;</h3>
+
+<p class="bodytext">For systems that have a lower user data rate the overhead can be reduced
+by using a time division half-duplex system. In such a system both the
+forward and reverse links use the same frequency, and two way communication
+is achieved by time interleaving the forward and reverse channel transmissions.
+A single reference symbol transmitted by the base station is received by
+all remote stations, allowing characterisation of all forward links. Due
+to the reciprocal nature of radio channels the transfer function of the
+reverse link will be the same as the forward link. The number of reference
+symbols needed is reduced from N/M+1 to only 1. Although the number of
+reference symbols need is reduced to one the number of frequency re-allocations
+will still be proportional to the number of users. Using a half duplex
+system reduces the overhead by 2-3 times.</p>
+
+<h1>5 Multiple User Adaptive Frequency Hopping</h1>
+
+<p class="bodytext">When there are multiple users, each will have a different frequency selective
+fading pattern. As each user is allocated carriers, the number available
+to other users will be diminished. This will start to prevent users from
+being allocated the strongest carriers. If the base station has complete
+knowledge of all links then an optimal combination of carrier allocations
+could be made. However the information overhead in obtaining the complete
+knowledge could outweigh the performance gains. It is therefore important
+to establish the minimum amount of information needed by the base station
+in order to make suitable carrier allocations. Further work is to be done
+on this area to resolve some of these issues.</p>
+
+<h1>6 Conclusion</h1>
+<p class="bodytext">Adaptive frequency hopping for multiuser OFDM has been presented and shown
+to be a powerful technique for reducing the effects of frequency selective
+fading. Fading in a multipath channel can be reduced from typically 25
+dB to less than 7 dB, improving the received power by up to 18 dB. This
+gain in received power can be used to double the system capacity and provide
+an additional 6dB link margin. For full duplex mobile systems with velocities
+up to 60 km/hr, the overhead required to implement adaptive frequency hopping
+can be kept low (15-25%), provided the user data rate is moderately high
+(>100 kbps). The amount of overhead can be reduced by 2-3 times by using
+a half-duplex system where the transmission and reception use the same
+frequency band. For fixed wireless systems the overheads for adaptive frequency
+hopping would be minimal. This paper has presented a new user allocation
+technique for multiuser OFDM that will enhance system performance.</p>
+
+<h1>7 References</h1>
+<p class="bodytext">[1] Lawrey E., “Multiuser OFDM”, <i>ISSPA 99</i>, Vol. 2, pages 761-764,
+June 1999.
+</p>
+<p class="bodytext">[2] Thibault L. and Le M.T., “Performance Evaluation of COFDM for Digital
+Audio Broadcasting, Part I: Parametric Study”, <i>IEEE Transactions on
+Broadcasting</i>, Vol. 43, No. 1, pages 64-75, March 1997.
+</p>
+<p class="bodytext">[3] Wahlqvist M., &Ouml;stberg C., Beek J., Edfors O., B&ouml;rjesson
+P., “A Conceptual Study of OFDM-based Multiple Acess Schemes”, Technical
+Report Tdoc 117/96, ETSI STC SMG2 meeting no 18, Helsinki, Finland, May
+1996, http://www.sm.luth.se/csee/sp/publications/
+</p>
+<p class="bodytext">[4] Wei L., Schlegel C., “ Synchronization Requirements for multi-user
+OFDM on Satellite Mobile and Two-path Rayleigh Fading Channels”, <i>IEEE
+Transaction on Communications</i>, Vol. 43, No. 2/3/4, pages 887-895, February/
+March/ April 1995.
+
+
+<center>
+<table CELLPADDING=3 COLS=1 WIDTH="100%" BGCOLOR="#2030C0">
+ <tr>
+  <td><font face="Arial,Helvetica" style="color:white">Copyright 1997-2001 Eric Lawrey, 
+   <a href="mailto:Eric@skydsp.com" class="sidebar">Eric@skydsp.com</a>&nbsp;&nbsp;
+   Last Updated: 2nd December 2001</font></td>
+ </tr>
+</table>
+</center>
+<!-- ============== End page content ================== -->
+
+         </td>
+        </tr>
+       </table>    	
+      </td>
+     </tr>
+    </table>
+   </td>
+  </tr>
+ </table>
+<div align=center style="color:white; font-size: 10px">Copyright &copy; 2001 Sky DSP</div>
+</body>
+
+</html>

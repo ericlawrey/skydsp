@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<!-- #BeginTemplate "/Templates/skydsp.dwt" -->
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=windows-1252">
+  <meta name="Author" content="Eric Lawrey">
+  <meta name="Description"
+ content="This page contains a range of publications and applications notes on OFDM wireless technology, telemetry logging systems, and software radio">
+  <meta name="KeyWords"
+ content="OFDM, Orthogonal Frequency Division Multiplexing, Multiuser, Multiuser OFDM, Adaptive Frequency Hopping, Frequency Hopping, Adaptive Modulation, communcations, research, paper, telemetry, datalogging, temperature sensing, software radio">
+<!-- #BeginEditable "doctitle" -->
+  <title>Welcome to SkyDSP, OFDM systems, telemetry, software radio</title>
+<!-- #EndEditable -->
+  <link rel="StyleSheet" href="../../styles/style.css" type="text/css"
+ media="screen">
+</head>
+<body bgcolor="#666666">
+<!-- color of the outter page backgroud -->
+<table border="0" width="700"
+ background="../../main_graphics/top_right_bar.jpg" height="80"
+ cellspacing="0" cellpadding="0" align="center">
+  <tbody>
+    <tr>
+      <td width="285" height="80"><img
+ src="../../main_graphics/Top_boarder.jpg" border="0" width="283"
+ height="80" alt="Sky DSP logo"></td>
+      <td width="100%"><!-- =============== Header Graphics ======================== --> <font
+ color="white">
+      <h1><!-- #BeginEditable "Page%20Title" -->Ph.D. Thesis<!-- #EndEditable --></h1>
+      </font><!-- =============== End Header Graphic ===================== --> </td>
+    </tr>
+  </tbody>
+</table>
+<table border="0" width="700" height="20" cellspacing="0"
+ cellpadding="0" bgcolor="#000000" align="center">
+  <tbody>
+    <tr>
+      <td><img src="../../main_graphics/Side_boarder1.jpg" border="0"
+ width="120" height="20"></td>
+      <td width="100%"><!-- #BeginEditable "Top%20Navbar" --><!-- #EndEditable --><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table border="0" width="700" height="500" cellspacing="0"
+ cellpadding="0" align="center">
+  <tbody>
+    <tr>
+      <td valign="top" bgcolor="#5e73de"> <img
+ src="../../main_graphics/Side_boarder2.jpg" height="70" width="120"><!-- ================== Navigation Bar =======================--><!-- #BeginLibraryItem "/Library/Navbar.lbi" -->
+      <table width="100%" align="center" border="0" cellspacing="8">
+        <tbody>
+          <tr>
+            <td align="right"><a href="../../index.htm" class="sidebar">Home</a></td>
+          </tr>
+          <tr>
+            <td align="right"><a href="../index.htm" class="sidebar">Publications</a></td>
+          </tr>
+          <tr>
+            <td align="right"><a href="../../links/index.htm"
+ class="sidebar">Links</a></td>
+          </tr>
+          <tr>
+            <td align="right"><a href="../../glossary.htm"
+ class="sidebar">Glossary</a></td>
+          </tr>
+        </tbody>
+      </table>
+      <p> </p>
+<!-- #EndLibraryItem --><!-- ================== End Navigation Bar =======================--> </td>
+      <td width="100%" align="right" height="100%" valign="top"> <img
+ src="../../main_graphics/x.gif" height="3" width="577"><br>
+      <table width="577" height="100%" border="0" bgcolor="black"
+ cellpadding="0" cellspacing="1">
+        <tbody>
+          <tr>
+            <td bgcolor="#ffffff" height="100%" valign="top"><!-- inner table where the page contens goes -->
+            <table cellspacing="10" border="0" align="center"
+ width="100%">
+              <tbody>
+                <tr>
+                  <td width="50%" valign="top"><!--============== Page Content ================ --><!-- #BeginEditable "Paper%20Contents" -->
+                  <table cellspacing="0" cellpadding="2" width="100%"
+ bgcolor="#2030c0">
+                    <tbody>
+                      <tr>
+                        <td class="tablehead">
+                        <center> Adaptive Techniques for Multiuser OFDM </center>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <table width="100%">
+                    <tbody>
+                      <tr>
+                        <td><img src="../../main_graphics/pdf.gif"
+ nosave="" border="0" height="38" width="37"></td>
+                        <td width="220" class="dochead">
+                        <p>
+                        <a href="../../resources/OFDM_thesis_lawrey.PDF">
+                        <!-- <a href="../../survey/index.htm"> -->
+                        <!-- <a href="../../survey/survey2_phd.htm"> -->
+                        Print Friendly Version
+in PDF</a> (4.8 MB), 327pages<br>
+                        </p>
+                        </td>
+                        <td class="dochead"> Thesis submitted by <b>Eric
+Lawrey</b> in Dec 2001 in partial fulfilment of the requirements for the
+degree of Doctor of Philosophy, School of Engineering at James Cook
+University. </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <h2>Abstract</h2>
+                  <p>The demand for high-speed mobile wireless
+communications is rapidly growing. OFDM technology promises to be a key
+technique for achieving the high data capacity and spectral efficiency
+requirements for wireless communication systems of the near future. </p>
+                  <p>This thesis presents an investigation into methods
+for maximising                     the spectral efficiency of Orthogonal
+Frequency Division Multiplexing                     (OFDM) systems. As
+part of this, an investigation of detrimental effects on OFDM is
+presented, showing the effect of: band pass filtering, the use of a
+raised cosine guard period, clipping distortion, Additive White
+Gaussian Noise (AWGN) on modulation BER rate, time synchronisation
+error, and frequency offset errors. </p>
+                  <p>An investigation of two adaptive techniques is
+also presented.                     These techniques utilise knowledge
+obtained by dynamically                     tracking the radio channel
+response, to optimise the user                     frequency, and
+subcarrier modulation. Adaptive modulation independently optimises the
+modulation scheme applied to each subcarrier so that the spectral
+efficiency is maximised, while maintaining a target Bit Error Rate
+(BER). For a fading channel, adaptive modulation results in an
+improvement of 12 - 16 dB in the Signal to Noise Ratio (SNR) required
+to maintain a given BER, as compared with fixed modulation. Adaptive
+user allocation exploits the difference in frequency selective fading
+between users, to optimise user subcarrier allocation. In a multipath
+environment the fading experienced on each subcarrier varies from user
+to user, thus by utilising user/subcarrier combinations that suffer
+the least fading, the overall performance is maximised. Adaptive user
+allocation results in an additional average signal power improvement of
+3 - 5 dB.</p>
+                  <p>The simulated performance of the adaptive
+techniques is presented                     using a set of measured wide
+bandwidth (70 MHz) frequency                     response measurements
+taken at 1 GHz. These measurements show the changes in the frequency
+selective fading with small increments in space, allowing the effects
+of different tracking rates for the adaptive allocations schemes to be
+investigated.</p>
+                  <p>This thesis also presents a method for maximising
+the signal                     strength within buildings, by using
+transmission repeaters.                     This is similar to the
+Single Frequency Networks used in DAB                     and DVB
+systems, except applied to small-scale bi-directional communications.
+Using multiple repeaters causes multipath problems in most conventional
+systems, however OFDM has a sufficiently high multipath tolerance to
+combine the multipath energy. It was found to decrease the path loss by
+7 dB for an indoor system with two repeaters, and up to 20 dB for eight
+repeaters. </p>
+                  <p>In addition, two techniques are presented for
+reducing the                     Crest Factor (peak to average power
+ratio of the RF signal                     envelope) of OFDM signals.
+The first technique is a phasing                     scheme for OFDM
+pilot symbols, which uses genetic algorithms                     to
+optimise the phase angle of each subcarrier. This technique achieves a
+lower CF than any previously published techniques, obtaining a CF as
+low as 0.65 dB, which is 2 dB lower than commonly used techniques. The
+second technique reduces the CF of data carrying symbols, by including
+additional subcarriers that are optimised in amplitude and phase to
+cancel out the peaks in the overall OFDM symbol. This was found to
+produce a net improvement of 4 dB to the worst-case symbol CF. </p>
+                  <h2>Code</h2>
+<p>
+The matlab code developed using version 5.3 and is provided as is with no support.
+The code is split into two parts depending on what area you are interested in.
+</p>
+<ul>
+<li><a href="../../resources/Eric_Lawrey_PhD_matlab5_code_no_mofdm2.zip">Part 1</a>: (2 MB) Main code, everything except diagrams in Chapter 4 Multiuser OFDM</li>
+<li><a href="../../resources/Eric_Lawrey_PhD_matlab5_code_mofdm2.zip">Part 2</a>: (7.4 MB) Code for Chapter 4 including fading measurement data.</li>
+</ul>
+<!-- #EndEditable --><!-- ============== End page content ================== --> </td>
+                </tr>
+              </tbody>
+            </table>
+	 </td>
+          </tr>
+        </tbody>
+      </table>
+      <div align="center"></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div align="center" style="color: white; font-size: 10px;">Copyright ©
+2009 Eric   Lawrey, Last updated:<!-- #BeginDate format:Am1 --> Jan 6,
+2009<!-- #EndDate --></div>
+<!-- #EndTemplate -->
+</body>
+</html>

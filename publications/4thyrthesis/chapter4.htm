@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="Author" content="Eric Lawrey">
+ <meta name="Description" content="This page contains a range of publications and applications notes on OFDM wireless technology, telemetry logging systems, and software radio">
+ <meta name="KeyWords" content="OFDM, Orthogonal Frequency Division Multiplexing, Multiuser, Multiuser OFDM, Adaptive Frequency Hopping, Frequency Hopping, Adaptive Modulation, communcations, research, paper, telemetry, datalogging, temperature sensing, software radio">
+ <title>OFDM as a modulation technique for wireless communications, with a CDMA comparison</title>
+ <LINK REL=StyleSheet HREF="../../styles/style.css" TYPE="text/css" MEDIA=screen>
+
+</head>
+
+<body bgcolor="#666666">   <!-- color of the outter page backgroud -->
+ <table border="0" width="700"  background="../../main_graphics/top_right_bar.jpg" cellspacing="0" cellpadding="0" align=center>
+  <tr>
+   <td><img src="../../main_graphics/Top_boarder.jpg" width="285" height="80" alt="Sky DSP logo"></td>
+   <td>
+
+   <!-- =============== Header Graphics and title ======================== -->
+   &nbsp   
+
+   <!-- =============== End Header Graphic ===================== -->
+
+  </td>
+ </tr>
+</table>
+
+<table border="0" width="700"  cellspacing="0" cellpadding="0" align=center>
+  <tr>
+    <td><img src="../../main_graphics/Side_boarder1.jpg" border=0 width="120" height="20"></td>
+    <td width="100%" bgcolor="#000000">
+    <center>
+    <!-- ================ Top Navigation bar =================== -->
+     <a href="index.htm#Table of Contents" class="topnav">Index</a>&nbsp &nbsp
+     <a href="chapter1.htm" class="topnav">Chapter 1</a>&nbsp &nbsp
+     <a href="chapter2.htm" class="topnav">Chapter 2</a>&nbsp &nbsp
+     <a href="chapter3.htm" class="topnav">Chapter 3</a>&nbsp &nbsp 
+     <a href="chapter4.htm" class="topnav">Conclusion</a>&nbsp &nbsp 
+     <a href="appendix.htm" class="topnav">Appendix</a>&nbsp &nbsp 
+     <a href="code.html" class="topnav">Matlab Code</a>&nbsp &nbsp 
+     <a href="audio/audio.htm" class="topnav">Audio Demo</a>&nbsp &nbsp 
+    <!-- ============= End Top Navigation bar ================== -->
+    </center>
+</td>
+</tr>
+</table>
+
+<table border="0" width="700"  height="500" cellspacing="0" cellpadding="0" align=center>
+  <tr>
+    <td valign="top" bgcolor="#5E73DE"> <img src="../../main_graphics/Side_boarder2.jpg" height="70" width="120"> 
+      <!-- ================== Navigation Bar =======================--><!-- #BeginLibraryItem "/Library/Navbar.lbi" --> 
+<table width=100% align="center" border=0 cellspacing=8>
+  <tr> 
+    <td align="right"><a href="../../index.htm" class="sidebar">Home</a></td>
+  </tr>
+  <tr> 
+    <td align="right"><a href="../index.htm" class="sidebar">Publications</a></td>
+  </tr>
+  <tr>
+    <td align="right"><a href="../../links/index.htm" class="sidebar">Links</a></td>
+  </tr>
+  <tr> 
+    <td align="right"><a href="../../glossary.htm" class="sidebar">Glossary</a></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<!-- #EndLibraryItem --> <!-- ================== End Navigation Bar =======================--> 
+    </td>
+
+    <td width="100%" align="right" height="100%" valign="top">
+     <img src="../../main_graphics/x.gif" height="3" width="580"><br>
+     <table  width="577" height="100%" border="0" bgcolor="black" cellpadding="0" cellspacing="1">
+      <tr>
+        <td bgcolor="#FFFFFF" height="100%" valign="top">
+
+        <!-- inner table where the page contens goes -->
+        <table cellspacing=10 border=0 align=center width="100%">
+         <tr><td width="50%" valign=top>
+
+
+<!-- ============== Page Content ====================== -->
+
+<center>
+<table CELLSPACING=0 CELLPADDING=2 WIDTH="100%" BGCOLOR="#2030C0" >
+ <tr>
+  <td class = "tablehead">
+	<a NAME="4. Conclusion"></a>
+   <center>Conclusion</center>
+  </td>
+ </tr>
+</table>
+</center>
+<p class="bodytext">By Eric Lawrey, Copyright 1997-2001</p>
+<p class="bodytext">The current status of the research is that
+OFDM appears to be a suitable technique as a modulation technique for high
+performance wireless telecommunications. An OFDM link has been confirmed
+to work by using computer simulations, and some practical tests were performed
+on a low bandwidth base-band signal. So far only four main performance
+criteria have been tested, which are OFDM’s tolerance to multipath delay
+spread, channel noise, peak power clipping and start time error. Several
+other important factors affecting the performance of OFDM have only been
+partly measured. These include the effect of frequency stability errors
+on OFDM and impulse noise effects.</p>
+<p class="bodytext">OFDM was found to perform very well compared
+with CDMA, with it out-performing CDMA in many areas for a single and multicell
+environment. OFDM was found to allow up to 2 - 10 times more users than
+CDMA in a single cell environment and from 0.7 - 4 times more users in
+a multi-cellular environment. The difference in user capacity between OFDM
+and CDMA was dependent on whether cell sectorization and voice activity
+detection is used.</p>
+<p class="bodytext">It was found that CDMA only performs well
+in a multi-cellular environment where a single frequency is used in all
+cells. This increases the comparative performance against other systems
+that require a cellular pattern of frequencies to reduce inter-cellular
+interference.</p>
+<p class="bodytext">One important major area, which hasn’t
+been investigated, is the problems that may be encountered when OFDM is
+used in a multiuser environment. One possible problem is that the receiver
+may require a very large dynamic range in order to handle the large signal
+strength variation between users.</p>
+<p class="bodytext">This thesis has concentrated on OFDM, however
+most practical system would use forward error correction to improve the
+system performance. Thus more work needs to be done on studying forward
+error correction schemes that would be suitable for telephony applications,
+and data transmission.</p>
+<p class="bodytext">Several modulation techniques for OFDM
+were investigated in this thesis including BPSK, QPSK, 16PSK and 256PSK,
+however possible system performance gains may be possible by dynamically
+choosing the modulation technique based on the type of data being transmitted.
+More work could be done on investigating suitable techniques for doing
+this.</p>
+<p class="bodytext">OFDM promises to be a suitable modulation
+technique for high capacity wireless communications and will become increasing
+important in the future as wireless networks become more relied on.</p>
+
+<center><a href="appendix.htm">Next Appendix</a></center>
+
+<!-- ============== End page content ================== -->
+
+         </td>
+        </tr>
+       </table>    	
+      </td>
+     </tr>
+    </table>
+   </td>
+  </tr>
+ </table>
+<div align=center style="color:white; font-size: 10px">Copyright &copy; 2001 Sky DSP</div>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+
+OFDM Settings:
+==============
+Modulation: 		QPSK
+FFT size:		2048
+Num Carriers:		800
+Guard Period:		512 samples
+Guard Type:		Half cyclic extension, Half zero
+Data Averaging:		No repeats of the data
+Frame Length:		30 symbols
+
+OFDM signal length:	4.70sec
+Original Tx
+============
+Max Signal Level: 0.0926
+RMS Signal Level: 0.01813
+Peak to RMS power ratio : 14.16dB
+
+=================
+SNR12dB_256PSK.wav
+=================
+SNR:			12dB
+Multipath:		None
+Peak Power Compression:	None
+Input Wavefile Length:	4.33 sec
+Input Wavefile : 	Mono, 11kHz, 8bit
+Results:
+=========
+BER = 0.9534    
+RMS phase error = 11.89    
+Total number of errors = 4.561e+004
+
+=================
+SNR8dB_256PSK.wav
+=================
+SNR:			8dB
+Multipath:		None
+Peak Power Compression:	None
+Input Wavefile Length:	4.33 sec
+Input Wavefile : 	Mono, 11kHz, 8bit
+Results:
+=========
+BER = 0.9716    
+RMS phase error = 19.35    
+Total number of errors = 4.648e+004
+
+=================
+SNR4dB_256PSK.wav
+=================
+SNR:			4dB
+Multipath:		None
+Peak Power Compression:	None
+Input Wavefile Length:	4.33 sec
+Input Wavefile : 	Mono, 11kHz, 8bit
+Results:
+=========
+BER = 0.982    
+RMS phase error = 33.05    
+Total number of errors = 4.698e+004

@@ -1,0 +1,639 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="Author" content="Eric Lawrey">
+ <meta name="Description" content="This page contains a range of publications and applications notes on OFDM wireless technology, telemetry logging systems, and software radio">
+ <meta name="KeyWords" content="OFDM, Orthogonal Frequency Division Multiplexing, Multiuser, Multiuser OFDM, Adaptive Frequency Hopping, Frequency Hopping, Adaptive Modulation, communcations, research, paper, telemetry, datalogging, temperature sensing, software radio">
+<title>OFDM as a modulation technique for wireless communications, with a CDMA comparison</title>
+ <LINK REL=StyleSheet HREF="../../styles/style.css" TYPE="text/css" MEDIA=screen>
+
+</head>
+
+<body bgcolor="#666666">   <!-- color of the outter page backgroud -->
+ <table border="0" width="700"  background="../../main_graphics/top_right_bar.jpg" cellspacing="0" cellpadding="0" align=center>
+  <tr>
+   <td><img src="../../main_graphics/Top_boarder.jpg" width="285" height="80" alt="Sky DSP logo"></td>
+   <td>
+
+   <!-- =============== Header Graphics and title ======================== -->
+   &nbsp   
+
+   <!-- =============== End Header Graphic ===================== -->
+
+  </td>
+ </tr>
+</table>
+
+<table border="0" width="700"  cellspacing="0" cellpadding="0" align=center>
+  <tr>
+    <td><img src="../../main_graphics/Side_boarder1.jpg" border=0 width="120" height="20"></td>
+    <td width="100%" bgcolor="#000000">
+    <center>
+    <!-- ================ Top Navigation bar =================== -->
+     <a href="index.htm#Table of Contents" class="topnav">Index</a>&nbsp &nbsp
+     <a href="chapter1.htm" class="topnav">Chapter 1</a>&nbsp &nbsp
+     <a href="chapter2.htm" class="topnav">Chapter 2</a>&nbsp &nbsp
+     <a href="chapter3.htm" class="topnav">Chapter 3</a>&nbsp &nbsp 
+     <a href="chapter4.htm" class="topnav">Conclusion</a>&nbsp &nbsp 
+     <a href="appendix.htm" class="topnav">Appendix</a>&nbsp &nbsp 
+     <a href="code.html" class="topnav">Matlab Code</a>&nbsp &nbsp 
+     <a href="audio/audio.htm" class="topnav">Audio Demo</a>&nbsp &nbsp 
+    <!-- ============= End Top Navigation bar ================== -->
+    </center>
+</td>
+</tr>
+</table>
+
+<table border="0" width="700"  height="500" cellspacing="0" cellpadding="0" align=center>
+  <tr>
+    <td valign="top" bgcolor="#5E73DE"> <img src="../../main_graphics/Side_boarder2.jpg" height="70" width="120"> 
+      <!-- ================== Navigation Bar =======================--> <!-- #BeginLibraryItem "/Library/Navbar.lbi" --> 
+<table width=100% align="center" border=0 cellspacing=8>
+  <tr> 
+    <td align="right"><a href="../../index.htm" class="sidebar">Home</a></td>
+  </tr>
+  <tr> 
+    <td align="right"><a href="../index.htm" class="sidebar">Publications</a></td>
+  </tr>
+  <tr>
+    <td align="right"><a href="../../links/index.htm" class="sidebar">Links</a></td>
+  </tr>
+  <tr> 
+    <td align="right"><a href="../../glossary.htm" class="sidebar">Glossary</a></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<!-- #EndLibraryItem --> <!-- ================== End Navigation Bar =======================--> 
+    </td>
+
+    <td width="100%" align="right" height="100%" valign="top">
+     <img src="../../main_graphics/x.gif" height="3" width="580"><br>
+     <table  width="577" height="100%" border="0" bgcolor="black" cellpadding="0" cellspacing="1">
+      <tr>
+        <td bgcolor="#FFFFFF" height="100%" valign="top">
+
+        <!-- inner table where the page contens goes -->
+        <table cellspacing=10 border=0 align=center width="100%">
+         <tr><td width="50%" valign=top>
+
+<!-- ============== Page Content ====================== -->
+
+<center>
+<table CELLSPACING=0 CELLPADDING=2 COLS=1 WIDTH="100%" BGCOLOR="#2030C0" >
+ <tr>
+  <td class = "tablehead">
+   <a NAME="3. CDMA Results"></a>
+   <center>CDMA Results</center>
+  </td>
+ </tr>
+</table>
+</center>
+
+<p class="bodytext">By Eric Lawrey, Copyright 1997 - 2001</p>
+
+<a NAME="3.1 Simulated Model"></a>
+<h2>3.1 Simulated Model</h2>
+<a NAME="3.1.1 Forward Link"></a>
+<h3>3.1.1 Forward Link</h3>
+
+<p class="bodytext">The forward link of the CDMA system modelled
+uses orthogonal Walsh codes to separate the users. Each user is randomly
+allocated a Walsh code to spread the data to be transmitted.</p>
+
+<p class="bodytext">The transmitted signals from all the users
+are combined together, then passed through a radio channel model. This
+allows for clipping of the signal, adding multipath interference, and adding
+white gaussian noise to the signal.</p>
+
+<p class="bodytext">The receiver uses the same Walsh code that
+was used by the transmitter to demodulate the signal and recover the data.
+After the received signal has been despread using the Walsh code, it is
+sub-sampled back down to the original data rate. This is done by using
+an integrate-and-dump filter, followed by a comparator to decide whether
+the data was a 1 or a 0.</p>
+
+<p class="bodytext">The received data is then compared with
+the original data transmitted to calculate the bit error rate (BER).</p>
+
+<p class="bodytext">The RMS amplitude error is also worked
+out. The signal level after it has been demodulated and filtered is compared
+with the expected amplitude of the signal based on the transmitted data.
+The RMS amplitude error directly relates to the bit error rate, so is a
+useful measurement to make.</p>
+
+<p class="bodytext">Figure 33 shows the model used for the
+simulations of the CDMA forward link.</p>
+
+<center><img SRC="Image72.gif" height=489 width=518></center>
+<a NAME="Figure 33"></a>
+<p class="caption">Figure 33 Model used for the CDMA forward link.</p>
+
+<a NAME="3.1.2 Reverse Path"></a>
+<h3>3.1.2 Reverse Path</h3>
+
+<p class="bodytext">The reverse link of the CDMA link was simulated
+in a very similar way to the forward link except that orthogonal Walsh
+codes are not used. As shown earlier it is extremely difficult to use orthogonal
+codes effectively in a reverse link from the mobiles to the base station,
+because of the difficulty in synchronizing the system accurately enough.
+Because of this simply long pseudo random codes were used instead of the
+Walsh codes.</p>
+
+
+<hr WIDTH="100%">
+<a NAME="3.2 Simulation Results"></a>
+<h2>3.2 Simulation Results</h2>
+
+<a NAME="3.2.1 BER verses the number of users in a cell"></a>
+<h3>3.2.1 BER verses the number of users in a cell</h3>
+
+<p class="bodytext">The reverse links of a CDMA system, from
+the mobiles to the base station, use non-orthogonal codes, which are pseudo
+random noise codes (PN codes). This leads to the signals from each user
+interfering with each other. The signals transmitted by each user are uncorrelated
+with each other as each user uses a unique pseudo random sequence code,
+resulting in the signal appearing a noise to other users.</p>
+
+<center><img SRC="BERvsUsers.gif" height=329 width=482></center>
+<a NAME="Figure 34"></a>
+<p class="caption">Figure 34 BER verse the number of users in a cell, for the reverse link in a CDMA
+system.</p>
+
+<p class="bodytext">The BER for the reverse link of a CDMA
+system, increase as more users use the same cell. Figure 34 shows the BER
+expected base on the number of users in a cell. This result, is for an
+isolated cell with no interference from neighbouring cells, no multipath&nbsp;
+effects, and no channel noise. Any of these effects would worsen the BER.
+From Figure 34 it can be seen that the BER becomes significantly large
+if the number of users is greater then 8 users. This represents only 12.5%
+of the total user capacity of 64 users. The maximum number of users in
+the cell can be increased by using, advanced forward error correction,
+voice activity detection, and cell sectorization.</p>
+
+<p class="bodytext">For computer transfer applications such
+as wireless local area networks, the data load is generally in bursts.
+This allows a reduction in the duty cycle of each user which is similar
+to voice activity detection. This can lead to a vast increase in the number
+of users possible as the interference from each user is reduced. However,
+it is at the cost of total data throughput of each user.</p>
+
+<p class="bodytext">It is clear from the result obtained from
+Figure 34 that the inter-user interference in the reverse link is the weak
+point in the CDMA system. It is this interference that limits the cell
+capacity to approximately 8-12 users.</p>
+
+<a NAME="3.2.2 Multipath Immunity"></a>
+<h3>3.2.2 Multipath Immunity</h3>
+
+<p class="bodytext">CDMA is inherently tolerant to multipath
+delay spread signals as any signal that is delayed by more than one chip
+time becomes uncorrelated to the PN code used to decode the signal. This
+results in the multipath simply appearing as noise. This noise leads to
+an increase in the amount of interference seen by each user subjected to
+the multipath and thus increases the received BER.</p>
+
+<p class="bodytext">Figure 35 shows the effect of delay spread
+on the reverse link of a CDMA system. It can be seen that the BER is essentially
+flat for delay spreads of greater than one chip time (0.8 <font face="Symbol">m</font>sec),
+which is to be expected as the reflected signal becomes uncorrelated.</p>
+
+<center><img SRC="CDMA_BERvsMultipath.gif" height=338 width=534></center>
+<a NAME="Figure 35"></a>
+<p class="caption">Figure 35 Effect of multipath delay spread on the reverse link of a CDMA system.</p>
+
+<p class="bodytext">The multipath delay spread leads to an
+increase in the equivalent number of users in the cell, as it increases
+the amount of interference seen by the receiver.</p>
+
+<p class="bodytext">Figure 36 shows a how the multipath power
+leads to an increase in the effective number of users in the cell. This
+simulation was performed using a fixed number of users in the CDMA link.
+A multipath signal of 10 samples in delay (to ensure that it is uncorrelated)
+was then added. It was found that as the amplitude of the reflected signal
+was increased, so did the bit error rate (BER). This BER was compared with
+Figure 34 to find out the equivalent number of users that result in the
+same BER.</p>
+
+<p class="bodytext">The addition of multipath to the signal
+increases the total interference in the cell. The level of this increase
+is proportional to the number of users in the cell and the multipath signal
+strength. Figure 36 also shows the predicted result based on the increase
+interference power.</p>
+
+<center><img SRC="CDMA_EquivUsers.gif"  height=369 width=535></center>
+<a NAME="Figure 36"></a>
+<p class="caption">Figure 36 Interference increase seen by the receiver due to multipath delay spread.&nbsp;
+(x is the multipath amplitude, thus x2 is the multipath power)</p>
+
+<a NAME="3.2.3 Peak Power Clipping"></a>
+<h3>3.2.3 Peak Power Clipping</h3>
+
+<p class="bodytext">The distortion tolerance of any transmission
+technique is very important, as it determines what type of power amplifier
+can be used, and how much dynamic range overhead is required. If a transmission
+technique is tolerant to peak power clipping, then it allows the signal
+to be clipped. This clipping of the signal reduces the peak to RMS signal
+power ratio thus allowing the signal power to be increased for the same
+sized transmitter. Figure 37 shows the effect of peak power clipping on
+both the reverse and forward links for CDMA.</p>
+
+<center><img SRC="CDMA_Clipping.gif"  height=314 width=532></center>
+<a NAME="Figure 37"></a>
+<p class="caption">Figure 37 Effect of peak power clipping on the BER for the forward and reverse
+links of CDMA.</p>
+
+<p class="bodytext">For the reverse link the BER starts high
+initially due to inter-user interference. The peak power clipping of the
+signal has little effect on the reverse link because the extra noise due
+to the distortion is not very high compared with the inter-user interference,
+plus any added noise is reduced by the process gain of the system. Peak
+power clipping for the reverse link is also likely to be small, as clipping
+would only ever occur due to distortion in the base station receiver, as
+this is the only point where all the signals are combined. A well-designed
+receiver is unlikely to cause significant clipping of the signal and thus
+the result shown in Figure 37 is not very important.</p>
+
+<p class="errata">(Addendum 10/2001:
+CDMA mobile phones require that the CDMA signal is band-pass filtered before
+being transmitted. This is to prevent interference between neighbouring
+channels. This band pass filtering changes the transmitted signal from
+a simple binary phase transmission (i.e. constant amplitude) to one that
+varies continuously in amplitude. This variable amplitude requires linear
+amplification, and is thus affected by distortion. This means that some
+distortion is likely to result in each of the mobiles, as well as the base
+station).</p>
+
+<p class="bodytext">The forward link result is more important
+as significant clipping of the transmitted signal could occur at the base
+station transmitter. The result for the forward link is completely different
+to the reverse link. The peak power clipping tolerance of the forward link
+is very similar to the result obtained for OFDM (see Figure 18 in section
+2.2.2). The BER is low for a peak power clipping of less then 10dB, above
+which the orthogonal nature of the Walsh codes used begins to collapse.</p>
+
+<a NAME="3.2.4 Channel Noise"></a>
+<h3>3.2.4 Channel Noise</h3>
+
+<p class="bodytext">The noise performance of the CDMA reverse
+link is shown in Figure 38. This shows that the BER rises as the SNR of
+the channel worsen. Due to the high level of inter-user interference the
+addition of channel noise leads to only a gradual rise in the BER. The
+BER of each of the lines (10 user, 20 users and 30 users) approaches approximately
+the same BER at a SNR of 0 dB. At 0dB the effect noise of the channel is
+the same as adding an additional 64 users to the cell, thus the difference
+between 10, 20 and 30 users becomes insignificant. The BER is very bad
+for more than 10 users regardless of the channel SNR, thus making 20 or
+30 users unusable. However, for 10 users the BER becomes greater the 0.01
+at approximately a SNR of 14 dB, which is the maximum BER that can be normally
+tolerated for voice communications.</p>
+
+<center><img SRC="CDMA_BERvsNoise.gif"  height=359 width=543></center>
+<a NAME="Figure 38"></a>
+<p class="caption">Figure 38 BER verses the radio channel SNR for the reverse link of a CDMA system.</p>
+
+<hr WIDTH="100%">
+
+<a NAME="3.3 Mathematical Model for Reverse Link"></a>
+<h2>3.3 Mathematical Model for Reverse Link</h2>
+
+<a NAME="3.3.1 Cell Capacity for a CDMA system"></a>
+<h3>3.3.1 Cell Capacity for a CDMA system</h3>
+
+<p class="bodytext">The capacity of a CDMA system is limited
+by the reverse link. The reverse link uses uncorrelated, non-orthogonal
+PN codes, which makes it limited by interference from other users. Each
+other user appears as noise as additional noise to the cell. If we initially
+assume a single cell then the noise in the system will be determined by
+the number of users in the cell. If we let the number of users be N, and
+the transmitted power from each user to be S, the received signal will
+consists of the received signal power for the desired user (S) and the
+interference from N-1 other users, thus the signal to noise ratio will
+be:</p>
+
+<center><img SRC="Image78.gif" height=44 width=161></center>
+
+<p class="bodytext">Since the noise in the channel is reduced
+by the process gain during demodulation, the noise on each data bit seen
+after demodulation will be less. The process gain is the ratio of the total
+bandwidth (W) to the base band information bit rate (R). Thus the received
+energy per bit to noise ratio (E<sub>b</sub>/N<sub>o</sub>) is</p>
+
+<center><img SRC="Image79.gif" height=46 width=110></center>
+
+<p class="bodytext">The above equation does not take into account
+thermal noise. The thermal noise simply increased the effective amount
+of noise. Let the thermal noise be <b><i>n</i></b>. Thus, the E<sub>b</sub>/N<sub>o</sub>
+becomes</p>
+
+<center><img SRC="Image80.gif" height=46 width=153></center>
+
+<p class="bodytext">In order to achieve an increased capacity,
+the interference from users needs to be reduced. This can be achieved by
+monitoring the voice activity so that the transmitter is switched off during
+periods of no voice activity. This reduces the effective interference level
+by the reduced duty cycle of the transmitted signal. The interference can
+also be reduced by using antenna sectorization. If for example the cell
+was sub divided using three antennas, each having a beam width of 120&deg;, 
+then the interference seen by each antenna is one third that of an omni-direction
+antenna. If we let <b><i>d</i></b> be the duty cycle of the voice activity,
+and <b><i>G</i></b> be the cell sectorization then equation becomes</p>
+
+<center><img SRC="Image81.gif" height=68 width=176></center>
+
+<p class="bodytext">Thus the capacity of a single cell CDMA
+system would be</p>
+
+<a NAME="Equation 2"></a>
+<p class="caption">Equation 2</p>
+<center><img SRC="Image82.gif" height=50 width=154></center>
+
+<p class="bodytext">Where:</p>
+<p class="bodytext"><b>G</b> is the antenna sectorization,</p>
+<p class="bodytext"><b>d</b> is the voice duty cycle,</p>
+<p class="bodytext"><b>E<sub>b</sub>/N<sub>o</sub></b> is the energy per bit to noise ratio,</p>
+<p class="bodytext"><b>W</b> is the total transmission bandwidth,</p>
+<p class="bodytext"><b>R</b> is the base band bit rate,</p>
+<p class="bodytext"><b>n/S</b> is the ratio of received thermal
+noise to user signal power.</p>
+
+<a NAME="3.3.2 Capacity of a single CDMA cell"></a>
+<h3>3.3.2 Capacity of a single CDMA cell</h3>
+
+<p class="bodytext">The cell capacity of a CDMA system is dependent
+on the bandwidth used the process gain and the allowable error rate. For
+this discussion we will consider the a system with the same bandwidth and
+user data rate the same as the OFDM example system in section 2.6.</p>
+<p class="bodytext">The OFDM example used a bandwidth of 1.25MHz.
+The OFDM system could handle 64 users each at 39 kbps, or 128 users at
+19.5 kbps depending on the spectrum allocation. For CDMA if we use a process
+gain of 64, this will give each user a data rate capacity of 19.5 kbps,
+making it comparable to an OFDM system with 128 users. Since the capacity
+of a CDMA system is dependent on the noise tolerance of data if we assume
+an Eb/No of&nbsp; 8dB this will give a BER of ~0.006 which is acceptable
+for voice communications (see Table 23 in Appendix III for more detail).
+For a the CDMA link that has no voice detection activity and no cell sectorization
+then cell capacity can be calculated using Equation 2 as follows:</p>
+
+<p class="bodytext"><b>G</b> = 1, <b>d</b> = 1, <b>E<sub>b</sub>/N<sub>o</sub></b>
+= 8 dB = 6.31, <b>W</b> = 1.25 MHz, <b>R</b> = 19.5 kHz and <b>n/S</b>
+= 0 (Assume no thermal noise)</p>
+<p class="bodytext">From Equation 2:</p>
+
+<center><img SRC="Image83.gif" height=50 width=290></center>
+
+<p class="bodytext">This gives a spectral efficiency of only:</p>
+
+<center><img SRC="Image84.gif" height=41 width=200></center>
+
+<p class="bodytext">This result is pretty poor as the cell
+capacity is more then 10 times lower then it was for OFDM. However the
+efficieny of CDMA can be improved by using voice detection to reduce the
+duty cycle of each user, and by using cell sectorization. Note however,
+that voice activity detection can only be used for voice communications
+and not for general data transfer. Thus all it is effectively doing is
+reducing the data throughput allowed for each user.</p>
+
+<p class="bodytext">Appling both voice duty cycle detection
+and cell sectorization the effective capacity is increased. If we assume
+that the cell is split three ways then the ideal cell sectorization factor
+will be 3. However, sidelobes of the antennas used will always reduce this,
+there reducing the factor to about 2.55.</p>
+
+<p class="bodytext">Using <b>G</b> = 2.55, <b>d</b> = 0.4 (i.e.
+40%) the cell capacity becomes:</p>
+
+<center><img SRC="Image85.gif" height=50 width=257></center>
+
+<p class="bodytext">The spectral efficiency is thus</p>
+
+<center><img SRC="Image86.gif" height=44 width=228></center>
+
+<p class="bodytext">This is still half the capacity of the
+OFDM system, and it comes at the cost of reduced total data throughput.
+Table 19 shows how the over capacity of the CDMA system changes depending
+on what BER is allowed. This is different to OFDM as the BER is ideally
+0 even for 128 users as in the above example.</p>
+
+<center><table BORDER CELLPADDING=2 WIDTH="500" >
+ <tr>
+  <td class="thead">E<sub>b</sub>/N<sub>o</sub>(dB)</td>
+  <td class="thead">Expected Bit Error Rate (BER)</td>
+  <td class="thead">Max. No. Users for single cell (no voice detection, no cell sectorization)</td>
+  <td class="thead">Spectral Efficiency (bits/Hz)</td>
+  <td class="thead">Max. No. Users for single cell (voice detection, cell sectorization)</td>
+  <td class="thead">Spectral Efficiency (bits/Hz)</td>
+</tr>
+
+<tr>
+<td class="tbody">6</td>
+<td class="tbody">0.023007</td>
+<td class="tbody">17.1</td>
+<td class="tbody">0.267</td>
+<td class="tbody">103.6</td>
+<td class="tbody">1.62</td>
+</tr>
+
+<tr>
+<td class="tbody">8</td>
+<td class="tbody">0.006004</td>
+<td class="tbody">11.1</td>
+<td class="tbody">0.173</td>
+<td class="tbody">65.7</td>
+<td class="tbody">1.03</td>
+</tr>
+
+<tr>
+<td class="tbody">
+10
+</td>
+
+<td class="tbody">
+0.000783
+</td>
+
+<td class="tbody">
+7.4
+</td>
+
+<td class="tbody">
+0.116
+</td>
+
+<td class="tbody">
+41.8
+</td>
+
+<td class="tbody">
+0.65
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+12
+</td>
+
+<td class="tbody">
+3.43E-05
+</td>
+
+<td class="tbody">5.0</td>
+<td class="tbody">0.078</td>
+<td class="tbody">26.5</td>
+<td class="tbody">0.41</td>
+</tr>
+</table></center>
+
+<a NAME="Table 19"></a>
+<p class="caption">Table 19 Predicted cell capacity for a single CDMA cell with process gain of
+64, depending on the tolerable E<sub>b</sub>/N<sub>o</sub></p>
+
+<a NAME="3.3.3 Capacity of CDMA and OFDM with Multiple"></a>
+<h3>3.3.3 Capacity of CDMA and OFDM with Multiple Cells</h3>
+
+<p class="bodytext">With any cellular system, interference
+from neighboring cells lowers the overall capacity of each cell. For conventional
+FDMA and TDMA systems, each cell must have a different operating frequency
+from its immediate neighboring cells. This is to reduce the amount of interference
+to an acceptable level. The frequencies are reused in a pattern, with the
+spacing between cells using the same frequency determined by the reuse
+factor. The required frequency reuse factor depends on the interference
+tolerance of the transmission system. Analog systems typically require
+a carrier to interference ratio (C/I) of greater then 18 dB <sub>[18]</sub>,
+which requires reuse factor of 1/7 (see Figure 39 (b)). Most digital systems
+only require a C/I of 12 dB, allowing a reuse factor of 1/3-1/4 (see Figure
+39 (a)). CDMA however, uses the same frequency in all cells, thus ideally
+allowing a reuse factor of 1 (see Figure 39).</p>
+
+<center><img SRC="Image87.gif" height=119 width=550> </center>
+<a NAME="Figure 39"></a>
+<p class="caption">Figure 39 Frequency reuse patterns for (a) 3 frequencies (Digital systems), (b)
+7 frequencies (Analog FDMA), (c) CDMA</p>
+
+<p class="bodytext">In practice, the frequency reuse efficiency
+of CDMA is some what lower 1, as neighboring cells cause interference,
+thus reducing the user capacity of both systems. The frequency reuse factor
+for a CDMA system is about 0.65 <sub>[16]</sub>. Figure 40 shows the interference
+from neighboring cells. Note that most of the neighboring interference
+is from the immediate neighbors of the cell.</p>
+
+<center><img SRC="Image88.gif" height=221 width=203></center>
+<a NAME="Figure 40"></a><p class="caption">Figure
+40 Interference contributions from neighboring cells in a CDMA system (source
+<sub>[16]</sub>).</p>
+
+<p class="bodytext">The cell capacity for a multi-cellular
+CDMA system equal to the single cell capacity reduced by the frequency
+reuse factor. Table 20 shows the effect of this on the CDMA capacity. The
+cell capacity for CDMA is very low if voice activity detection and cell
+sectorization is used. A straight CDMA system can only have somewhere between
+5-11 users/cell/1.25 MHz. Using cell sectorization and voice activity detection
+allows the capacity to be increased by up to 6.4 time, allowing somewhere
+between 30-70 user/cell/1.25 MHz.</p>
+
+<p class="bodytext">OFDM would require a frequency reuse pattern
+to be used in a multi-cellular environment to reduce the level of inter-cellular
+interference. The C/I required would need to be greater then ~12 dB (see
+Gaussian Noise Tolerance of OFDM, section 2.2.3). This could be done with
+a frequency reuse factor of ~3. This should easily be able to be achieved
+as cell sectorization could also be used to reduce the level of interference.
+This would result in the cell capacity for OFDM to be approximately equal
+to 128/3 = 42.7 users/cell/1.25 MHz in a multicellular environment. The
+matches the same user capacity as CDMA for an E<sub>b</sub>/N<sub>o </sub>of
+8 dB and using cell sectorization and voice detection.</p>
+<center><table BORDER CELLPADDING=2 WIDTH="407" >
+ <tr>
+  <td class="thead">E<sub>b</sub>/N<sub>o</sub>(dB)</td>
+  <td class="thead">Expected Bit Error Rate (BER)</td>
+  <td class="thead">Max. No. Users for single cell&nbsp;(no voice detection, no cell sectorization)</td>
+  <td class="thead">Max. No. Users for single cell (voice detection, cell sectorization)</td>
+</tr>
+
+<tr>
+<td class="tbody">6</td>
+<td class="tbody">0.023007</td>
+<td class="tbody">11.1
+</td>
+
+<td class="tbody">
+67.3
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+8
+</td>
+
+<td class="tbody">
+0.006004
+</td>
+
+<td class="tbody">
+7.2
+</td>
+
+<td class="tbody">
+42.7
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+10
+</td>
+
+<td class="tbody">
+0.000783
+</td>
+
+<td class="tbody">
+4.8
+</td>
+
+<td class="tbody">
+27.2
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+12
+</td>
+
+<td class="tbody">
+3.43E-05
+</td>
+
+<td class="tbody">
+3.3
+</td>
+
+<td class="tbody">
+17.2
+</td>
+</tr>
+</table></center>
+
+<a NAME="Table 20"></a>
+<p class="caption">Table 20 Predicted cell capacity for a CDMA cell in a multi-cellular enviroment,
+for a process gain of 64.</p>
+
+<center><a href="chapter4.htm">Next Conclusion</a></center>
+<!-- ============== End page content ================== -->
+
+
+         </td>
+        </tr>
+       </table>    	
+      </td>
+     </tr>
+    </table>
+   </td>
+  </tr>
+ </table>
+<div align=center style="color:white; font-size: 10px">Copyright &copy; 2001 Sky DSP</div>
+</body>
+
+</html>

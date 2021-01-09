@@ -1,0 +1,897 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="Author" content="Eric Lawrey">
+ <meta name="Description" content="This page contains a range of publications and applications notes on OFDM wireless technology, telemetry logging systems, and software radio">
+ <meta name="KeyWords" content="OFDM, Orthogonal Frequency Division Multiplexing, Multiuser, Multiuser OFDM, Adaptive Frequency Hopping, Frequency Hopping, Adaptive Modulation, communcations, research, paper, telemetry, datalogging, temperature sensing, software radio">
+ <title>OFDM as a modulation technique for wireless communications, with a CDMA comparison</title>
+ <LINK REL=StyleSheet HREF="../../styles/style.css" TYPE="text/css" MEDIA=screen>
+
+</head>
+
+<body bgcolor="#666666">   <!-- color of the outter page backgroud -->
+ <table border="0" width="700"  background="../../main_graphics/top_right_bar.jpg" cellspacing="0" cellpadding="0" align=center>
+  <tr>
+   <td><img src="../../main_graphics/Top_boarder.jpg" width="285" height="80" alt="Sky DSP logo"></td>
+   <td>
+
+   <!-- =============== Header Graphics and title ======================== -->
+   &nbsp   
+
+   <!-- =============== End Header Graphic ===================== -->
+
+  </td>
+ </tr>
+</table>
+
+<table border="0" width="700"  cellspacing="0" cellpadding="0" align=center>
+  <tr>
+    <td><img src="../../main_graphics/Side_boarder1.jpg" border=0 width="120" height="20"></td>
+    <td width="100%" bgcolor="#000000">
+    <center>
+    <!-- ================ Top Navigation bar =================== -->
+     <a href="index.htm#Table of Contents" class="topnav">Index</a>&nbsp &nbsp
+     <a href="chapter1.htm" class="topnav">Chapter 1</a>&nbsp &nbsp
+     <a href="chapter2.htm" class="topnav">Chapter 2</a>&nbsp &nbsp
+     <a href="chapter3.htm" class="topnav">Chapter 3</a>&nbsp &nbsp 
+     <a href="chapter4.htm" class="topnav">Conclusion</a>&nbsp &nbsp 
+     <a href="appendix.htm" class="topnav">Appendix</a>&nbsp &nbsp 
+     <a href="code.html" class="topnav">Matlab Code</a>&nbsp &nbsp 
+     <a href="audio/audio.htm" class="topnav">Audio Demo</a>&nbsp &nbsp 
+    <!-- ============= End Top Navigation bar ================== -->
+    </center>
+</td>
+</tr>
+</table>
+
+<table border="0" width="700"  height="500" cellspacing="0" cellpadding="0" align=center>
+  <tr>
+    <td valign="top" bgcolor="#5E73DE"> <img src="../../main_graphics/Side_boarder2.jpg" height="70" width="120"> 
+      <!-- ================== Navigation Bar =======================--> <!-- #BeginLibraryItem "/Library/Navbar.lbi" --> 
+<table width=100% align="center" border=0 cellspacing=8>
+  <tr> 
+    <td align="right"><a href="../../index.htm" class="sidebar">Home</a></td>
+  </tr>
+  <tr> 
+    <td align="right"><a href="../index.htm" class="sidebar">Publications</a></td>
+  </tr>
+  <tr>
+    <td align="right"><a href="../../links/index.htm" class="sidebar">Links</a></td>
+  </tr>
+  <tr> 
+    <td align="right"><a href="../../glossary.htm" class="sidebar">Glossary</a></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<!-- #EndLibraryItem --> <!-- ================== End Navigation Bar =======================--> 
+    </td>
+
+    <td width="100%" align="right" height="100%" valign="top">
+     <img src="../../main_graphics/x.gif" height="3" width="580"><br>
+     <table  width="577" height="100%" border="0" bgcolor="black" cellpadding="0" cellspacing="1">
+      <tr>
+        <td bgcolor="#FFFFFF" height="100%" valign="top">
+
+        <!-- inner table where the page contens goes -->
+        <table cellspacing=10 border=0 align=center width="100%">
+         <tr><td width="50%" valign=top>
+
+
+<!-- ============== Page Content ====================== -->
+
+<center>
+<table CELLSPACING=0 CELLPADDING=2 WIDTH="100%" BGCOLOR="#2030C0" >
+ <tr>
+  <td class = "tablehead">
+   <a NAME="Bibliography"></a>
+   <center>Appendix</center>
+  </td>
+ </tr>
+</table>
+</center>
+<h1>Bibliography</h1>
+
+By Eric Lawrey, Copyright 1997&nbsp;
+<ol>
+<li>
+<p class="bodytext">S. Swales, M. Beach, "Third Generation
+Wireless Networks", University of Bristol, Future Communication Systems
+course, April 1994.</p>
+
+<li>
+<p class="bodytext">T. Rappaport, "Wireless Communications, Principle
+&amp; Practice", IEEE Press, Prentice Hall, pp. 3, 1996.</p>
+
+<li>
+<p class="bodytext">I. McKenzie, "Second Generation", <i>Global
+Communications</i>, pp. 26-30, First Quarter 1990.</p>
+
+<li>
+<p class="bodytext">B. Leff, "Making sense of wireless standard
+and system designs", <i>Microwaves &amp; RF</i>, pp. 113-118, February
+1994.</p>
+
+<li>
+<p class="bodytext">J. Scourias, "Overview of the GSM Cellular
+System, Extended Abstract", University of Waterloo, <a href="http://ccnga.uwaterloo.ca/~jsouria/GSM/trio.html">http://ccnga.uwaterloo.ca/~jsouria/GSM/trio.html</a>,
+August 1997.</p>
+
+<li>
+<p class="bodytext">T. S. Rappaport, "Wireless Communications
+Principles &amp; Practice", IEEE Press, New York, Prentice Hall, pp. 399-422,
+1996.</p>
+
+<li>
+<p class="bodytext">T. Bell, J. Adam, S. Lowe, "Communications",
+<i>IEEE
+Spectrum</i>, pp. 30-41, January 1996.</p>
+
+<li>
+<p class="bodytext">R. Comerford, "Interactive Media: An Internet
+reality", <i>IEEE Spectrum</i>, pp. 29-32, April 1996.</p>
+
+<li>
+<p class="bodytext">R. S. Swain, "UMTS – A 21<sup>st</sup> Century
+System", <a href="http://www.vtt.fi/tte/nh/UMTS/umts.html">http://www.vtt.fi/tte/nh/UMTS/umts.html</a>,
+Sept 1995.</p>
+
+<li>
+<p class="bodytext">G. Livingston, Third Generation Wireless Standards
+to Shape Internet’s Future", WirelessNOW, <a href="http://www.commow.com/3rd_Generation.html">http://www.commow.com/3rd_Generation.html</a>.</p>
+
+<li>
+<p class="bodytext">M. Beach, "Propagation and System Aspects",
+University of Bristol, Future Communication Systems course, April 1994.</p>
+
+<li>
+<p class="bodytext">P. Tipler, "Physics for Scientists and Engineers",
+3<sup>rd</sup> Edition, Worth Publishers, pp. 464-468, 1991.</p>
+
+<li>
+<p class="bodytext">C. Kikkert, "Digital Communication Systems
+and their Modulation Techniques", James Cook University, October 1995.</p>
+
+<li>
+<p class="bodytext">D. Magill, "Spread-Spectrum Technology for
+Commercial Applications", <i>Proceedings of the IEEE</i>, Vol. 82, No.
+4, April 1994.</p>
+
+<li>
+<p class="bodytext">T. S. Rappaport, "Wireless Communications
+Principles &amp; Practice", IEEE Press, New York, Prentice Hall, pp. 169-177,
+1996.</p>
+
+<li>
+<p class="bodytext">J. D. Gibson, "The mobile communications handbook",
+CRC Press, pp. 366-368, 1996.</p>
+
+<li>
+<p class="bodytext">P. Donegan, "IS-95 CDMA becomes a world standard",
+<a href="http://www.cdg.org/magazines/spectrum/article4_int.html">http://www.cdg.org/magazines/spectrum/article4_int.html</a>,
+1997.</p>
+
+<li>
+<p class="bodytext">D. Whipple, "North American Cellular CDMA",<i>
+Hewlett-Parkard Journal</i>, pp. 90-97, December 1993.</p>
+
+<li>
+<p class="bodytext">D. Jiraud, "Broadband CDMA for Wireless Communications",
+<i>Applied
+Microwave &amp; Wireless</i>, 1995.</p>
+
+<li>
+<p class="bodytext">L. Geppert, "Semiconductor lithography for
+the next millennium", <i>IEEE Spectrum</i>, pp. 34, April 1996.</p>
+
+<li>
+<p class="bodytext">E. Ifeachor, "Digital Signal Processing, A
+Practical Approach", Addison-Wesley Publisher Ltd., pp. 77, 1994.</p>
+
+<li>
+<p class="bodytext">Stanford University, "SPIFFEE, a low power
+FFT processing chip", <a href="http://nova.stanford.edu/~bbass/spiffe.html">http://nova.stanford.edu/~bbass/spiffe.html</a>,
+July 1997.</p>
+</ol>
+
+<hr WIDTH="100%">
+<a NAME="Appendix I."></a>
+<h1>Appendix I. Acronyms</h1>
+
+<p class="bodytext"><b>AMPS</b>&nbsp; Advanced Mobile Phone System</p>
+<p class="bodytext"><b>BER</b>&nbsp; Bit Error Rate. Probability of a data word being transmitted being in error.</p>
+<p class="bodytext"><b>BPSK</b> Binary Phase Shift Keying</p>
+<p class="bodytext"><b>CDMA </b>Code Division Multiple Access</p>
+<p class="bodytext"><b>COFDM </b>Coded Orthogonal Frequency Division Multiplexing</p>
+<p class="bodytext"><b>DAB </b>Digital Audio Broadcasting system</p>
+<p class="bodytext"><b>DS-CDMA</b> Direct Sequence Code Division Multiple Access</p>
+<p class="bodytext"><b>E<sub>b</sub>N<sub>o</sub> </b> Energy per bit to noise energy ratio (similar to SNR)</p>
+<p class="bodytext"><b>FDM </b>Frequency Division Multiplexing</p>
+<p class="bodytext"><b>FDMA </b>Frequency Division Multiple Access</p>
+<p class="bodytext"><b>FFT </b>Fast Fourier Transform</p>
+<p class="bodytext"><b>FH-CDMA </b>Frequency Hopping Code Division Multiple Access</p>
+<p class="bodytext"><b>FIR </b>Finite Impulse Response Filter</p>
+<p class="bodytext"><b>GSM </b>Global System for Mobile telecommunications</p>
+<p class="bodytext"><b>IFFT </b>Inverse Fast Fourier Transform</p>
+<p class="bodytext"><b>IS-95</b> International Standard for the CDMA phone system developed by Qualcomm Inc.</p>
+<p class="bodytext"><b>LEO</b> Low Earth Orbit satellite</p>
+<p class="bodytext"><b>OFDM </b>Orthogonal Frequency Division Multiplexing</p>
+<p class="bodytext"><b>QAM </b>Quadrature Amplitude Modulation</p>
+<p class="bodytext"><b>QPSK </b>Quadrate Phase Shift Keying</p>
+<p class="bodytext"><b>RMS </b>Root Mean Square value</p>
+<p class="bodytext"><b>SNR </b>Signal to Noise Ratio</p>
+<p class="bodytext"><b>TDM </b>Time Division Multiplexing</p>
+<p class="bodytext"><b>TDMA </b>Time Division Multiple Access</p>
+<p class="bodytext"><b>UMTS </b>Universal Mobile Telecommunications System</p>
+<p class="bodytext"><b>VCR </b>Video Cassette Recorder</p>
+
+<hr WIDTH="100%">
+<a NAME="Appendix II."></a>
+<h1>Appendix II. OFDM Guassian Noise Performance Prediction</h1>
+
+<p class="bodytext">The performance of any OFDM system
+using phase shift keying can be worked out using the Table 21 and Table
+22.</p>
+
+<center><table BORDER CELLPADDING=2 WIDTH="249" >
+<tr>
+<td class="thead">SNR (dB)</td>
+<td class="thead">RMS Phase Error (degrees)&theta;<sub>error(rms)</sub></td>
+</tr>
+
+<tr>
+<td class="tbody">0</td>
+<td class="tbody">63.63</td>
+</tr>
+
+<tr>
+<td class="tbody">2</td>
+<td class="tbody">44.85</td>
+</tr>
+
+<tr>
+<td class="tbody">4</td>
+<td class="tbody">34.25</td>
+</tr>
+
+<tr>
+<td class="tbody">
+6
+</td>
+
+<td class="tbody">
+26.65
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+8
+</td>
+
+<td class="tbody">
+20.92
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+10
+</td>
+
+<td class="tbody">
+16.5
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+12
+</td>
+
+<td class="tbody">
+13.05
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+14
+</td>
+
+<td class="tbody">
+10.34
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+16
+</td>
+
+<td class="tbody">
+8.198
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+18
+</td>
+
+<td class="tbody">
+6.505
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+20
+</td>
+
+<td class="tbody">
+5.164
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+22
+</td>
+
+<td class="tbody">
+4.1
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+24
+</td>
+
+<td class="tbody">
+3.256
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+26
+</td>
+
+<td class="tbody">
+2.586
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+28
+</td>
+
+<td class="tbody">
+2.054
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+30
+</td>
+
+<td class="tbody">
+1.631
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+32
+</td>
+
+<td class="tbody">
+1.296
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+34
+</td>
+
+<td class="tbody">
+1.029
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+36
+</td>
+
+<td class="tbody">
+0.8175
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+38
+</td>
+
+<td class="tbody">
+0.6494
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+40
+</td>
+
+<td class="tbody">
+0.5158
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+42
+</td>
+
+<td class="tbody">
+0.4097
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+44
+</td>
+
+<td class="tbody">
+0.3254
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+46
+</td>
+
+<td class="tbody">
+0.2585
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+48
+</td>
+
+<td class="tbody">
+0.2053
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+50
+</td>
+
+<td class="tbody">
+0.1631
+</td>
+</tr>
+</table></center>
+
+<a NAME="Table 21"></a>
+<p class="caption">Table
+21 Expected Phase Error on a OFDM carrier at difference SNR levels</p>
+
+<hr WIDTH="100%">
+
+<center><table BORDER CELLPADDING=2 WIDTH="256" >
+<tr>
+<td class="tbody">Z (number of standard deviations)</td>
+<td class="tbody">BER</td>
+</tr>
+
+<tr>
+<td class="tbody">
+0
+</td>
+
+<td class="tbody">
+1
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+0.2
+</td>
+
+<td class="tbody">
+0.841481
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+0.4
+</td>
+
+<td class="tbody">
+0.689157
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+0.6
+</td>
+
+<td class="tbody">
+0.548506
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+0.8
+</td>
+
+<td class="tbody">
+0.423711
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+1
+</td>
+
+<td class="tbody">
+0.317311
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+1.2
+</td>
+
+<td class="tbody">
+0.230139
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+1.4
+</td>
+
+<td class="tbody">
+0.161513
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+1.6
+</td>
+
+<td class="tbody">
+0.109599
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+1.8
+</td>
+
+<td class="tbody">
+0.071861
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+2
+</td>
+
+<td class="tbody">
+0.0455
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+2.2
+</td>
+
+<td class="tbody">
+0.027807
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+2.4
+</td>
+
+<td class="tbody">
+0.016395
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+2.6
+</td>
+
+<td class="tbody">
+0.009322
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+2.8
+</td>
+
+<td class="tbody">
+0.00511
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+3
+</td>
+
+<td class="tbody">
+0.0027
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+3.2
+</td>
+
+<td class="tbody">
+0.001374
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+3.4
+</td>
+
+<td class="tbody">
+0.000674
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+3.6
+</td>
+
+<td class="tbody">
+0.000318
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+3.8
+</td>
+
+<td class="tbody">
+0.000145
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+4
+</td>
+
+<td class="tbody">
+6.34E-05
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+4.2
+</td>
+
+<td class="tbody">
+2.67E-05
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+4.4
+</td>
+
+<td class="tbody">
+1.08E-05
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+4.6
+</td>
+
+<td class="tbody">
+4.23E-06
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+4.8
+</td>
+
+<td class="tbody">
+1.59E-06
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+5
+</td>
+
+<td class="tbody">
+5.74E-07
+</td>
+</tr>
+</table></center>
+
+<a NAME="Table 22"></a>
+<p class="caption">Table
+22 Expected Bit Error Rate for various noise levels. Z is the ratio of
+the maximum allowable phase angle / RMS phase error.</p>
+
+<hr WIDTH="100%">
+
+<a NAME="Appendix III."></a>
+<h1>Appendix III. BER verses Eb/No for a CDMA system</h1>
+
+<p class="bodytext">Table 23 shows the bit error rate (BER)
+that would occur for a CDMA system that does not use forward error correction.
+The energy per bit to noise ratio (Eb/No), is the energy in the demodulated
+data bit, to the noise energy in the same bit. It is similar to the signal
+to noise ratio. The Eb/No is the effective signal to noise ratio of the
+demodulated, despread CDMA signal. Any noise, or interference in the radio
+channel is reduced by a factor equal to the process gain during despreading.
+The minimum allowable Eb/No that can be used for a particular system depends
+on the forward error correction scheme used, and the type of data being
+sent. Voice communications typically requires a BER better then ~1/100
+or 0.01. This is assuming some forward error correction is used.</p>
+
+<center><table BORDER CELLPADDING=2 WIDTH="153" >
+<tr>
+<td class="tbody">Eb/No (dB)</td>
+<td class="tbody">BER</td>
+</tr>
+
+<tr>
+<td class="tbody">
+0
+</td>
+
+<td class="tbody">
+0.158655
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+2
+</td>
+
+<td class="tbody">
+0.104029
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+4
+</td>
+
+<td class="tbody">
+0.056495
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+6
+</td>
+
+<td class="tbody">
+0.023007
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+8
+</td>
+
+<td class="tbody">
+0.006004
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+10
+</td>
+
+<td class="tbody">
+0.000783
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+12
+</td>
+
+<td class="tbody">
+3.43E-05
+</td>
+</tr>
+
+<tr>
+<td class="tbody">
+14
+</td>
+
+<td class="tbody">
+2.7E-07
+</td>
+</tr>
+</table></center>
+
+<a NAME="Table 23"></a>
+<p class="caption">Table
+23 Shows the Expected BER verses the energy per bit to noise ratio for
+a CDMA system</p>
+
+
+
+
+<center>
+                    <a href="code.html">Next Matlab code</a>
+</center>
+
+
+<!-- ============== End page content ================== -->
+
+         </td>
+        </tr>
+       </table>    	
+      </td>
+     </tr>
+    </table>
+   </td>
+  </tr>
+ </table>
+<div align=center style="color:white; font-size: 10px">Copyright &copy; 2001 Sky DSP</div>
+</body>
+
+</html>
